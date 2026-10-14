@@ -1,0 +1,24 @@
+{
+  "analyzers": {
+    "core": {
+      "enabled": true,
+      "rules": {
+        "no-unused-params": { "level": "error" },
+        "no-unused-vars": { "level": "error" },
+        "no-unused-imports": { "level": "error" },
+        "no-hardcoded-env-urls": { "level": "error" },
+        "no-hardcoded-location": { "level": "error" },
+        "explicit-values-for-loc-params": { "level": "error" },
+        "secure-secrets-in-params": { "level": "error" },
+        "secure-parameter-default": { "level": "error" },
+        "outputs-should-not-contain-secrets": { "level": "error" },
+        "use-resource-id-functions": { "level": "error" },
+        "use-stable-resource-identifiers": { "level": "error" },
+        "use-parent-property": { "level": "error" },
+        "prefer-interpolation": { "level": "error" },
+        "simplify-interpolation": { "level": "error" },
+        "no-deployments-resources": { "level": "error" }
+      }
+    }
+  }
+}
