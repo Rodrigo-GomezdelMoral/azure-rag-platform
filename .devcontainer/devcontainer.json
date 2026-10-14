@@ -1,0 +1,14 @@
+{
+  "name": "azure-rag-platform",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" },
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/azure/azure-dev/azd:0": {},
+    "ghcr.io/prulloac/devcontainer-features/ollama:1": {}
+  },
+  "postCreateCommand": "pip install -r requirements-dev.txt && cp -n .env.example .env && (cd web && npm install)",
+  "postStartCommand": "ollama pull llama3.2:3b",
+  "forwardPorts": [8000, 5173],
+  "customizations": { "vscode": { "extensions": ["ms-python.python", "charliermarsh.ruff", "ms-azuretools.vscode-bicep"] } }
+}

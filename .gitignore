@@ -1,0 +1,15 @@
+.azure/
+*.parameters.json
+.env
+.DS_Store
+.claude/
+__pycache__/
+*.pyc
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+data/*.pdf
+data/corpus/
+web/node_modules/
+web/dist/

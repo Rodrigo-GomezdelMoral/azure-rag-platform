@@ -1,0 +1,7 @@
+-r requirements.txt
+agent-framework-ollama==1.0.0b261008
+ruff==0.17.0
+mypy==2.4.0
+pytest==9.1.1
+pytest-asyncio==1.4.0
+types-PyYAML==6.0.12.20250915
