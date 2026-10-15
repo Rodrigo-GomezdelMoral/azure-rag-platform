@@ -1,0 +1,537 @@
+{
+ "question": "What are the obligations of a deployer of a high-risk AI system regarding human oversight?",
+ "events": [
+  {
+   "phase": "plan",
+   "trace_id": "demo-deployer-human-oversight",
+   "elapsed_ms": 3789,
+   "data": {
+    "question": "What are the obligations of a deployer of a high-risk AI system regarding human oversight?",
+    "query": "deployer high-risk AI system human oversight obligations Regulation (EU) 2024/1689",
+    "filters": {
+     "regulation": "EU-2024-1689"
+    }
+   }
+  },
+  {
+   "phase": "search",
+   "trace_id": "demo-deployer-human-oversight",
+   "elapsed_ms": 4439,
+   "data": {
+    "candidates": [
+     {
+      "chunk_id": "chunk-001",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "hybrid_score": 0.03306011110544205,
+      "rerank_score": 3.4235479831695557,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-002",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.028138529509305954,
+      "rerank_score": 3.337766647338867,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-003",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.03125763311982155,
+      "rerank_score": 3.2370972633361816,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-004",
+      "regulation": "EU-2024-1689",
+      "article": "Article 14 Human oversight",
+      "citation_label": "Article 14 Human oversight",
+      "hybrid_score": 0.028958333656191826,
+      "rerank_score": 3.202359437942505,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-005",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.030751174315810204,
+      "rerank_score": 3.1165778636932373,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-006",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.012658228166401386,
+      "rerank_score": 3.1158688068389893,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-007",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.02532046288251877,
+      "rerank_score": 3.0974364280700684,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-008",
+      "regulation": "EU-2024-1689",
+      "article": "Article 13 Transparency and provision of information to deployers",
+      "citation_label": "Article 13 Transparency and provision of information to deployers",
+      "hybrid_score": 0.02085561491549015,
+      "rerank_score": 3.0435571670532227,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-009",
+      "regulation": "EU-2024-1689",
+      "article": "Article 27 Fundamental rights impact assessment for high-risk AI systems",
+      "citation_label": "Article 27 Fundamental rights impact assessment for high-risk AI systems",
+      "hybrid_score": 0.0320020467042923,
+      "rerank_score": 3.0371766090393066,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-010",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.011904762126505375,
+      "rerank_score": 3.0343408584594727,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-011",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.02527821995317936,
+      "rerank_score": 3.0329229831695557,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-012",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.028258707374334335,
+      "rerank_score": 3.0322141647338867,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-013",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "hybrid_score": 0.02844163402915001,
+      "rerank_score": 2.9343807697296143,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-014",
+      "regulation": "EU-2024-1689",
+      "article": "Article 6 Classification rules for high-risk AI systems",
+      "citation_label": "Article 6 Classification rules for high-risk AI systems",
+      "hybrid_score": 0.013513513840734959,
+      "rerank_score": 2.9343807697296143,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-015",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "hybrid_score": 0.012500000186264515,
+      "rerank_score": 2.9109857082366943,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-016",
+      "regulation": "EU-2024-1689",
+      "article": "Article 13 Transparency and provision of information to deployers",
+      "citation_label": "Article 13 Transparency and provision of information to deployers",
+      "hybrid_score": 0.02315930277109146,
+      "rerank_score": 2.9088587760925293,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-017",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.013888888992369175,
+      "rerank_score": 2.8989336490631104,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-018",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "hybrid_score": 0.028949543833732605,
+      "rerank_score": 2.8840460777282715,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-019",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "hybrid_score": 0.029411764815449715,
+      "rerank_score": 2.8805012702941895,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-020",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.025913622230291367,
+      "rerank_score": 2.8748297691345215,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-021",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.010101010091602802,
+      "rerank_score": 2.8698673248291016,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-022",
+      "regulation": "EU-2024-1689",
+      "article": "Article 14 Human oversight",
+      "citation_label": "Article 14 Human oversight",
+      "hybrid_score": 0.027579735964536667,
+      "rerank_score": 2.8528528213500977,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-023",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.01149425283074379,
+      "rerank_score": 2.8507258892059326,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-024",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "hybrid_score": 0.025192882865667343,
+      "rerank_score": 2.8464722633361816,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-025",
+      "regulation": "EU-2024-1689",
+      "article": "Article 49 Registration",
+      "citation_label": "Article 49 Registration",
+      "hybrid_score": 0.01737520843744278,
+      "rerank_score": 2.8223683834075928,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-026",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.010416666977107525,
+      "rerank_score": 2.812443256378174,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-027",
+      "regulation": "EU-2024-1689",
+      "article": "Article 17 Quality management system",
+      "citation_label": "SECTION 3 Obligations of providers and deployers of high-risk AI systems and other parties > Article 17 Quality management system",
+      "hybrid_score": 0.024056468158960342,
+      "rerank_score": 2.803936004638672,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-028",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.009999999776482582,
+      "rerank_score": 2.801809310913086,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-029",
+      "regulation": "EU-2024-1689",
+      "article": "Article 86 Right to explanation of individual decision-making",
+      "citation_label": "Article 86 Right to explanation of individual decision-making",
+      "hybrid_score": 0.01626724749803543,
+      "rerank_score": 2.799682378768921,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-030",
+      "regulation": "EU-2024-1689",
+      "article": "Article 50 Transparency obligations for providers and deployers of certain AI systems",
+      "citation_label": "Article 50 Transparency obligations for providers and deployers of certain AI systems",
+      "hybrid_score": 0.010526316240429878,
+      "rerank_score": 2.794010877609253,
+      "rank_delta": null
+     }
+    ]
+   }
+  },
+  {
+   "phase": "rerank",
+   "trace_id": "demo-deployer-human-oversight",
+   "elapsed_ms": 4439,
+   "data": {
+    "reranker": "semantic",
+    "candidates": [
+     {
+      "chunk_id": "chunk-001",
+      "content": "1\\. Deployers of high-risk AI systems shall take appropriate technical and organisational measures to ensure they use\r\nsuch systems in accordance with the instructions for use accompanying the systems, pursuant to paragraphs 3 and 6.\r\n\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageNumber=\"67/144\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n2\\. Deployers shall assign human oversight to natural persons who have the necessary competence, training and\r\nauthority, as well as the necessary support.\r\n\r\n3\\. The obligations set out in paragraphs 1 and 2, are without prejudice to other deployer obligations under Union or\r\nnational law and to the deployer's freedom to organise its own resources and activities for the purpose of implementing the\r\nhuman oversight measures indicated by the provider.\r\n\r\n4\\. Without prejudice to paragraphs 1 and 2, to the extent the deployer exercises control over the input data, that\r\ndeployer shall ensure that input data is relevant and sufficiently representative in view of the intended purpose of the\r\nhigh-risk AI system.\r\n\r\n5\\. Deployers shall monitor the operation of the high-risk AI system on the basis of the instructions for use and, where\r\nrelevant, inform providers in accordance with Article 72. Where deployers have reason to consider that the use of the\r\nhigh-risk AI system in accordance with the instructions may result in that AI system presenting a risk within the meaning of\r\nArticle 79(1), they shall, without undue delay, inform the provider or distributor and the relevant market surveillance\r\nauthority, and shall suspend the use of that system. Where deployers have identified a serious incident, they shall also\r\nimmediately inform first the provider, and then the importer or distributor and the relevant market surveillance authorities\r\nof that incident. If the deployer is not able to reach the provider, Article 73 shall apply mutatis mutandis.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "hybrid_score": 0.03306011110544205,
+      "rerank_score": 3.4235479831695557,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-002",
+      "content": "or national law and practice, including Directive 2002/14/EC of the European\r\nParliament and of the Council (39), on decisions to put into service or use AI systems. It remains necessary to ensure\r\ninformation of workers and their representatives on the planned deployment of high-risk AI systems at the\r\nworkplace where the conditions for those information or information and consultation obligations in other legal\r\ninstruments are not fulfilled. Moreover, such information right is ancillary and necessary to the objective of\r\nprotecting fundamental rights that underlies this Regulation. Therefore, an information requirement to that effect\r\nshould be laid down in this Regulation, without affecting any existing rights of workers.\r\n\r\n(93)\r\nWhilst risks related to AI systems can result from the way such systems are designed, risks can as well stem from\r\nhow such AI systems are used. Deployers of high-risk AI system therefore play a critical role in ensuring that\r\nfundamental rights are protected, complementing the obligations of the provider when developing the AI system.\r\nDeployers are best placed to understand how the high-risk AI system will be used concretely and can therefore\r\nidentify potential significant risks that were not foreseen in the development phase, due to a more precise knowledge\r\nof the context of use, the persons or groups of persons likely to be affected, including vulnerable groups. Deployers\r\nof high-risk AI systems listed in an annex to this Regulation also play a critical role in informing natural persons and\r\nshould, when they make decisions or assist in making decisions related to natural persons, where applicable, inform\r\nthe natural persons that they are subject to the use of the high-risk AI system. This information should include the\r\nintended purpose and the type of decisions it makes. The deployer should also inform the natural persons about\r\ntheir right to an explanation provided under this Regulation.",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.028138529509305954,
+      "rerank_score": 3.337766647338867,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-003",
+      "content": "that supply tools, services, components or processes that are used or integrated in\r\nhigh-risk AI systems, to facilitate the cooperation along the value chain. When developing voluntary model\r\ncontractual terms, the Commission should also take into account possible contractual requirements applicable in\r\nspecific sectors or business cases.\r\n\r\n(91)\r\nGiven the nature of AI systems and the risks to safety and fundamental rights possibly associated with their use,\r\nincluding as regards the need to ensure proper monitoring of the performance of an AI system in a real-life setting, it\r\nis appropriate to set specific responsibilities for deployers. Deployers should in particular take appropriate technical\r\nand organisational measures to ensure they use high-risk AI systems in accordance with the instructions of use and\r\ncertain other obligations should be provided for with regard to monitoring of the functioning of the AI systems and\r\nwith regard to record-keeping, as appropriate. Furthermore, deployers should ensure that the persons assigned to\r\nimplement the instructions for use and human oversight as set out in this Regulation have the necessary\r\n\r\n<!-- PageNumber=\"24/144\" -->\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\ncompetence, in particular an adequate level of AI literacy, training and authority to properly fulfil those tasks. Those\r\nobligations should be without prejudice to other deployer obligations in relation to high-risk AI systems under\r\nUnion or national law.\r\n\r\n(92)\r\nThis Regulation is without prejudice to obligations for employers to inform or to inform and consult workers or\r\ntheir representatives under Union or national law and practice, including Directive 2002/14/EC of the European\r\nParliament and of the Council (39), on decisions to put into service or use AI systems. It remains necessary to ensure",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.03125763311982155,
+      "rerank_score": 3.2370972633361816,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-004",
+      "content": "1\\. High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine\r\ninterface tools, that they can be effectively overseen by natural persons during the period in which they are in use.\r\n\r\n2\\. Human oversight shall aim to prevent or minimise the risks to health, safety or fundamental rights that may emerge\r\nwhen a high-risk AI system is used in accordance with its intended purpose or under conditions of reasonably foreseeable\r\nmisuse, in particular where such risks persist despite the application of other requirements set out in this Section.\r\n\r\n3\\. The oversight measures shall be commensurate with the risks, level of autonomy and context of use of the high-risk\r\nAI system, and shall be ensured through either one or both of the following types of measures:\r\n\r\n(a) measures identified and built, when technically feasible, into the high-risk AI system by the provider before it is placed\r\non the market or put into service;\r\n\r\n(b) measures identified by the provider before placing the high-risk AI system on the market or putting it into service and\r\nthat are appropriate to be implemented by the deployer.\r\n\r\n4\\. For the purpose of implementing paragraphs 1, 2 and 3, the high-risk AI system shall be provided to the deployer in\r\nsuch a way that natural persons to whom human oversight is assigned are enabled, as appropriate and proportionate:\r\n\r\n(a) to properly understand the relevant capacities and limitations of the high-risk AI system and be able to duly monitor its\r\noperation, including in view of detecting and addressing anomalies, dysfunctions and unexpected performance;\r\n\r\n(b) to remain aware of the possible tendency of automatically relying or over-relying on the output produced by a high-risk\r\nAI system (automation bias), in particular for high-risk AI systems used to provide information or recommendations for\r\ndecisions to be taken by natural persons;",
+      "regulation": "EU-2024-1689",
+      "article": "Article 14 Human oversight",
+      "citation_label": "Article 14 Human oversight",
+      "hybrid_score": 0.028958333656191826,
+      "rerank_score": 3.202359437942505,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-005",
+      "content": "Furthermore, high-risk AI systems should technically allow for the\r\nautomatic recording of events, by means of logs, over the duration of the lifetime of the system.\r\n\r\n<!-- PageNumber=\"20/144\" -->\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageBreak -->\r\n\r\nEN\r\n\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n(72)\r\nTo address concerns related to opacity and complexity of certain AI systems and help deployers to fulfil their\r\nobligations under this Regulation, transparency should be required for high-risk AI systems before they are placed\r\non the market or put it into service. High-risk AI systems should be designed in a manner to enable deployers to\r\nunderstand how the AI system works, evaluate its functionality, and comprehend its strengths and limitations.\r\nHigh-risk AI systems should be accompanied by appropriate information in the form of instructions of use. Such\r\ninformation should include the characteristics, capabilities and limitations of performance of the AI system. Those\r\nwould cover information on possible known and foreseeable circumstances related to the use of the high-risk AI\r\nsystem, including deployer action that may influence system behaviour and performance, under which the AI system\r\ncan lead to risks to health, safety, and fundamental rights, on the changes that have been pre-determined and\r\nassessed for conformity by the provider and on the relevant human oversight measures, including the measures to\r\nfacilitate the interpretation of the outputs of the AI system by the deployers. Transparency, including the\r\naccompanying instructions for use, should assist deployers in the use of the system and support informed decision\r\nmaking by them. Deployers should, inter alia, be in a better position to make the correct choice of the system that\r\nthey intend to use in light of the obligations applicable to them, be educated about the intended and precluded uses,\r\nand use the AI system correctly and as appropriate.",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.030751174315810204,
+      "rerank_score": 3.1165778636932373,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-006",
+      "content": "of the relevant factors have changed. The impact assessment should identify\r\nthe deployer's relevant processes in which the high-risk AI system will be used in line with its intended purpose, and\r\nshould include a description of the period of time and frequency in which the system is intended to be used as well\r\nas of specific categories of natural persons and groups who are likely to be affected in the specific context of use. The\r\nassessment should also include the identification of specific risks of harm likely to have an impact on the\r\nfundamental rights of those persons or groups. While performing this assessment, the deployer should take into\r\naccount information relevant to a proper assessment of the impact, including but not limited to the information\r\ngiven by the provider of the high-risk AI system in the instructions for use. In light of the risks identified, deployers\r\nshould determine measures to be taken in the case of a materialisation of those risks, including for example\r\ngovernance arrangements in that specific context of use, such as arrangements for human oversight according to the\r\ninstructions of use or, complaint handling and redress procedures, as they could be instrumental in mitigating risks\r\nto fundamental rights in concrete use-cases. After performing that impact assessment, the deployer should notify the\r\nrelevant market surveillance authority. Where appropriate, to collect relevant information necessary to perform the\r\nimpact assessment, deployers of high-risk AI system, in particular when AI systems are used in the public sector,\r\ncould involve relevant stakeholders, including the representatives of groups of persons likely to be affected by the AI\r\nsystem, independent experts, and civil society organisations in conducting such impact assessments and designing\r\nmeasures to be taken in the case of materialisation of the risks. The European Artificial Intelligence Office (AI Office)",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.012658228166401386,
+      "rerank_score": 3.1158688068389893,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-007",
+      "content": "choice of the system that\r\nthey intend to use in light of the obligations applicable to them, be educated about the intended and precluded uses,\r\nand use the AI system correctly and as appropriate. In order to enhance legibility and accessibility of the information\r\nincluded in the instructions of use, where appropriate, illustrative examples, for instance on the limitations and on\r\nthe intended and precluded uses of the AI system, should be included. Providers should ensure that all\r\ndocumentation, including the instructions for use, contains meaningful, comprehensive, accessible and\r\nunderstandable information, taking into account the needs and foreseeable knowledge of the target deployers.\r\nInstructions for use should be made available in a language which can be easily understood by target deployers, as\r\ndetermined by the Member State concerned.\r\n\r\n(73)\r\nHigh-risk AI systems should be designed and developed in such a way that natural persons can oversee their\r\nfunctioning, ensure that they are used as intended and that their impacts are addressed over the system's lifecycle. To\r\nthat end, appropriate human oversight measures should be identified by the provider of the system before its placing\r\non the market or putting into service. In particular, where appropriate, such measures should guarantee that the\r\nsystem is subject to in-built operational constraints that cannot be overridden by the system itself and is responsive\r\nto the human operator, and that the natural persons to whom human oversight has been assigned have the necessary\r\ncompetence, training and authority to carry out that role. It is also essential, as appropriate, to ensure that high-risk\r\nAI systems include mechanisms to guide and inform a natural person to whom human oversight has been assigned\r\nto make informed decisions if, when and how to intervene in order to avoid negative consequences or risks, or stop\r\nthe system if it does not perform as intended.",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.02532046288251877,
+      "rerank_score": 3.0974364280700684,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-008",
+      "content": "1\\. High-risk AI systems shall be designed and developed in such a way as to ensure that their operation is sufficiently\r\ntransparent to enable deployers to interpret a system's output and use it appropriately. An appropriate type and degree of\r\ntransparency shall be ensured with a view to achieving compliance with the relevant obligations of the provider and\r\ndeployer set out in Section 3.\r\n\r\n2\\. High-risk AI systems shall be accompanied by instructions for use in an appropriate digital format or otherwise that\r\ninclude concise, complete, correct and clear information that is relevant, accessible and comprehensible to deployers.\r\n\r\n3\\. The instructions for use shall contain at least the following information:\r\n\r\n(a) the identity and the contact details of the provider and, where applicable, of its authorised representative;\r\n\r\n(b) the characteristics, capabilities and limitations of performance of the high-risk AI system, including:\r\n\r\n(i) its intended purpose;\r\n\r\n(ii) the level of accuracy, including its metrics, robustness and cybersecurity referred to in Article 15 against which the\r\nhigh-risk AI system has been tested and validated and which can be expected, and any known and foreseeable\r\ncircumstances that may have an impact on that expected level of accuracy, robustness and cybersecurity;\r\n\r\n(iii) any known or foreseeable circumstance, related to the use of the high-risk AI system in accordance with its\r\nintended purpose or under conditions of reasonably foreseeable misuse, which may lead to risks to the health and\r\nsafety or fundamental rights referred to in Article 9(2);\r\n\r\n(iv) where applicable, the technical capabilities and characteristics of the high-risk AI system to provide information\r\nthat is relevant to explain its output;\r\n\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageNumber=\"59/144\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->",
+      "regulation": "EU-2024-1689",
+      "article": "Article 13 Transparency and provision of information to deployers",
+      "citation_label": "Article 13 Transparency and provision of information to deployers",
+      "hybrid_score": 0.02085561491549015,
+      "rerank_score": 3.0435571670532227,
+      "rank_delta": 0
+     }
+    ]
+   }
+  },
+  {
+   "phase": "answer",
+   "trace_id": "demo-deployer-human-oversight",
+   "elapsed_ms": 23138,
+   "data": {
+    "claims": 8
+   }
+  },
+  {
+   "phase": "verify",
+   "trace_id": "demo-deployer-human-oversight",
+   "elapsed_ms": 23138,
+   "data": {
+    "trace_id": "demo-deployer-human-oversight",
+    "claims": [
+     {
+      "text": "The regulation requires deployers of high-risk AI systems to take appropriate technical and organisational measures to ensure they use such systems in accordance with the instructions for use, to assign human oversight to natural persons with the necessary competence, training, authority and support, to ensure input data is relevant and sufficiently representative where they control it, to monitor operation and inform providers or authorities and suspend use if the system presents a risk, and to immediately inform the provider and market surveillance authorities of any serious incident.",
+      "chunk_ids": [
+       "chunk-001"
+      ],
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems"
+     },
+     {
+      "text": "The regulation requires that high-risk AI systems be designed and developed so they can be effectively overseen by natural persons during use, that human oversight aims to prevent or minimise risks to health, safety or fundamental rights, and that oversight measures be commensurate with the risks, level of autonomy and context of use and ensured through measures built into the system by the provider or implemented by the deployer.",
+      "chunk_ids": [
+       "chunk-004"
+      ],
+      "citation_label": "Article 14 Human oversight"
+     },
+     {
+      "text": "The regulation requires that natural persons assigned human oversight be enabled, as appropriate and proportionate, to understand the system's capacities and limitations, to duly monitor its operation and detect and address anomalies or unexpected performance, and to remain aware of automation bias.",
+      "chunk_ids": [
+       "chunk-004"
+      ],
+      "citation_label": "Article 14 Human oversight"
+     },
+     {
+      "text": "The regulation requires high-risk AI systems to be designed and developed to ensure sufficient transparency for deployers to interpret outputs and use the system appropriately, and to be accompanied by instructions for use that provide concise, complete and comprehensible information relevant to deployers.",
+      "chunk_ids": [
+       "chunk-008"
+      ],
+      "citation_label": "Article 13 Transparency and provision of information to deployers"
+     },
+     {
+      "text": "The regulation requires that the instructions for use include at least the identity and contact details of the provider, the system's characteristics, capabilities and limitations including intended purpose, accuracy metrics, known circumstances that may lead to risks to health, safety or fundamental rights, and where applicable technical capabilities to provide information relevant to explain its output.",
+      "chunk_ids": [
+       "chunk-008"
+      ],
+      "citation_label": "Article 13 Transparency and provision of information to deployers"
+     },
+     {
+      "text": "The regulation states that deployers should inform natural persons subject to a high-risk AI system, including about the intended purpose, the type of decisions it makes and their right to an explanation under the Regulation.",
+      "chunk_ids": [
+       "chunk-002"
+      ],
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024"
+     },
+     {
+      "text": "The regulation states that high-risk AI systems should be designed to enable deployers to understand how the system works, evaluate its functionality, and be accompanied by instructions for use that explain characteristics, capabilities, limitations, foreseeable circumstances that may impact performance and relevant human oversight measures to facilitate interpretation of outputs by deployers.",
+      "chunk_ids": [
+       "chunk-005"
+      ],
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024"
+     },
+     {
+      "text": "The regulation states that high-risk AI systems should technically allow for automatic recording of events by means of logs over the duration of the system's lifetime.",
+      "chunk_ids": [
+       "chunk-005"
+      ],
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024"
+     }
+    ],
+    "citations": [
+     {
+      "chunk_id": "chunk-001",
+      "parent_id": "document",
+      "content": "1\\. Deployers of high-risk AI systems shall take appropriate technical and organisational measures to ensure they use\r\nsuch systems in accordance with the instructions for use accompanying the systems, pursuant to paragraphs 3 and 6.\r\n\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageNumber=\"67/144\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n2\\. Deployers shall assign human oversight to natural persons who have the necessary competence, training and\r\nauthority, as well as the necessary support.\r\n\r\n3\\. The obligations set out in paragraphs 1 and 2, are without prejudice to other deployer obligations under Union or\r\nnational law and to the deployer's freedom to organise its own resources and activities for the purpose of implementing the\r\nhuman oversight measures indicated by the provider.\r\n\r\n4\\. Without prejudice to paragraphs 1 and 2, to the extent the deployer exercises control over the input data, that\r\ndeployer shall ensure that input data is relevant and sufficiently representative in view of the intended purpose of the\r\nhigh-risk AI system.\r\n\r\n5\\. Deployers shall monitor the operation of the high-risk AI system on the basis of the instructions for use and, where\r\nrelevant, inform providers in accordance with Article 72. Where deployers have reason to consider that the use of the\r\nhigh-risk AI system in accordance with the instructions may result in that AI system presenting a risk within the meaning of\r\nArticle 79(1), they shall, without undue delay, inform the provider or distributor and the relevant market surveillance\r\nauthority, and shall suspend the use of that system. Where deployers have identified a serious incident, they shall also\r\nimmediately inform first the provider, and then the importer or distributor and the relevant market surveillance authorities\r\nof that incident. If the deployer is not able to reach the provider, Article 73 shall apply mutatis mutandis.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.03306011110544205,
+      "rerank_score": 3.4235479831695557,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-004",
+      "parent_id": "document",
+      "content": "1\\. High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine\r\ninterface tools, that they can be effectively overseen by natural persons during the period in which they are in use.\r\n\r\n2\\. Human oversight shall aim to prevent or minimise the risks to health, safety or fundamental rights that may emerge\r\nwhen a high-risk AI system is used in accordance with its intended purpose or under conditions of reasonably foreseeable\r\nmisuse, in particular where such risks persist despite the application of other requirements set out in this Section.\r\n\r\n3\\. The oversight measures shall be commensurate with the risks, level of autonomy and context of use of the high-risk\r\nAI system, and shall be ensured through either one or both of the following types of measures:\r\n\r\n(a) measures identified and built, when technically feasible, into the high-risk AI system by the provider before it is placed\r\non the market or put into service;\r\n\r\n(b) measures identified by the provider before placing the high-risk AI system on the market or putting it into service and\r\nthat are appropriate to be implemented by the deployer.\r\n\r\n4\\. For the purpose of implementing paragraphs 1, 2 and 3, the high-risk AI system shall be provided to the deployer in\r\nsuch a way that natural persons to whom human oversight is assigned are enabled, as appropriate and proportionate:\r\n\r\n(a) to properly understand the relevant capacities and limitations of the high-risk AI system and be able to duly monitor its\r\noperation, including in view of detecting and addressing anomalies, dysfunctions and unexpected performance;\r\n\r\n(b) to remain aware of the possible tendency of automatically relying or over-relying on the output produced by a high-risk\r\nAI system (automation bias), in particular for high-risk AI systems used to provide information or recommendations for\r\ndecisions to be taken by natural persons;",
+      "regulation": "EU-2024-1689",
+      "article": "Article 14 Human oversight",
+      "citation_label": "Article 14 Human oversight",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.028958333656191826,
+      "rerank_score": 3.202359437942505,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-008",
+      "parent_id": "document",
+      "content": "1\\. High-risk AI systems shall be designed and developed in such a way as to ensure that their operation is sufficiently\r\ntransparent to enable deployers to interpret a system's output and use it appropriately. An appropriate type and degree of\r\ntransparency shall be ensured with a view to achieving compliance with the relevant obligations of the provider and\r\ndeployer set out in Section 3.\r\n\r\n2\\. High-risk AI systems shall be accompanied by instructions for use in an appropriate digital format or otherwise that\r\ninclude concise, complete, correct and clear information that is relevant, accessible and comprehensible to deployers.\r\n\r\n3\\. The instructions for use shall contain at least the following information:\r\n\r\n(a) the identity and the contact details of the provider and, where applicable, of its authorised representative;\r\n\r\n(b) the characteristics, capabilities and limitations of performance of the high-risk AI system, including:\r\n\r\n(i) its intended purpose;\r\n\r\n(ii) the level of accuracy, including its metrics, robustness and cybersecurity referred to in Article 15 against which the\r\nhigh-risk AI system has been tested and validated and which can be expected, and any known and foreseeable\r\ncircumstances that may have an impact on that expected level of accuracy, robustness and cybersecurity;\r\n\r\n(iii) any known or foreseeable circumstance, related to the use of the high-risk AI system in accordance with its\r\nintended purpose or under conditions of reasonably foreseeable misuse, which may lead to risks to the health and\r\nsafety or fundamental rights referred to in Article 9(2);\r\n\r\n(iv) where applicable, the technical capabilities and characteristics of the high-risk AI system to provide information\r\nthat is relevant to explain its output;\r\n\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageNumber=\"59/144\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->",
+      "regulation": "EU-2024-1689",
+      "article": "Article 13 Transparency and provision of information to deployers",
+      "citation_label": "Article 13 Transparency and provision of information to deployers",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.02085561491549015,
+      "rerank_score": 3.0435571670532227,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-002",
+      "parent_id": "document",
+      "content": "or national law and practice, including Directive 2002/14/EC of the European\r\nParliament and of the Council (39), on decisions to put into service or use AI systems. It remains necessary to ensure\r\ninformation of workers and their representatives on the planned deployment of high-risk AI systems at the\r\nworkplace where the conditions for those information or information and consultation obligations in other legal\r\ninstruments are not fulfilled. Moreover, such information right is ancillary and necessary to the objective of\r\nprotecting fundamental rights that underlies this Regulation. Therefore, an information requirement to that effect\r\nshould be laid down in this Regulation, without affecting any existing rights of workers.\r\n\r\n(93)\r\nWhilst risks related to AI systems can result from the way such systems are designed, risks can as well stem from\r\nhow such AI systems are used. Deployers of high-risk AI system therefore play a critical role in ensuring that\r\nfundamental rights are protected, complementing the obligations of the provider when developing the AI system.\r\nDeployers are best placed to understand how the high-risk AI system will be used concretely and can therefore\r\nidentify potential significant risks that were not foreseen in the development phase, due to a more precise knowledge\r\nof the context of use, the persons or groups of persons likely to be affected, including vulnerable groups. Deployers\r\nof high-risk AI systems listed in an annex to this Regulation also play a critical role in informing natural persons and\r\nshould, when they make decisions or assist in making decisions related to natural persons, where applicable, inform\r\nthe natural persons that they are subject to the use of the high-risk AI system. This information should include the\r\nintended purpose and the type of decisions it makes. The deployer should also inform the natural persons about\r\ntheir right to an explanation provided under this Regulation.",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.028138529509305954,
+      "rerank_score": 3.337766647338867,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-005",
+      "parent_id": "document",
+      "content": "Furthermore, high-risk AI systems should technically allow for the\r\nautomatic recording of events, by means of logs, over the duration of the lifetime of the system.\r\n\r\n<!-- PageNumber=\"20/144\" -->\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageBreak -->\r\n\r\nEN\r\n\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n(72)\r\nTo address concerns related to opacity and complexity of certain AI systems and help deployers to fulfil their\r\nobligations under this Regulation, transparency should be required for high-risk AI systems before they are placed\r\non the market or put it into service. High-risk AI systems should be designed in a manner to enable deployers to\r\nunderstand how the AI system works, evaluate its functionality, and comprehend its strengths and limitations.\r\nHigh-risk AI systems should be accompanied by appropriate information in the form of instructions of use. Such\r\ninformation should include the characteristics, capabilities and limitations of performance of the AI system. Those\r\nwould cover information on possible known and foreseeable circumstances related to the use of the high-risk AI\r\nsystem, including deployer action that may influence system behaviour and performance, under which the AI system\r\ncan lead to risks to health, safety, and fundamental rights, on the changes that have been pre-determined and\r\nassessed for conformity by the provider and on the relevant human oversight measures, including the measures to\r\nfacilitate the interpretation of the outputs of the AI system by the deployers. Transparency, including the\r\naccompanying instructions for use, should assist deployers in the use of the system and support informed decision\r\nmaking by them. Deployers should, inter alia, be in a better position to make the correct choice of the system that\r\nthey intend to use in light of the obligations applicable to them, be educated about the intended and precluded uses,\r\nand use the AI system correctly and as appropriate.",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.030751174315810204,
+      "rerank_score": 3.1165778636932373,
+      "rank_delta": 0
+     }
+    ],
+    "refusal": null,
+    "unverified_claims": 0,
+    "cost_eur": 0.005158,
+    "timings_ms": {
+     "plan": 3789,
+     "search": 650,
+     "rerank": 0,
+     "answer": 18699,
+     "verify": 0
+    }
+   }
+  }
+ ]
+}

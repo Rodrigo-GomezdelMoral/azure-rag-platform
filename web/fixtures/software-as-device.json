@@ -1,0 +1,564 @@
+{
+ "question": "According to the MDCG guidance on software qualification, when is a software a medical device in its own right?",
+ "events": [
+  {
+   "phase": "plan",
+   "trace_id": "demo-software-as-device",
+   "elapsed_ms": 4833,
+   "data": {
+    "question": "According to the MDCG guidance on software qualification, when is a software a medical device in its own right?",
+    "query": "MDCG 2019-11 software qualification stand-alone medical device own right",
+    "filters": {
+     "regulation": "MDCG-2019-11"
+    }
+   }
+  },
+  {
+   "phase": "search",
+   "trace_id": "demo-software-as-device",
+   "elapsed_ms": 5510,
+   "data": {
+    "candidates": [
+     {
+      "chunk_id": "chunk-001",
+      "regulation": "MDCG-2019-11",
+      "article": "MDCG-2019-11",
+      "citation_label": "MDCG-2019-11",
+      "hybrid_score": 0.016393441706895828,
+      "rerank_score": 2.802518129348755,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-002",
+      "regulation": "MDCG-2019-11",
+      "article": "3.1. Introduction to qualification criteria",
+      "citation_label": "3.1. Introduction to qualification criteria",
+      "hybrid_score": 0.02911604568362236,
+      "rerank_score": 2.6430070400238037,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-003",
+      "regulation": "MDCG-2019-11",
+      "article": "Special considerations on Implementing Rule 3.3 and 3.5:",
+      "citation_label": "4.1. Implementing Rules > Special considerations on Implementing Rule 3.3 and 3.5:",
+      "hybrid_score": 0.012500000186264515,
+      "rerank_score": 2.61181378364563,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-004",
+      "regulation": "MDCG-2019-11",
+      "article": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device",
+      "citation_label": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device",
+      "hybrid_score": 0.03030998818576336,
+      "rerank_score": 2.605433225631714,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-005",
+      "regulation": "MDCG-2019-11",
+      "article": "Conformity assessment:",
+      "citation_label": "6.1. Option 1: as a medical device in its own right MDSW may be placed on the market or put into service in its own right. > Conformity assessment:",
+      "hybrid_score": 0.02683013491332531,
+      "rerank_score": 2.558643341064453,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-006",
+      "regulation": "MDCG-2019-11",
+      "article": "6. Considerations on placing on the market and conformity assessment of MDSW",
+      "citation_label": "6. Considerations on placing on the market and conformity assessment of MDSW",
+      "hybrid_score": 0.029571646824479103,
+      "rerank_score": 2.551553964614868,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-007",
+      "regulation": "MDCG-2019-11",
+      "article": "Special considerations on Implementing Rule 1.4 and 1.9:",
+      "citation_label": "5.1. Implementing Rules: > Special considerations on Implementing Rule 1.4 and 1.9:",
+      "hybrid_score": 0.012658228166401386,
+      "rerank_score": 2.547300338745117,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-008",
+      "regulation": "MDCG-2019-11",
+      "article": "8. Consideration of changes to an MDSW",
+      "citation_label": "8. Consideration of changes to an MDSW",
+      "hybrid_score": 0.024314764887094498,
+      "rerank_score": 2.5368435382843018,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-009",
+      "regulation": "MDCG-2019-11",
+      "article": "1. Scope and purpose of this document",
+      "citation_label": "1. Scope and purpose of this document",
+      "hybrid_score": 0.028739120811223984,
+      "rerank_score": 2.5347166061401367,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-010",
+      "regulation": "MDCG-2019-11",
+      "article": "c) Information Systems",
+      "citation_label": "c) Information Systems",
+      "hybrid_score": 0.010204081423580647,
+      "rerank_score": 2.456733465194702,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-011",
+      "regulation": "MDCG-2019-11",
+      "article": "d) Communication Systems",
+      "citation_label": "d) Communication Systems",
+      "hybrid_score": 0.011363636702299118,
+      "rerank_score": 2.4374148845672607,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-012",
+      "regulation": "MDCG-2019-11",
+      "article": "f.1.) Laboratory Information Systems (LIS) and Work Area Managers (WAM)",
+      "citation_label": "f) In vitro diagnostic MDSW > f.1.) Laboratory Information Systems (LIS) and Work Area Managers (WAM)",
+      "hybrid_score": 0.010416666977107525,
+      "rerank_score": 2.400195598602295,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-013",
+      "regulation": "MDCG-2019-11",
+      "article": "a) Hospital Information Systems",
+      "citation_label": "a) Hospital Information Systems",
+      "hybrid_score": 0.010869565419852734,
+      "rerank_score": 2.398777723312378,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-014",
+      "regulation": "MDCG-2019-11",
+      "article": "3.3. 'Software driving or influencing the use of a medical device'",
+      "citation_label": "3.3. 'Software driving or influencing the use of a medical device'",
+      "hybrid_score": 0.028594771400094032,
+      "rerank_score": 2.342151403427124,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-015",
+      "regulation": "MDCG-2019-11",
+      "article": "MDCG-2019-11",
+      "citation_label": "MDCG-2019-11",
+      "hybrid_score": 0.03333333507180214,
+      "rerank_score": 2.3373661041259766,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-016",
+      "regulation": "MDCG-2019-11",
+      "article": "3. Qualification",
+      "citation_label": "3. Qualification",
+      "hybrid_score": 0.02571241371333599,
+      "rerank_score": 2.3341758251190186,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-017",
+      "regulation": "MDCG-2019-11",
+      "article": "MDCG-2019-11",
+      "citation_label": "MDCG-2019-11",
+      "hybrid_score": 0.015625,
+      "rerank_score": 2.3253140449523926,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-018",
+      "regulation": "MDCG-2019-11",
+      "article": "Figure 1 - Example 1:",
+      "citation_label": "Figure 1 - Example 1:",
+      "hybrid_score": 0.022510822862386703,
+      "rerank_score": 2.3005011081695557,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-019",
+      "regulation": "MDCG-2019-11",
+      "article": "7. Modules",
+      "citation_label": "7. Modules",
+      "hybrid_score": 0.022689076140522957,
+      "rerank_score": 2.280296564102173,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-020",
+      "regulation": "MDCG-2019-11",
+      "article": "3.2. Medical Device Software (MDSW)",
+      "citation_label": "3.2. Medical Device Software (MDSW)",
+      "hybrid_score": 0.016129031777381897,
+      "rerank_score": 2.263547897338867,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-021",
+      "regulation": "MDCG-2019-11",
+      "article": "Medical Device Software (MDSW)",
+      "citation_label": "Medical Device Software (MDSW)",
+      "hybrid_score": 0.03102453239262104,
+      "rerank_score": 2.2517173290252686,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-022",
+      "regulation": "MDCG-2019-11",
+      "article": "Figure 2 - Example 2:",
+      "citation_label": "Figure 2 - Example 2:",
+      "hybrid_score": 0.02214920148253441,
+      "rerank_score": 2.225043535232544,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-023",
+      "regulation": "MDCG-2019-11",
+      "article": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device",
+      "citation_label": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device",
+      "hybrid_score": 0.024922601878643036,
+      "rerank_score": 2.220081090927124,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-024",
+      "regulation": "MDCG-2019-11",
+      "article": "Conformity assessment:",
+      "citation_label": "6.1. Option 1: as a medical device in its own right MDSW may be placed on the market or put into service in its own right. > Conformity assessment:",
+      "hybrid_score": 0.0250980406999588,
+      "rerank_score": 2.219571590423584,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-025",
+      "regulation": "MDCG-2019-11",
+      "article": "3.2. Medical Device Software (MDSW)",
+      "citation_label": "3.2. Medical Device Software (MDSW)",
+      "hybrid_score": 0.013513513840734959,
+      "rerank_score": 2.2185745239257812,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-026",
+      "regulation": "MDCG-2019-11",
+      "article": "Software driving or influencing the use of a device",
+      "citation_label": "Output data: > Software driving or influencing the use of a device",
+      "hybrid_score": 0.014492753893136978,
+      "rerank_score": 2.207874059677124,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-027",
+      "regulation": "MDCG-2019-11",
+      "article": "3.3. 'Software driving or influencing the use of a medical device'",
+      "citation_label": "3.3. 'Software driving or influencing the use of a medical device'",
+      "hybrid_score": 0.02817460335791111,
+      "rerank_score": 2.1799983978271484,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-028",
+      "regulation": "MDCG-2019-11",
+      "article": "4.2. Classification Rules",
+      "citation_label": "4.2. Classification Rules",
+      "hybrid_score": 0.021431829780340195,
+      "rerank_score": 2.1635210514068604,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-029",
+      "regulation": "MDCG-2019-11",
+      "article": "3.1. Introduction to qualification criteria",
+      "citation_label": "3.1. Introduction to qualification criteria",
+      "hybrid_score": 0.011111111380159855,
+      "rerank_score": 2.15971040725708,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-030",
+      "regulation": "MDCG-2019-11",
+      "article": "3.1. Introduction to qualification criteria",
+      "citation_label": "3.1. Introduction to qualification criteria",
+      "hybrid_score": 0.0272893775254488,
+      "rerank_score": 2.1478357315063477,
+      "rank_delta": null
+     }
+    ]
+   }
+  },
+  {
+   "phase": "rerank",
+   "trace_id": "demo-software-as-device",
+   "elapsed_ms": 5510,
+   "data": {
+    "reranker": "semantic",
+    "candidates": [
+     {
+      "chunk_id": "chunk-001",
+      "content": "with regard to Electronic Health Record Systems.</td>\r\n</tr>\r\n<tr>\r\n<td>Annex IV</td>\r\n<td>Inclusion of a new Class I example</td>\r\n</tr>\r\n</table>\r\n\r\n\r\n<!-- PageNumber=\"1\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"Contents\" -->\r\n\r\n1\\. Scope and purpose of this document\r\n\r\n4\r\n\r\n2\\. Definitions and abbreviations\r\n\r\n4\r\n\r\n3\\. Qualification\r\n\r\n7\r\n\r\n3.1.\r\nIntroduction to qualification criteria\r\n\r\n8\r\n\r\n3.2. Medical Device Software (MDSW)\r\n\r\n9\r\n\r\n3.3. 'Software driving or influencing the use of a medical device'\r\n\r\n12\r\n\r\n3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device\r\n\r\n4\\. Classification of MDSW per MDR 2017/745\r\n\r\n4.1. Implementing Rules\r\n\r\n4.2.\r\n2. Classification Rules\r\n16\r\n\r\n4.2.1. Rule 11 - Software for decisions with diagnosis or therapeutic purposes\r\nor software intended to monitor physiological processes\r\n17\r\n\r\nRule 11 states:\r\n17\r\n\r\n4.2.2. Rule 12 - Active devices intended to administer and/or remove\r\n\r\nsubstances\r\n\r\n19\r\n\r\n4.2.3. Rule 13 - All other active devices\r\n19\r\n\r\n4.2.4. Rule 15 - Devices used for contraception\r\n19\r\n\r\n4.2.5. Rule 22 - Closed loop systems\r\n19\r\n\r\n5\\. Classification and implementing rules per IVDR 2017/746\r\n\r\n19\r\n\r\n19\r\n\r\n5.1. Implementing Rules:\r\n\r\n5.2.\r\nClassification Rules:\r\n20\r\n\r\n6\\. Considerations on placing on the market and conformity assessment of MDSW\r\n21\r\n\r\n6.1. Option 1: as a medical device in its own right\r\n21\r\n\r\n6.2.\r\nOption 2: as an integral component/part of a device\r\n21\r\n\r\n7\\. Modules\r\n\r\n22\r\n\r\n8\\. Consideration of changes to an MDSW\r\n\r\n24\r\n\r\nAnnex I: Illustrative examples of qualification of software used in the healthcare\r\nenvironment\r\n25\r\n\r\na)\r\nHospital Information Systems\r\n25\r\n\r\nb)\r\nDecision Support Software\r\n25\r\n\r\nc)\r\nInformation Systems\r\n25\r\n\r\nc.1.) Electronic Health Record (EHR) Systems\r\n\r\n25\r\n\r\nc.1.1.) Clinical Information Systems (CIS) / Patient Data Management Systems\r\n(PDMS)\r\n26\r\n\r\nc.1.2.) Pre-hospital Electrocardiogramatem\r\n\r\n26\r\n\r\nc.1.3.) Picture Archive Communication System (PACS)",
+      "regulation": "MDCG-2019-11",
+      "article": "MDCG-2019-11",
+      "citation_label": "MDCG-2019-11",
+      "hybrid_score": 0.016393441706895828,
+      "rerank_score": 2.802518129348755,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-002",
+      "content": "The purpose of this section is to clarify what software is subject to the medical device\r\nregulations.\r\n\r\nSoftware must have a medical purpose on its own to be qualified as a MDSW (MDSW). It\r\nshould be noted that the intended purpose, as described by the manufacturer of the software\r\nis relevant for the qualification and classification of any device.\r\n\r\nIn order to be qualified as MDSW, the product must first fulfil the definition of software\r\naccording to this guidance and the definition of a medical device according to Article 2(1) of\r\nRegulation (EU) 2017/745 - MDR. To be qualified as an in vitro diagnostic MDSW (IVD\r\nMDW), the product must additionally fulfil the definition of an in vitro diagnostic medical\r\ndevice according to Article 2(2) of Regulation (EU) 2017/746 - IVDR.\r\n\r\nWhere a given product does not fall under the definition of a medical device or is excluded by\r\nthe scope of the Medical Devices Regulations, other Community and/or national legislation\r\nmay be applicable. Software that does not meet the definition of a medical device or an in\r\nvitro diagnostic medical device (i.e. software that is not MDSW) but is intended by the\r\nmanufacturer to be an accessory for a medical device, or an in vitro diagnostic medical\r\ndevice, falls respectively under the scope of the Regulation (EU) 2017/745 - MDR or\r\nRegulation (EU) 2017/746 - IVDR.\r\n\r\nSoftware can directly control a (hardware) medical device (e.g. radiotherapy treatment\r\nsoftware), can provide immediate decision-triggering information (e.g. blood glucose meter\r\nsoftware), or can provide support for healthcare professionals (e.g. ECG interpretation\r\nsoftware).\r\n\r\nIt is important to clarify that not all software used within healthcare is qualified as a medical\r\ndevice. For example, \"Simple search\", which refers to the retrieval of records by matching\r\nrecord metadata against record search criteria or to the retrieval of information does not\r\nqualify as MDSW (e.g. library functions).",
+      "regulation": "MDCG-2019-11",
+      "article": "3.1. Introduction to qualification criteria",
+      "citation_label": "3.1. Introduction to qualification criteria",
+      "hybrid_score": 0.02911604568362236,
+      "rerank_score": 2.6430070400238037,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-003",
+      "content": "The first sentence of implementing rule 3.3 of Annex VIII clarifies the regime applicable to\r\nsoftware driving or influencing the use of a device:\r\n\r\n'Software, which drives or influences the use of a device, shall fall within the same class as\r\nthe device'\r\n\r\nThe second sentence of implementing rule 3.3 of Annex VIII clarifies that the regime\r\napplicable to Independent MDSW:\r\n\r\n'If software is independent of any other device, it shall be classified in its own right'\r\n\r\nThis rule should also be considered at least as an orientation for finding the correct\r\n(minimum) classification of software which is placed on the market in combination with a\r\n(hardware) medical device. Therefore, MDSW that both achieves its own intended purpose\r\nand also drives or influences the use of a (hardware) device for a medical purpose is\r\nclassified on its own, based on the intended purpose achieved. In such a case, however, the\r\nrisk class shall not be lower than the risk class of the hardware medical device.\r\n\r\nImplementing rule 3.5 of Annex VIII is relevant for all devices and states that\r\n\r\n'If several rules, or if, within the same rule, several sub-rules, apply to the same device based\r\non the device's intended purpose, the strictest rule and sub-rule resulting in higher\r\nclassification will apply'\r\n\r\nMelanoma image analysis software intended to be used with a near-infrared laser light\r\nscanner, which is considered class IIa per Rule 10.\r\n\r\nThe software \"drives or influences the use of\" the near-infrared laser light scanner as it is\r\nintended to take control of the scanner by letting it execute proprietary multi-exposure\r\nprograms for the detection of melanoma. As such, implementing rule 3.3 applies. However,\r\nRule 11 would also apply based on the intended medical purpose of the software e.g. cancer\r\ndiagnosis. The MDSW would be classified as class III based on Rule 11 (see section\r\nClassification Rules) and per implementing rule 3.5 of Annex VIII.",
+      "regulation": "MDCG-2019-11",
+      "article": "Special considerations on Implementing Rule 3.3 and 3.5:",
+      "citation_label": "4.1. Implementing Rules > Special considerations on Implementing Rule 3.3 and 3.5:",
+      "hybrid_score": 0.012500000186264515,
+      "rerank_score": 2.61181378364563,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-004",
+      "content": "MDSW fulfilling the definition of an in vitro diagnostic medical device falls under the in vitro\r\ndiagnostic medical devices Regulation (EU) 2017/746. Provided that MDSW is intended\r\nspecifically by its manufacturer to be used together with an in vitro diagnostic medical device\r\nto enable it to be used in accordance with its intended purpose, this MDSW falls under the\r\nscope of the in vitro diagnostic medical devices regulation and shall be treated as an In Vitro\r\nDiagnostic MDSW (IVD MDSW) in its own right.\r\n\r\nIn cases when software is driving or influencing the use of a (hardware) device, the software\r\nshould be considered as falling under the respective regulation of the driven or influenced\r\n(hardware) device.\r\n\r\nSoftware that analyses and interprets the optical density delivered by an ELISA reader, line\r\nor spot pattern of a blot. Such software takes raw data outputs and use clinical algorithms for\r\ndiagnostic and/or prognostic purposes, in which case it qualifies as IVD MDSW.\r\n\r\nDecision steps for qualification of MDSW as either a medical device or an in\r\nvitro diagnostic medical device (Figure 2)\r\n\r\nDecision Step 1: Does the MDSW provide information within the scope of the in vitro\r\ndiagnostic medical device definition?\r\n\r\nMDSW which provides information according to Regulation (EU) 2017/746 - IVDR Article\r\n2(2) (a) to (f) should qualify as In Vitro Diagnostic MDSW (IVD MDSW)\r\n\r\n(a) concerning a physiological or pathological process or state (by investigation of this\r\nprocess or state); or\r\n\r\n(b) concerning congenital physical or mental impairments\r\n\r\n(c) concerning the predisposition to a medical condition or a disease;\r\n\r\n(d) to determine the safety and compatibility with potential recipients;\r\n\r\n(e) to predict treatment response or reactions;\r\n\r\n(f) to define or monitoring therapeutic measures.\r\n\r\nA MDSW which falls under the definition set out in EU Article 2 (1) of Regulation (EU)\r\n2017/745 - MDR should qualify as MD MDSW.",
+      "regulation": "MDCG-2019-11",
+      "article": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device",
+      "citation_label": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device",
+      "hybrid_score": 0.03030998818576336,
+      "rerank_score": 2.605433225631714,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-005",
+      "content": "MDSW placed on the market as a device or put into service in its own right shall undergo an\r\nappropriate regulatory process that shall take into consideration the qualification,\r\nclassification and intended purpose of the MDSW.\r\n\r\n\r\n#### 6.2. Option 2: as an integral component/part of a device\r\n\r\nMDSW may be placed on the market or put into service as an integral component/part of a\r\ndevice.\r\n\r\n· MDSW contained within a blood gas analyser that enables a user to run tests on the\r\ninstrument.\r\n\r\n· MDSW that is part of a handheld hardware device intended for near-patient testing\r\n(POCT: point of care testing) for the determination of the blood glucose\r\nconcentration.\r\n\r\n· A fully automated enzyme-linked immunosorbent assay (ELISA) analyser, composed\r\nof hardware and MDSW, intended to determine the Human HbA1c concentration in\r\nserum from the results obtained with a Human HbA1c ELISA.\r\n\r\n· MDSW that is part of a pulse oximeter intended to digitally filter the noise from low\r\nperfusion performance and motion artefacts, to calculate the ratio of red light/infrared\r\nlight and to use a lookup table based on Beer-Lambert law to convert the ratio into\r\nthe oxygen saturation in a person's blood (SpO2).\r\n\r\n<!-- PageNumber=\"21\" -->\r\n<!-- PageBreak -->\r\nMDSW that is placed on the market or put into service solely as an integral component/part\r\nof a (hardware) device may not have to undergo its own regulatory process.31 In this case,\r\nthe MDSW shall be assessed through the regulatory process applied to the device as a\r\nwhole, as it is placed on the market.\r\n\r\nApplying the classification rules to these hardware devices, which is de-facto a combination\r\nof the hardware device and the MDSW, requires careful consideration of the intended\r\npurpose of the MDSW. This must also be analysed when later changes to the MDSW are\r\ndone.\r\n\r\nNote: MDSW could be independent under both scenarios described in 6.1 and 6.2, despite\r\nthe presentation in which it is placed on the market.",
+      "regulation": "MDCG-2019-11",
+      "article": "Conformity assessment:",
+      "citation_label": "6.1. Option 1: as a medical device in its own right MDSW may be placed on the market or put into service in its own right. > Conformity assessment:",
+      "hybrid_score": 0.02683013491332531,
+      "rerank_score": 2.558643341064453,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-006",
+      "content": "The type of interconnection between the MDSW and the device (e.g. embedded systems,\r\nwires, Wi-Fi, Bluetooth) does not affect the qualification of the software as a device under the\r\nMDR and IVDR (e.g. whether the software is incorporated in a device or is at a different\r\nlocation). However, MDSW can be placed on the market in two different ways: as a medical\r\ndevice or in-vitro diagnostic medical device in its own right or as an integral component or\r\npart of a hardware device.",
+      "regulation": "MDCG-2019-11",
+      "article": "6. Considerations on placing on the market and conformity assessment of MDSW",
+      "citation_label": "6. Considerations on placing on the market and conformity assessment of MDSW",
+      "hybrid_score": 0.029571646824479103,
+      "rerank_score": 2.551553964614868,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-007",
+      "content": "Implementing rule 1.4 is only applicable for software which drives or influences the use of an\r\nin vitro diagnostic medical device. This rule should also be considered at least as an\r\norientation for finding the right (minimum) classification of software which is placed on the\r\nmarket in combination with a (hardware) medical device.\r\n\r\nAccording to the second sentence of implementing rule 1.4, if the software is independent of\r\nany other device, it shall be classified in its own right.\r\n\r\nExamples for applying this implementing rule under the in vitro diagnostic medical devices\r\nregulation:\r\n\r\nSoftware that is exclusively intended to drive or influence the use of an instrument intended\r\nby the manufacturer specifically to be used for in vitro diagnostic procedures is classified in\r\nthe same class as the instrument.\r\n\r\nA software that is intended to operate (driving) a C-reactive protein (CRP) measuring\r\nanalyser from a remote location is classified in the same class as the analyser i.e. if the\r\nanalyser is a classified as class A then the software operating the analyser falls into Class A.\r\n\r\n29 Specific implementation or classification rules for active Annex XVI devices (which might also include software)\r\nare provided together with the relevant Common Specifications for those devices.\r\n\r\n<!-- PageNumber=\"19\" -->\r\n<!-- PageBreak -->\r\n\r\nMDSW that integrates genotype of multiple genes to predict risk a disease or medical\r\ncondition developing or recurring; this is an independent IVD MDSW and is classified on its\r\nown.\r\n\r\nImplementing rule 1.9 states that if several classification rules apply to the same device\r\nbased on the devices' intended purpose, the rule resulting in higher classification will apply.\r\nTo classify IVD MDSW which is independent of any other device, see the MDCG Guidance\r\non Classification of IVDs when available at https://ec.europa.eu/growth/sectors/medical-\r\ndevices/new-regulations/guidance en.",
+      "regulation": "MDCG-2019-11",
+      "article": "Special considerations on Implementing Rule 1.4 and 1.9:",
+      "citation_label": "5.1. Implementing Rules: > Special considerations on Implementing Rule 1.4 and 1.9:",
+      "hybrid_score": 0.012658228166401386,
+      "rerank_score": 2.547300338745117,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-008",
+      "content": "Manufacturers shall ensure safety and performance throughout the lifecycle of the software,\r\nthrough a continuous process of clinical and/or performance evaluation and risk\r\nmanagement. As such, manufacturers must evaluate the potential impact of any changes to\r\nthe function, intended use, essential design, and manufacturing characteristics on the\r\nsoftware's qualification as MDSW and its classification (including the classification of the\r\ncombination of the MDSW with another medical device).\r\n\r\nA change to or the addition of functionality to a software may lead it to be qualified as\r\nMDSW, or a revision of the classification of the MDSW. Similarly, a module that is added to a\r\nsoftware might be qualified as a MDSW on its own.\r\n\r\nWhen determining the risk class of a combination of a modified MDSW and a medical device,\r\nthe intended purpose and functionality of that (new) combination must be considered.\r\n\r\n<!-- PageNumber=\"24\" -->\r\n<!-- PageBreak -->",
+      "regulation": "MDCG-2019-11",
+      "article": "8. Consideration of changes to an MDSW",
+      "citation_label": "8. Consideration of changes to an MDSW",
+      "hybrid_score": 0.024314764887094498,
+      "rerank_score": 2.5368435382843018,
+      "rank_delta": 0
+     }
+    ]
+   }
+  },
+  {
+   "phase": "answer",
+   "trace_id": "demo-software-as-device",
+   "elapsed_ms": 28150,
+   "data": {
+    "claims": 10
+   }
+  },
+  {
+   "phase": "verify",
+   "trace_id": "demo-software-as-device",
+   "elapsed_ms": 28150,
+   "data": {
+    "trace_id": "demo-software-as-device",
+    "claims": [
+     {
+      "text": "The purpose of the section is to clarify what software is subject to the medical device regulations, and software must have a medical purpose on its own to be qualified as Medical Device Software (MDSW).",
+      "chunk_ids": [
+       "chunk-002"
+      ],
+      "citation_label": "3.1. Introduction to qualification criteria"
+     },
+     {
+      "text": "To be qualified as MDSW the product must fulfil the guidance's definition of software and the definition of a medical device in Article 2(1) of Regulation (EU) 2017/745; for IVD MDSW it must additionally fulfil the IVD definition in Article 2(2) of Regulation (EU) 2017/746.",
+      "chunk_ids": [
+       "chunk-002"
+      ],
+      "citation_label": "3.1. Introduction to qualification criteria"
+     },
+     {
+      "text": "The first sentence of implementing rule 3.3 states that software which drives or influences the use of a device shall fall within the same class as the device.",
+      "chunk_ids": [
+       "chunk-003"
+      ],
+      "citation_label": "4.1. Implementing Rules > Special considerations on Implementing Rule 3.3 and 3.5:"
+     },
+     {
+      "text": "The second sentence of implementing rule 3.3 states that if software is independent of any other device, it shall be classified in its own right.",
+      "chunk_ids": [
+       "chunk-003"
+      ],
+      "citation_label": "4.1. Implementing Rules > Special considerations on Implementing Rule 3.3 and 3.5:"
+     },
+     {
+      "text": "MDSW that both achieves its own intended purpose and also drives or influences the use of a hardware device is classified on its own, based on the intended purpose achieved, though the risk class shall not be lower than the hardware device's class.",
+      "chunk_ids": [
+       "chunk-003"
+      ],
+      "citation_label": "4.1. Implementing Rules > Special considerations on Implementing Rule 3.3 and 3.5:"
+     },
+     {
+      "text": "The type of interconnection between the MDSW and a device does not affect the qualification of the software as a device under the MDR and IVDR, and MDSW can be placed on the market either as a medical device or in vitro diagnostic device in its own right or as an integral component/part of a hardware device.",
+      "chunk_ids": [
+       "chunk-006"
+      ],
+      "citation_label": "6. Considerations on placing on the market and conformity assessment of MDSW"
+     },
+     {
+      "text": "MDSW may be placed on the market or put into service in its own right, and if placed on the market as a device in its own right it shall undergo an appropriate regulatory process taking into account its qualification, classification and intended purpose.",
+      "chunk_ids": [
+       "chunk-005"
+      ],
+      "citation_label": "6.1. Option 1: as a medical device in its own right MDSW may be placed on the market or put into service in its own right. > Conformity assessment:"
+     },
+     {
+      "text": "For in vitro diagnostic MDSW, if the MDSW is intended specifically by its manufacturer to be used together with an in vitro diagnostic medical device to enable it to be used in accordance with its intended purpose, this MDSW falls under the scope of the IVDR and shall be treated as an IVD MDSW in its own right.",
+      "chunk_ids": [
+       "chunk-004"
+      ],
+      "citation_label": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device"
+     },
+     {
+      "text": "Software that analyses and interprets raw outputs from an IVD instrument using clinical algorithms for diagnostic and/or prognostic purposes qualifies as IVD MDSW.",
+      "chunk_ids": [
+       "chunk-004"
+      ],
+      "citation_label": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device"
+     },
+     {
+      "text": "Manufacturers must evaluate the potential impact of any changes to function, intended use, essential design, and manufacturing characteristics on the software's qualification as MDSW, and a change or addition of functionality may lead software to be qualified as MDSW.",
+      "chunk_ids": [
+       "chunk-008"
+      ],
+      "citation_label": "8. Consideration of changes to an MDSW"
+     }
+    ],
+    "citations": [
+     {
+      "chunk_id": "chunk-002",
+      "parent_id": "document",
+      "content": "The purpose of this section is to clarify what software is subject to the medical device\r\nregulations.\r\n\r\nSoftware must have a medical purpose on its own to be qualified as a MDSW (MDSW). It\r\nshould be noted that the intended purpose, as described by the manufacturer of the software\r\nis relevant for the qualification and classification of any device.\r\n\r\nIn order to be qualified as MDSW, the product must first fulfil the definition of software\r\naccording to this guidance and the definition of a medical device according to Article 2(1) of\r\nRegulation (EU) 2017/745 - MDR. To be qualified as an in vitro diagnostic MDSW (IVD\r\nMDW), the product must additionally fulfil the definition of an in vitro diagnostic medical\r\ndevice according to Article 2(2) of Regulation (EU) 2017/746 - IVDR.\r\n\r\nWhere a given product does not fall under the definition of a medical device or is excluded by\r\nthe scope of the Medical Devices Regulations, other Community and/or national legislation\r\nmay be applicable. Software that does not meet the definition of a medical device or an in\r\nvitro diagnostic medical device (i.e. software that is not MDSW) but is intended by the\r\nmanufacturer to be an accessory for a medical device, or an in vitro diagnostic medical\r\ndevice, falls respectively under the scope of the Regulation (EU) 2017/745 - MDR or\r\nRegulation (EU) 2017/746 - IVDR.\r\n\r\nSoftware can directly control a (hardware) medical device (e.g. radiotherapy treatment\r\nsoftware), can provide immediate decision-triggering information (e.g. blood glucose meter\r\nsoftware), or can provide support for healthcare professionals (e.g. ECG interpretation\r\nsoftware).\r\n\r\nIt is important to clarify that not all software used within healthcare is qualified as a medical\r\ndevice. For example, \"Simple search\", which refers to the retrieval of records by matching\r\nrecord metadata against record search criteria or to the retrieval of information does not\r\nqualify as MDSW (e.g. library functions).",
+      "regulation": "MDCG-2019-11",
+      "article": "3.1. Introduction to qualification criteria",
+      "citation_label": "3.1. Introduction to qualification criteria",
+      "source_url": "https://health.ec.europa.eu/system/files/2025-06/mdcg_2019_11_en.pdf",
+      "language": "en",
+      "hybrid_score": 0.02911604568362236,
+      "rerank_score": 2.6430070400238037,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-003",
+      "parent_id": "document",
+      "content": "The first sentence of implementing rule 3.3 of Annex VIII clarifies the regime applicable to\r\nsoftware driving or influencing the use of a device:\r\n\r\n'Software, which drives or influences the use of a device, shall fall within the same class as\r\nthe device'\r\n\r\nThe second sentence of implementing rule 3.3 of Annex VIII clarifies that the regime\r\napplicable to Independent MDSW:\r\n\r\n'If software is independent of any other device, it shall be classified in its own right'\r\n\r\nThis rule should also be considered at least as an orientation for finding the correct\r\n(minimum) classification of software which is placed on the market in combination with a\r\n(hardware) medical device. Therefore, MDSW that both achieves its own intended purpose\r\nand also drives or influences the use of a (hardware) device for a medical purpose is\r\nclassified on its own, based on the intended purpose achieved. In such a case, however, the\r\nrisk class shall not be lower than the risk class of the hardware medical device.\r\n\r\nImplementing rule 3.5 of Annex VIII is relevant for all devices and states that\r\n\r\n'If several rules, or if, within the same rule, several sub-rules, apply to the same device based\r\non the device's intended purpose, the strictest rule and sub-rule resulting in higher\r\nclassification will apply'\r\n\r\nMelanoma image analysis software intended to be used with a near-infrared laser light\r\nscanner, which is considered class IIa per Rule 10.\r\n\r\nThe software \"drives or influences the use of\" the near-infrared laser light scanner as it is\r\nintended to take control of the scanner by letting it execute proprietary multi-exposure\r\nprograms for the detection of melanoma. As such, implementing rule 3.3 applies. However,\r\nRule 11 would also apply based on the intended medical purpose of the software e.g. cancer\r\ndiagnosis. The MDSW would be classified as class III based on Rule 11 (see section\r\nClassification Rules) and per implementing rule 3.5 of Annex VIII.",
+      "regulation": "MDCG-2019-11",
+      "article": "Special considerations on Implementing Rule 3.3 and 3.5:",
+      "citation_label": "4.1. Implementing Rules > Special considerations on Implementing Rule 3.3 and 3.5:",
+      "source_url": "https://health.ec.europa.eu/system/files/2025-06/mdcg_2019_11_en.pdf",
+      "language": "en",
+      "hybrid_score": 0.012500000186264515,
+      "rerank_score": 2.61181378364563,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-006",
+      "parent_id": "document",
+      "content": "The type of interconnection between the MDSW and the device (e.g. embedded systems,\r\nwires, Wi-Fi, Bluetooth) does not affect the qualification of the software as a device under the\r\nMDR and IVDR (e.g. whether the software is incorporated in a device or is at a different\r\nlocation). However, MDSW can be placed on the market in two different ways: as a medical\r\ndevice or in-vitro diagnostic medical device in its own right or as an integral component or\r\npart of a hardware device.",
+      "regulation": "MDCG-2019-11",
+      "article": "6. Considerations on placing on the market and conformity assessment of MDSW",
+      "citation_label": "6. Considerations on placing on the market and conformity assessment of MDSW",
+      "source_url": "https://health.ec.europa.eu/system/files/2025-06/mdcg_2019_11_en.pdf",
+      "language": "en",
+      "hybrid_score": 0.029571646824479103,
+      "rerank_score": 2.551553964614868,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-005",
+      "parent_id": "document",
+      "content": "MDSW placed on the market as a device or put into service in its own right shall undergo an\r\nappropriate regulatory process that shall take into consideration the qualification,\r\nclassification and intended purpose of the MDSW.\r\n\r\n\r\n#### 6.2. Option 2: as an integral component/part of a device\r\n\r\nMDSW may be placed on the market or put into service as an integral component/part of a\r\ndevice.\r\n\r\n· MDSW contained within a blood gas analyser that enables a user to run tests on the\r\ninstrument.\r\n\r\n· MDSW that is part of a handheld hardware device intended for near-patient testing\r\n(POCT: point of care testing) for the determination of the blood glucose\r\nconcentration.\r\n\r\n· A fully automated enzyme-linked immunosorbent assay (ELISA) analyser, composed\r\nof hardware and MDSW, intended to determine the Human HbA1c concentration in\r\nserum from the results obtained with a Human HbA1c ELISA.\r\n\r\n· MDSW that is part of a pulse oximeter intended to digitally filter the noise from low\r\nperfusion performance and motion artefacts, to calculate the ratio of red light/infrared\r\nlight and to use a lookup table based on Beer-Lambert law to convert the ratio into\r\nthe oxygen saturation in a person's blood (SpO2).\r\n\r\n<!-- PageNumber=\"21\" -->\r\n<!-- PageBreak -->\r\nMDSW that is placed on the market or put into service solely as an integral component/part\r\nof a (hardware) device may not have to undergo its own regulatory process.31 In this case,\r\nthe MDSW shall be assessed through the regulatory process applied to the device as a\r\nwhole, as it is placed on the market.\r\n\r\nApplying the classification rules to these hardware devices, which is de-facto a combination\r\nof the hardware device and the MDSW, requires careful consideration of the intended\r\npurpose of the MDSW. This must also be analysed when later changes to the MDSW are\r\ndone.\r\n\r\nNote: MDSW could be independent under both scenarios described in 6.1 and 6.2, despite\r\nthe presentation in which it is placed on the market.",
+      "regulation": "MDCG-2019-11",
+      "article": "Conformity assessment:",
+      "citation_label": "6.1. Option 1: as a medical device in its own right MDSW may be placed on the market or put into service in its own right. > Conformity assessment:",
+      "source_url": "https://health.ec.europa.eu/system/files/2025-06/mdcg_2019_11_en.pdf",
+      "language": "en",
+      "hybrid_score": 0.02683013491332531,
+      "rerank_score": 2.558643341064453,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-004",
+      "parent_id": "document",
+      "content": "MDSW fulfilling the definition of an in vitro diagnostic medical device falls under the in vitro\r\ndiagnostic medical devices Regulation (EU) 2017/746. Provided that MDSW is intended\r\nspecifically by its manufacturer to be used together with an in vitro diagnostic medical device\r\nto enable it to be used in accordance with its intended purpose, this MDSW falls under the\r\nscope of the in vitro diagnostic medical devices regulation and shall be treated as an In Vitro\r\nDiagnostic MDSW (IVD MDSW) in its own right.\r\n\r\nIn cases when software is driving or influencing the use of a (hardware) device, the software\r\nshould be considered as falling under the respective regulation of the driven or influenced\r\n(hardware) device.\r\n\r\nSoftware that analyses and interprets the optical density delivered by an ELISA reader, line\r\nor spot pattern of a blot. Such software takes raw data outputs and use clinical algorithms for\r\ndiagnostic and/or prognostic purposes, in which case it qualifies as IVD MDSW.\r\n\r\nDecision steps for qualification of MDSW as either a medical device or an in\r\nvitro diagnostic medical device (Figure 2)\r\n\r\nDecision Step 1: Does the MDSW provide information within the scope of the in vitro\r\ndiagnostic medical device definition?\r\n\r\nMDSW which provides information according to Regulation (EU) 2017/746 - IVDR Article\r\n2(2) (a) to (f) should qualify as In Vitro Diagnostic MDSW (IVD MDSW)\r\n\r\n(a) concerning a physiological or pathological process or state (by investigation of this\r\nprocess or state); or\r\n\r\n(b) concerning congenital physical or mental impairments\r\n\r\n(c) concerning the predisposition to a medical condition or a disease;\r\n\r\n(d) to determine the safety and compatibility with potential recipients;\r\n\r\n(e) to predict treatment response or reactions;\r\n\r\n(f) to define or monitoring therapeutic measures.\r\n\r\nA MDSW which falls under the definition set out in EU Article 2 (1) of Regulation (EU)\r\n2017/745 - MDR should qualify as MD MDSW.",
+      "regulation": "MDCG-2019-11",
+      "article": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device",
+      "citation_label": "3.4. Qualification criteria of MDSW as an in vitro diagnostic medical device",
+      "source_url": "https://health.ec.europa.eu/system/files/2025-06/mdcg_2019_11_en.pdf",
+      "language": "en",
+      "hybrid_score": 0.03030998818576336,
+      "rerank_score": 2.605433225631714,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-008",
+      "parent_id": "document",
+      "content": "Manufacturers shall ensure safety and performance throughout the lifecycle of the software,\r\nthrough a continuous process of clinical and/or performance evaluation and risk\r\nmanagement. As such, manufacturers must evaluate the potential impact of any changes to\r\nthe function, intended use, essential design, and manufacturing characteristics on the\r\nsoftware's qualification as MDSW and its classification (including the classification of the\r\ncombination of the MDSW with another medical device).\r\n\r\nA change to or the addition of functionality to a software may lead it to be qualified as\r\nMDSW, or a revision of the classification of the MDSW. Similarly, a module that is added to a\r\nsoftware might be qualified as a MDSW on its own.\r\n\r\nWhen determining the risk class of a combination of a modified MDSW and a medical device,\r\nthe intended purpose and functionality of that (new) combination must be considered.\r\n\r\n<!-- PageNumber=\"24\" -->\r\n<!-- PageBreak -->",
+      "regulation": "MDCG-2019-11",
+      "article": "8. Consideration of changes to an MDSW",
+      "citation_label": "8. Consideration of changes to an MDSW",
+      "source_url": "https://health.ec.europa.eu/system/files/2025-06/mdcg_2019_11_en.pdf",
+      "language": "en",
+      "hybrid_score": 0.024314764887094498,
+      "rerank_score": 2.5368435382843018,
+      "rank_delta": 0
+     }
+    ],
+    "refusal": null,
+    "unverified_claims": 0,
+    "cost_eur": 0.004921,
+    "timings_ms": {
+     "plan": 4833,
+     "search": 677,
+     "rerank": 0,
+     "answer": 22640,
+     "verify": 0
+    }
+   }
+  }
+ ]
+}
