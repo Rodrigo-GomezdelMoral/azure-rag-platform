@@ -33,20 +33,16 @@ class Feedback(BaseModel):
     comment: str = Field(default="", max_length=2000)
 
 
-def prepare(app: FastAPI, settings: Settings, clients: Clients) -> None:
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+    settings, clients = Settings(), build_clients(Settings())
+    telemetry.configure(settings)
     retriever = SearchRetriever(clients.search, settings.semantic_configuration) if clients.search else LocalRetriever()
     app.state.settings, app.state.clients = settings, clients
     app.state.pipeline = Pipeline(settings, build_agents(clients), retriever)
     app.state.jwks = jwt.PyJWKClient(f"{LOGIN}/{settings.entra_tenant_id}/discovery/v2.0/keys", cache_keys=True)
-
-
-@asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncIterator[None]:
-    settings = Settings()
-    telemetry.configure(settings)
-    prepare(app, settings, build_clients(settings))
     yield
-    await app.state.clients.close()
+    await clients.close()
 
 
 app = FastAPI(title="Regulatory Intelligence Platform", lifespan=lifespan)
@@ -87,13 +83,9 @@ app.add_exception_handler(RequestValidationError, problem)
 Claims = Annotated[dict[str, Any], Depends(principal)]
 
 
-def session_id(claims: dict[str, Any], body: Question) -> str:
-    return f"{claims.get('oid', 'local')}:{body.conversation_id}"
-
-
 @app.post("/v1/answer")
 async def answer_route(body: Question, request: Request, claims: Claims) -> StreamingResponse:
-    session = session_id(claims, body)
+    session = f"{claims.get('oid', 'local')}:{body.conversation_id}"
 
     async def events() -> AsyncIterator[str]:
         async for event in answer(request.app.state.pipeline, body.question, session):
@@ -104,7 +96,7 @@ async def answer_route(body: Question, request: Request, claims: Claims) -> Stre
 
 @app.post("/v1/retrieve")
 async def retrieve_route(body: Question, request: Request, claims: Claims) -> list[PhaseEvent]:
-    session = session_id(claims, body)
+    session = f"{claims.get('oid', 'local')}:{body.conversation_id}"
     return [event async for event in answer(request.app.state.pipeline, body.question, session, generate=False)]
 
 
@@ -129,9 +121,6 @@ async def healthz(request: Request) -> JSONResponse:
         probes["search"] = clients.search.get_document_count()
         probes["cosmos"] = clients.cosmos.get_database_client(settings.cosmos_database).read()
     outcomes = await asyncio.gather(*probes.values(), return_exceptions=True)
-    status = {
-        name: type(outcome).__name__ if isinstance(outcome, AzureError) else "ok"
-        for name, outcome in zip(probes, outcomes, strict=True)
-    }
+    status = {n: type(o).__name__ if isinstance(o, AzureError) else "ok" for n, o in zip(probes, outcomes, strict=True)}
     healthy = all(value == "ok" for value in status.values())
     return JSONResponse({"status": "ok" if healthy else "degraded", **status}, 200 if healthy else 503)

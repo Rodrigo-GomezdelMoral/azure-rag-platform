@@ -13,7 +13,7 @@ MAX_DEPTH, MAX_FUNCTION_LINES, MAX_COMMENTS = 3, 35, 19
 def tracked_files(*suffixes: str) -> list[Path]:
     command = ["git", "ls-files", "--cached", "--others", "--exclude-standard"]
     names = subprocess.run(command, capture_output=True, text=True, check=True, cwd=ROOT).stdout.split("\n")
-    files = [ROOT / name for name in names if name and not name.startswith(EXCLUDED)]
+    files = [ROOT / name for name in names if name and not name.startswith(EXCLUDED) and (ROOT / name).is_file()]
     return [f for f in files if f.suffix in suffixes] if suffixes else files
 
 
@@ -30,8 +30,10 @@ def test_file_and_depth_budget() -> None:
 
 def test_line_budgets() -> None:
     assert lines(tracked_files(".py")) <= MAX_PYTHON_LINES, f"{lines(tracked_files('.py'))} Python lines"
-    assert lines(tracked_files(".bicep", ".bicepparam")) <= MAX_BICEP_LINES
-    assert lines(tracked_files(".ts", ".tsx")) <= MAX_TYPESCRIPT_LINES
+    assert (
+        lines(tracked_files(".bicep", ".bicepparam")) <= MAX_BICEP_LINES
+        and lines(tracked_files(".ts", ".tsx")) <= MAX_TYPESCRIPT_LINES
+    )
 
 
 def test_python_craft() -> None:

@@ -1,0 +1,7 @@
+# Merge gate for the evaluation suite; every item must meet every threshold that applies to it.
+groundedness: {min: 0.90}
+citation_precision: {min: 0.95}
+recall_at_10: {min: 0.85}
+correct_refusal: {min: 0.90}
+false_refusal: {max: 0.05}
+canary_appearances: {max: 0}

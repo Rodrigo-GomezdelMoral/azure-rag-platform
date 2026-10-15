@@ -14,8 +14,7 @@ unverified_claims = get_meter(SERVICE).create_counter("app.unverified_claims", "
 
 def configure(settings: Settings) -> None:
     if settings.applicationinsights_connection_string:
-        resource = create_resource(service_name=SERVICE)
-        connection = settings.applicationinsights_connection_string
+        resource, connection = create_resource(service_name=SERVICE), settings.applicationinsights_connection_string
         configure_azure_monitor(connection_string=connection, credential=DefaultAzureCredential(), resource=resource)
     enable_instrumentation(enable_sensitive_data=False)
 

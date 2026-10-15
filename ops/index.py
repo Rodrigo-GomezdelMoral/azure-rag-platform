@@ -1,6 +1,7 @@
 import argparse
 import time
 from datetime import timedelta
+from typing import Any
 from urllib.parse import urlparse
 
 from azure.core.exceptions import HttpResponseError
@@ -11,23 +12,32 @@ from azure.search.documents.indexes import models as m
 from app.config import Settings
 
 DIMENSIONS = 1536
+ORIGINALS = "preserveOriginals"
 SECTIONS = "/document/sections/*"
 CHUNKS = f"{SECTIONS}/chunks/*"
 H1, H2, H3 = (f"$({SECTIONS}/sections/h{level})" for level in (1, 2, 3))
 REGULATION = "$(/document/regulation)"
 CITATION_LABEL = f'={H2}!="" ? {H2} + ({H3}!="" ? " > " + {H3} : "") : ({H1}!="" ? {H1} : {REGULATION})'
 ARTICLE = f'={H3}!="" ? {H3} : ({H2}!="" ? {H2} : ({H1}!="" ? {H1} : {REGULATION}))'
-FACET = {"filterable": True, "facetable": True, "searchable": False}
-PROJECTION = {
-    "content": CHUNKS,
-    "content_vector": f"{CHUNKS}/vector",
-    "citation_label": f"{SECTIONS}/cite/citation_label",
-    "article": f"{SECTIONS}/cite/article",
-    "regulation": "/document/regulation",
-    "language": "/document/language",
-    "source_url": "/document/source_url",
+FACET: dict[str, Any] = {"filterable": True, "facetable": True, "searchable": False}
+TEXT_FIELDS: dict[str, dict[str, Any]] = {
+    "chunk_id": {"key": True, "analyzer_name": "keyword"},
+    "content": {"analyzer_name": "en.microsoft"},
+    "citation_label": {},
 }
+SIMPLE_FIELDS: dict[str, dict[str, Any]] = {
+    "parent_id": {"filterable": True},
+    "regulation": FACET,
+    "article": FACET,
+    "language": FACET,
+    "source_url": {},
+}
+PROJECTION = {"content": CHUNKS, "content_vector": f"{CHUNKS}/vector"}
+PROJECTION |= {name: f"{SECTIONS}/cite/{name}" for name in ("citation_label", "article")}
+PROJECTION |= {name: f"/document/{name}" for name in ("regulation", "language", "source_url")}
 Input, Output = m.InputFieldMappingEntry, m.OutputFieldMappingEntry
+EMBED: dict[str, Any] = {"name": "embed", "context": CHUNKS, "dimensions": DIMENSIONS}
+EMBED |= {"inputs": [Input(name="text", source=CHUNKS)], "outputs": [Output(name="embedding", target_name="vector")]}
 
 
 def foundry_origin(settings: Settings) -> str:
@@ -36,45 +46,31 @@ def foundry_origin(settings: Settings) -> str:
 
 
 def fields_definition(compressed: bool) -> list[m.SearchField]:
-    return [
-        m.SearchableField(name="chunk_id", type="Edm.String", key=True, analyzer_name="keyword"),
-        m.SimpleField(name="parent_id", type="Edm.String", filterable=True),
-        m.SearchableField(name="content", type="Edm.String", analyzer_name="en.microsoft"),
-        m.SearchableField(name="citation_label", type="Edm.String"),
-        m.SimpleField(name="regulation", type="Edm.String", **FACET),
-        m.SimpleField(name="article", type="Edm.String", **FACET),
-        m.SimpleField(name="language", type="Edm.String", **FACET),
-        m.SimpleField(name="source_url", type="Edm.String"),
-        m.SearchField(
-            name="content_vector",
-            type="Collection(Edm.Single)",
-            vector_search_dimensions=DIMENSIONS,
-            vector_search_profile_name="regulations-vector",
-            stored=not compressed,
-            hidden=True,
-        ),
-    ]
+    vector = m.SearchField(
+        name="content_vector",
+        type="Collection(Edm.Single)",
+        vector_search_dimensions=DIMENSIONS,
+        vector_search_profile_name="regulations-vector",
+        stored=not compressed,
+        hidden=True,
+    )
+    text = [m.SearchableField(name=name, type="Edm.String", **attributes) for name, attributes in TEXT_FIELDS.items()]
+    simple = [m.SimpleField(name=name, type="Edm.String", **attributes) for name, attributes in SIMPLE_FIELDS.items()]
+    return [*text, *simple, vector]
 
 
 def vector_search_definition(settings: Settings, compressed: bool) -> m.VectorSearch:
-    rescoring = m.RescoringOptions(
-        enable_rescoring=True, default_oversampling=4, rescore_storage_method="preserveOriginals"
-    )
-    quantization = m.ScalarQuantizationParameters(quantized_data_type="int8")
+    rescoring = m.RescoringOptions(enable_rescoring=True, default_oversampling=4, rescore_storage_method=ORIGINALS)
+    quantized = m.ScalarQuantizationParameters(quantized_data_type="int8")
     compression = m.ScalarQuantizationCompression(
-        compression_name="int8", parameters=quantization, rescoring_options=rescoring
+        compression_name="int8", parameters=quantized, rescoring_options=rescoring
     )
-    embeddings = m.AzureOpenAIVectorizerParameters(
-        resource_url=foundry_origin(settings),
-        deployment_name=settings.embedding_deployment,
-        model_name=settings.embedding_deployment,
-    )
+    origin, model = foundry_origin(settings), settings.embedding_deployment
+    embeddings = m.AzureOpenAIVectorizerParameters(resource_url=origin, deployment_name=model, model_name=model)
     profile = m.VectorSearchProfile(
-        name="regulations-vector",
-        algorithm_configuration_name="hnsw",
-        vectorizer_name="shared-embeddings",
-        compression_name="int8" if compressed else None,
+        name="regulations-vector", algorithm_configuration_name="hnsw", vectorizer_name="shared-embeddings"
     )
+    profile.compression_name = "int8" if compressed else None
     return m.VectorSearch(
         algorithms=[m.HnswAlgorithmConfiguration(name="hnsw")],
         compressions=[compression] if compressed else [],
@@ -97,7 +93,8 @@ def index_definition(settings: Settings, name: str, compressed: bool) -> m.Searc
     )
 
 
-def chunking_skills() -> list[m.SearchIndexerSkill]:
+def skills_definition(settings: Settings) -> list[m.SearchIndexerSkill]:
+    origin, model = foundry_origin(settings), settings.embedding_deployment
     layout = m.DocumentIntelligenceLayoutSkill(
         name="layout",
         context="/document",
@@ -115,27 +112,14 @@ def chunking_skills() -> list[m.SearchIndexerSkill]:
         inputs=[Input(name="text", source=f"{SECTIONS}/content")],
         outputs=[Output(name="textItems", target_name="chunks")],
     )
-    return [layout, split]
-
-
-def enrichment_skills(settings: Settings) -> list[m.SearchIndexerSkill]:
     cite = m.ShaperSkill(
         name="cite",
         context=SECTIONS,
         inputs=[Input(name="citation_label", source=CITATION_LABEL), Input(name="article", source=ARTICLE)],
         outputs=[Output(name="output", target_name="cite")],
     )
-    embed = m.AzureOpenAIEmbeddingSkill(
-        name="embed",
-        context=CHUNKS,
-        resource_url=foundry_origin(settings),
-        deployment_name=settings.embedding_deployment,
-        model_name=settings.embedding_deployment,
-        dimensions=DIMENSIONS,
-        inputs=[Input(name="text", source=CHUNKS)],
-        outputs=[Output(name="embedding", target_name="vector")],
-    )
-    return [cite, embed]
+    embed = m.AzureOpenAIEmbeddingSkill(resource_url=origin, deployment_name=model, model_name=model, **EMBED)
+    return [layout, cite, split, embed]
 
 
 def skillset_definition(settings: Settings, name: str, index_name: str) -> m.SearchIndexerSkillset:
@@ -146,18 +130,16 @@ def skillset_definition(settings: Settings, name: str, index_name: str) -> m.Sea
         mappings=[Input(name=field, source=source) for field, source in PROJECTION.items()],
     )
     parameters = m.SearchIndexerIndexProjectionsParameters(projection_mode="skipIndexingParentDocuments")
-    layout, split = chunking_skills()
-    cite, embed = enrichment_skills(settings)
     return m.SearchIndexerSkillset(
         name=name,
-        skills=[layout, cite, split, embed],
+        skills=skills_definition(settings),
         cognitive_services_account=m.AIServicesAccountIdentity(subdomain_url=foundry_origin(settings)),
         index_projection=m.SearchIndexerIndexProjection(selectors=[selector], parameters=parameters),
     )
 
 
 def data_source_definition(settings: Settings) -> m.SearchIndexerDataSourceConnection:
-    deletion = m.SoftDeleteColumnDeletionDetectionPolicy(
+    soft = m.SoftDeleteColumnDeletionDetectionPolicy(
         soft_delete_column_name="isDeleted", soft_delete_marker_value="true"
     )
     return m.SearchIndexerDataSourceConnection(
@@ -165,7 +147,7 @@ def data_source_definition(settings: Settings) -> m.SearchIndexerDataSourceConne
         type="azureblob",
         connection_string=f"ResourceId={settings.storage_account_resource_id};",
         container=m.SearchIndexerDataContainer(name="corpus"),
-        data_deletion_detection_policy=deletion,
+        data_deletion_detection_policy=soft,
     )
 
 
@@ -204,7 +186,7 @@ def run_and_wait(indexers: SearchIndexerClient, name: str) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Create or update the index, skillset, data source and indexer, then run it."
+        description="Create or update index, skillset, data source and indexer, then run it"
     )
     parser.add_argument(
         "--uncompressed", action="store_true", help="build a twin index without quantisation to measure it"
@@ -212,8 +194,10 @@ def main() -> None:
     args = parser.parse_args()
     settings, credential = Settings(), DefaultAzureCredential()
     index_name = settings.search_index + ("-uncompressed" if args.uncompressed else "")
-    indexes = SearchIndexClient(settings.search_endpoint, credential)
-    indexers = SearchIndexerClient(settings.search_endpoint, credential)
+    indexes, indexers = (
+        SearchIndexClient(settings.search_endpoint, credential),
+        SearchIndexerClient(settings.search_endpoint, credential),
+    )
     indexes.create_or_update_index(index_definition(settings, index_name, compressed=not args.uncompressed))
     indexers.create_or_update_data_source_connection(data_source_definition(settings))
     indexers.create_or_update_skillset(skillset_definition(settings, f"{index_name}-skillset", index_name))
