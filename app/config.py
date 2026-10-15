@@ -7,10 +7,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
 
 # EUR per million tokens (input, output), GlobalStandard, Azure Retail Prices API, Sweden Central, 2026-10-14.
-PRICES_EUR_PER_MILLION: dict[str, tuple[float, float]] = {
-    "gpt-5-mini": (0.22, 1.76),
-    "gpt-5-nano": (0.044, 0.352),
-}
+PRICES_EUR_PER_MILLION: dict[str, tuple[float, float]] = {"gpt-5-mini": (0.22, 1.76), "gpt-5-nano": (0.044, 0.352)}
 
 
 class Settings(BaseSettings):

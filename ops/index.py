@@ -27,6 +27,7 @@ PROJECTION = {
     "language": "/document/language",
     "source_url": "/document/source_url",
 }
+Input, Output = m.InputFieldMappingEntry, m.OutputFieldMappingEntry
 
 
 def foundry_origin(settings: Settings) -> str:
@@ -35,14 +36,6 @@ def foundry_origin(settings: Settings) -> str:
 
 
 def fields_definition(compressed: bool) -> list[m.SearchField]:
-    vector = m.SearchField(
-        name="content_vector",
-        type="Collection(Edm.Single)",
-        vector_search_dimensions=DIMENSIONS,
-        vector_search_profile_name="regulations-vector",
-        stored=not compressed,
-        hidden=True,
-    )
     return [
         m.SearchableField(name="chunk_id", type="Edm.String", key=True, analyzer_name="keyword"),
         m.SimpleField(name="parent_id", type="Edm.String", filterable=True),
@@ -52,7 +45,14 @@ def fields_definition(compressed: bool) -> list[m.SearchField]:
         m.SimpleField(name="article", type="Edm.String", **FACET),
         m.SimpleField(name="language", type="Edm.String", **FACET),
         m.SimpleField(name="source_url", type="Edm.String"),
-        vector,
+        m.SearchField(
+            name="content_vector",
+            type="Collection(Edm.Single)",
+            vector_search_dimensions=DIMENSIONS,
+            vector_search_profile_name="regulations-vector",
+            stored=not compressed,
+            hidden=True,
+        ),
     ]
 
 
@@ -60,10 +60,9 @@ def vector_search_definition(settings: Settings, compressed: bool) -> m.VectorSe
     rescoring = m.RescoringOptions(
         enable_rescoring=True, default_oversampling=4, rescore_storage_method="preserveOriginals"
     )
+    quantization = m.ScalarQuantizationParameters(quantized_data_type="int8")
     compression = m.ScalarQuantizationCompression(
-        compression_name="int8",
-        parameters=m.ScalarQuantizationParameters(quantized_data_type="int8"),
-        rescoring_options=rescoring,
+        compression_name="int8", parameters=quantization, rescoring_options=rescoring
     )
     embeddings = m.AzureOpenAIVectorizerParameters(
         resource_url=foundry_origin(settings),
@@ -85,13 +84,11 @@ def vector_search_definition(settings: Settings, compressed: bool) -> m.VectorSe
 
 
 def index_definition(settings: Settings, name: str, compressed: bool) -> m.SearchIndex:
-    semantic = m.SemanticConfiguration(
-        name=settings.semantic_configuration,
-        prioritized_fields=m.SemanticPrioritizedFields(
-            content_fields=[m.SemanticField(field_name="content")],
-            keywords_fields=[m.SemanticField(field_name="citation_label")],
-        ),
+    fields = m.SemanticPrioritizedFields(
+        content_fields=[m.SemanticField(field_name="content")],
+        keywords_fields=[m.SemanticField(field_name="citation_label")],
     )
+    semantic = m.SemanticConfiguration(name=settings.semantic_configuration, prioritized_fields=fields)
     return m.SearchIndex(
         name=name,
         fields=fields_definition(compressed),
@@ -106,8 +103,8 @@ def chunking_skills() -> list[m.SearchIndexerSkill]:
         context="/document",
         output_mode="oneToMany",
         markdown_header_depth="h3",
-        inputs=[m.InputFieldMappingEntry(name="file_data", source="/document/file_data")],
-        outputs=[m.OutputFieldMappingEntry(name="markdown_document", target_name="sections")],
+        inputs=[Input(name="file_data", source="/document/file_data")],
+        outputs=[Output(name="markdown_document", target_name="sections")],
     )
     split = m.SplitSkill(
         name="split",
@@ -115,8 +112,8 @@ def chunking_skills() -> list[m.SearchIndexerSkill]:
         text_split_mode="pages",
         maximum_page_length=2000,
         page_overlap_length=200,
-        inputs=[m.InputFieldMappingEntry(name="text", source=f"{SECTIONS}/content")],
-        outputs=[m.OutputFieldMappingEntry(name="textItems", target_name="chunks")],
+        inputs=[Input(name="text", source=f"{SECTIONS}/content")],
+        outputs=[Output(name="textItems", target_name="chunks")],
     )
     return [layout, split]
 
@@ -125,11 +122,8 @@ def enrichment_skills(settings: Settings) -> list[m.SearchIndexerSkill]:
     cite = m.ShaperSkill(
         name="cite",
         context=SECTIONS,
-        inputs=[
-            m.InputFieldMappingEntry(name="citation_label", source=CITATION_LABEL),
-            m.InputFieldMappingEntry(name="article", source=ARTICLE),
-        ],
-        outputs=[m.OutputFieldMappingEntry(name="output", target_name="cite")],
+        inputs=[Input(name="citation_label", source=CITATION_LABEL), Input(name="article", source=ARTICLE)],
+        outputs=[Output(name="output", target_name="cite")],
     )
     embed = m.AzureOpenAIEmbeddingSkill(
         name="embed",
@@ -138,8 +132,8 @@ def enrichment_skills(settings: Settings) -> list[m.SearchIndexerSkill]:
         deployment_name=settings.embedding_deployment,
         model_name=settings.embedding_deployment,
         dimensions=DIMENSIONS,
-        inputs=[m.InputFieldMappingEntry(name="text", source=CHUNKS)],
-        outputs=[m.OutputFieldMappingEntry(name="embedding", target_name="vector")],
+        inputs=[Input(name="text", source=CHUNKS)],
+        outputs=[Output(name="embedding", target_name="vector")],
     )
     return [cite, embed]
 
@@ -149,7 +143,7 @@ def skillset_definition(settings: Settings, name: str, index_name: str) -> m.Sea
         target_index_name=index_name,
         parent_key_field_name="parent_id",
         source_context=CHUNKS,
-        mappings=[m.InputFieldMappingEntry(name=field, source=source) for field, source in PROJECTION.items()],
+        mappings=[Input(name=field, source=source) for field, source in PROJECTION.items()],
     )
     parameters = m.SearchIndexerIndexProjectionsParameters(projection_mode="skipIndexingParentDocuments")
     layout, split = chunking_skills()
@@ -213,7 +207,7 @@ def main() -> None:
         description="Create or update the index, skillset, data source and indexer, then run it."
     )
     parser.add_argument(
-        "--uncompressed", action="store_true", help="build a twin index without quantisation to measure the difference"
+        "--uncompressed", action="store_true", help="build a twin index without quantisation to measure it"
     )
     args = parser.parse_args()
     settings, credential = Settings(), DefaultAzureCredential()

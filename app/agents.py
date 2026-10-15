@@ -55,8 +55,7 @@ async def run[M: BaseModel](
     agent: Agent[Any], prompt: str, model: type[M], session: AgentSession | None = None
 ) -> tuple[M, UsageDetails]:
     response = await agent.run(prompt, session=session, options={"response_format": model})
-    value = response.value if isinstance(response.value, model) else model.model_validate_json(response.text)
-    return value, response.usage_details or UsageDetails()
+    return model.model_validate(response.value), response.usage_details or UsageDetails()
 
 
 async def score_candidates(

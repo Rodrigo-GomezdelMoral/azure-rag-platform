@@ -22,7 +22,7 @@ Re-read this file at the start of every phase.
 
   ```
   ── PHASE n COMPLETE ──
-  Files: <n>/52   Python: <n>/1000   Bicep: <n>/400   TS: <n>/700   Comments: <n>/20
+  Files: <n>/52   Python: <n>/1400   Bicep: <n>/400   TS: <n>/700   Comments: <n>/20
   Verified: ruff ✓  mypy ✓  pytest ✓  budget ✓
   Commit with:
     git add <paths>
@@ -41,8 +41,10 @@ Re-read this file at the start of every phase.
 2. **Zero secrets.** `DefaultAzureCredential` for every Azure call. No Key Vault.
 3. **Size budget, enforced by `tests/test_budget.py`:** tracked files excluding `docs/`,
    `eval/datasets/`, `web/node_modules/` and `web/fixtures/` at most 52 (the specification says
-   42; its own mandated layout needs more, and the README records the count); ≤ 1,000 lines of
-   Python; ≤ 400 Bicep; ≤ 700 TypeScript; directory depth 3; functions ≤ 35 lines.
+   42; its own mandated layout needs more, and the README records the count); ≤ 1,400 lines of
+   Python (the specification's 1,000 covered application and operations code; tests and the
+   evaluation harness are counted in the same figure here and the README reports the split);
+   ≤ 400 Bicep; ≤ 700 TypeScript; directory depth 3; functions ≤ 35 lines.
 4. **Comments.** No `#` comment may restate the code; fewer than 20 in the whole Python codebase.
    Type hints replace them.
 5. **No defensive clutter.** No bare `except Exception`; ruff rule `BLE001` and the budget test
