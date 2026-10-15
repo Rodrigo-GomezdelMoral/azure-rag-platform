@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     history_container: str = "history"
     feedback_container: str = "feedback"
     corpus_container_url: str
+    storage_account_resource_id: str
     entra_tenant_id: str
     api_audience: str
     required_app_role: str = "Rag.Query"

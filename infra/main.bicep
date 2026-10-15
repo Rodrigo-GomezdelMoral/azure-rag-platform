@@ -68,7 +68,7 @@ module apps 'modules/apps.bicep' = {
       MODEL_PROVIDER: 'foundry', FOUNDRY_PROJECT_ENDPOINT: landingZone.foundryProjectEndpoint
       CHAT_DEPLOYMENT: landingZone.chatDeploymentName, SMALL_CHAT_DEPLOYMENT: landingZone.smallChatDeploymentName
       EMBEDDING_DEPLOYMENT: landingZone.embeddingDeploymentName, SEARCH_ENDPOINT: landingZone.searchEndpoint
-      COSMOS_ENDPOINT: data.outputs.cosmosEndpoint, CORPUS_CONTAINER_URL: data.outputs.corpusContainerUrl
+      COSMOS_ENDPOINT: data.outputs.cosmosEndpoint, CORPUS_CONTAINER_URL: data.outputs.corpusContainerUrl, STORAGE_ACCOUNT_RESOURCE_ID: data.outputs.storageAccountId
       ENTRA_TENANT_ID: tenant().tenantId, API_AUDIENCE: 'api://${apiAppClientId}'
     }
   }

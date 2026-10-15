@@ -24,7 +24,6 @@ class Chunk(BaseModel):
     regulation: str
     article: str
     citation_label: str
-    page: int
     source_url: str
     language: str = "en"
     hybrid_score: float = 0.0
@@ -54,7 +53,6 @@ class Draft(BaseModel):
 class Citation(BaseModel):
     chunk_id: str
     citation_label: str
-    page: int
     source_url: str
 
 

@@ -22,7 +22,7 @@ corpus is controlled: every document has a manifest entry with its official URL,
 hash and licence, and nothing outside it is ever used as evidence.
 
 **What a good outcome is.** Either an answer made of claims, each citing the article (or
-guidance section) that supports it, with page and link, or an explicit refusal that says the
+guidance section) that supports it, with its heading path and a link, or an explicit refusal that says the
 corpus does not support an answer. A fluent answer without a citation is a failure, not a partial
 success. A hallucinated obligation is an audit finding.
 

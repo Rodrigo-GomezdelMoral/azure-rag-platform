@@ -78,5 +78,7 @@ resource cosmosDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-pre
 output cosmosEndpoint string = cosmos.properties.documentEndpoint
 @description('Storage account name.')
 output storageAccountName string = storage.name
+@description('Storage account resource id, the keyless connection string of the search data source.')
+output storageAccountId string = storage.id
 @description('URL of the corpus container.')
 output corpusContainerUrl string = '${storage.properties.primaryEndpoints.blob}corpus'
