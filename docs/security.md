@@ -20,7 +20,7 @@ secret of any kind — not in code, templates, fixtures, workflows or history.
 | `id-ragjobs` | Search Service Contributor, Search Index Data Contributor | the shared search service | `infra/modules/shared-access.bicep` |
 | `id-ragjobs` | Storage Blob Data Contributor | the `corpus` container | `infra/modules/data.bicep` |
 | the shared search service's identity | Storage Blob Data Reader | the `corpus` container | `infra/modules/data.bicep` |
-| `gh-azure-rag-platform` (GitHub OIDC) | Contributor; AcrPush; Foundry User; Cognitive Services OpenAI User (the evaluation graders call the model deployment as the caller); Search Index Data Reader; Cosmos SQL Data Contributor | this resource group; the shared registry, project, Foundry account and search service; the Cosmos account | bootstrap step in the README |
+| `gh-azure-rag-platform` (GitHub OIDC) | Contributor; Contributor on the shared registry (`az acr build` schedules an ACR task and uploads its context, beyond what AcrPush allows); Foundry User; Cognitive Services OpenAI User (the evaluation graders call the model deployment as the caller); Search Index Data Reader; Cosmos SQL Data Contributor | this resource group; the shared registry, project, Foundry account and search service; the Cosmos account | bootstrap step in the README |
 
 No identity holds a control-plane role it does not need: the API cannot write the index, the jobs
 cannot read conversations, the frontend can only ask the API. The deployment principal's
