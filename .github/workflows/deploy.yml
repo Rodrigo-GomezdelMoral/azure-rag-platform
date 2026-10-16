@@ -57,7 +57,7 @@ jobs:
             sleep 10
           done
           id=$(az containerapp show -g "$RESOURCE_GROUP" -n "$API_APP" --query id -o tsv)
-          query="sum(value[0].timeseries[].data[?total != null].total)"
+          query="sum(value[0].timeseries[].data[?total != null].total | [])"
           errors=$(az monitor metrics list --resource "$id" --metric Requests --aggregation Total --interval PT5M --offset 6m \
             --filter "revisionName eq '$CANDIDATE' and statusCodeCategory eq '5xx'" --query "$query" -o tsv)
           total=$(az monitor metrics list --resource "$id" --metric Requests --aggregation Total --interval PT5M --offset 6m \
