@@ -126,6 +126,7 @@ async def main() -> None:
     if judged is not None:
         page = await clients.chat.client.evals.runs.output_items.list(run_id=judged.run_id, eval_id=judged.eval_id)
         scored = {o.datasource_item_id: {r.name: r.score for r in o.results or [] if r.score} async for o in page}
+    assert scored is None or any(scored.values()), "the judge scored no item: check the CI principal's Foundry role"
     url = (judged.report_url if judged is not None else None) or ""
     report = summarise(items, local, scored, url) | {"suite": suite, "started": started.isoformat(timespec="seconds")}
     report |= {"reranker": settings.reranker, "deployments": [settings.small_chat_deployment, settings.chat_deployment]}

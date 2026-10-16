@@ -103,8 +103,10 @@ resource group must exist, the landing zone must be deployed and its outputs imp
 3. **The deployment principal.** `gh-azure-rag-platform` holds Contributor on this resource group,
    Role Based Access Control Administrator on this and the shared group (to assign roles to the
    identities it creates), AcrPush on the shared registry, and — so that pull requests can run
-   the evaluation suite — Foundry User on the shared project, Search Index Data Reader on the
-   search service and the Cosmos SQL data contributor role on the account.
+   the evaluation suite — Foundry User on the shared project, Cognitive Services OpenAI User on
+   the shared Foundry account (the judge's graders call the model deployment as the caller; without
+   it every judged item errors and the run fails), Search Index Data Reader on the search service
+   and the Cosmos SQL data contributor role on the account.
 4. **Repository configuration.** Secrets `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`,
    `AZURE_SUBSCRIPTION_ID`; variables `FOUNDRY_PROJECT_ENDPOINT`, `SEARCH_ENDPOINT`,
    `COSMOS_ENDPOINT`, `CORPUS_CONTAINER_URL`, `API_AUDIENCE`, `API_APP_CLIENT_ID`; an environment
@@ -173,7 +175,7 @@ prices and stated assumptions in `docs/cost.md`.
 | `id-ragweb` | app role `Rag.Query` on the API · Monitoring Metrics Publisher · AcrPull |
 | `id-ragjobs` | Foundry User · Search Service Contributor and Search Index Data Contributor · Storage Blob Data Contributor on `corpus` · Monitoring Metrics Publisher · AcrPull |
 | shared search service | Storage Blob Data Reader on `corpus` |
-| `gh-azure-rag-platform` | Contributor on this group · RBAC Administrator on both groups · AcrPush · Foundry User · Search Index Data Reader · Cosmos SQL data contributor |
+| `gh-azure-rag-platform` | Contributor on this group · RBAC Administrator on both groups · AcrPush · Foundry User on the shared project · Cognitive Services OpenAI User on the shared Foundry account, because the judge's graders call the model deployment as the caller · Search Index Data Reader · Cosmos SQL data contributor |
 
 **There is no secret anywhere in this system: no key, no connection string, no vault to keep them
 in.** Every call is made with a managed identity or the developer's own login, storage and Cosmos
