@@ -33,9 +33,10 @@ The local metrics are those of `eval/evaluators.py`; groundedness and relevance 
 from the token counts the framework returns at the Retail Prices above; latency is the sum of the
 five phase timings the pipeline records.
 
-Three caveats bound what the numbers can say. The golden set is generated and **not yet verified
-by a human** (`eval/datasets/REVIEW.md`), so the comparison is between the two variants, not a
-statement of the system's quality. Each variant was run **once**, and the planner's query rewrite
+Three caveats bound what the numbers can say. The golden set was verified by the author on
+2026-10-16, the day after these runs, and accepted unchanged (`docs/evaluation.md`); the
+comparison here is still between two variants, not a statement of the system's quality, which
+`docs/evaluation.md` publishes from the full suite. Each variant was run **once**, and the planner's query rewrite
 is not deterministic: four smoke runs on the same day moved recall at 10 by 0.17
 (`docs/evaluation.md`), so on eighty items a difference of one or two items (0.0125 to 0.025) is
 noise. And the judge scores only the items that were answered, so a variant that refuses more
@@ -104,7 +105,6 @@ small task, and the identical recall of both runs shows the planner was not what
 
 ## What would reopen this
 
-- A verified golden set: these are relative numbers on unreviewed pairs.
 - A prompt revision aimed at `gpt-5-nano`'s label copying, which is a different experiment: this
   one tested the specification's one-line change and nothing else.
 - A rerun with a run-to-run variance estimate, once the planner's rewrite is stabilised; until

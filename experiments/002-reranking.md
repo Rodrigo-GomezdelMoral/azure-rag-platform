@@ -29,9 +29,8 @@ RERANKER=agent python -m eval.run --suite golden
 
 Recall at 10 is measured over the reranked eight followed by the remaining candidates in hybrid
 order (`docs/evaluation.md`, known limits), so a golden passage anywhere in the thirty counts at
-rank ten or better only if a ranker put it there. The caveats of experiment 001 apply: an
-unverified golden set, one run per variant, and a planner whose rewrite moves recall by one or two
-items between runs.
+rank ten or better only if a ranker put it there. The caveats of experiment 001 apply: one run
+per variant, and a planner whose rewrite moves recall by one or two items between runs.
 
 ## Results
 
@@ -57,8 +56,8 @@ and four from MDCG 2020-1, three of those four from the same section on the gene
 clinical evaluation. The lever for recall is upstream of either ranker: the planner's query and
 the way the corpus is chunked and labelled. The smoke run's finding that definitions are retrieved
 poorly (`docs/evaluation.md`) is one face of this; on the golden set definitions were in fact the
-best-retrieved type (16 of 20) and obligations the worst (20 of 32), which the human review of the
-golden set has to weigh before either figure is trusted.
+best-retrieved type (16 of 20) and obligations the worst (20 of 32); the review of the golden set
+accepted every pair, so the difference is in retrieval, not in the questions.
 
 **nDCG at 10 is not reported from these runs.** The three reports of 2026-10-15 were produced by a
 version of `ndcg_at_10` that credited every chunk sharing a golden label, so when several chunks
@@ -101,8 +100,8 @@ The cheap option was good enough, and the measurement says why: the recall the p
 missing is not in the thirty candidates either ranker sees.
 
 `RERANKER=agent` remains a setting because it costs one function and no abstraction (ADR-004),
-and because the experiment should be run again when two things change: the golden set is
-verified, and the planner's rewrite is stable enough that a one-item difference means something.
+and because the experiment should be run again when the planner's rewrite is stable enough that
+a one-item difference means something.
 It is not recommended for any share of traffic.
 
 ## What would reopen this
@@ -111,5 +110,4 @@ It is not recommended for any share of traffic.
   which a reranker would have something to lift.
 - A reranker that reads more than thirty candidates, which trades the latency measured here for
   the chance of recovering passages at ranks thirty to fifty; the cost would scale with it.
-- Human verification of the golden set, without which none of these recalls is a statement about
-  the system.
+- A second run of both variants with a run-to-run variance estimate, on the set as verified.

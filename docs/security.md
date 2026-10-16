@@ -41,7 +41,7 @@ caller's object id before the agent session is created, so history is partitione
 
 | Threat | Mitigation | File |
 |---|---|---|
-| Prompt injection through the question | the planner and answerer are told that the question is data; the answerer's rules put every claim under a citation that verification checks | `prompts/planner_v1.md`, `prompts/answerer_v1.md`, `app/answer.py` |
+| Prompt injection through the question | the planner and answerer are told that the question is data; the answerer's rules put every claim under a citation that verification checks; a question that trips Azure OpenAI's jailbreak filter at the planner ends as a `content_filter` refusal, which the first full-suite run showed was an unhandled exception until then | `prompts/planner_v1.md`, `prompts/answerer_v1.md`, `app/answer.py` (`retrieve`) |
 | Prompt injection through a retrieved or planted document | evidence reaches the answerer as a user-role block delimited and labelled untrusted; no agent has tools, so an injected instruction has nothing to call | `app/agents.py` (`answerer_input`), `app/answer.py` |
 | Injection that succeeds silently | every adversarial evaluation row carries a canary, through the question, a planted top-ranked passage and formatting; its appearance fails the gate | `eval/datasets/adversarial.jsonl`, `eval/evaluators.py` (`canary_appearances`), `eval/run.py` (`Planted`) |
 | Fabricated or misattributed citation | `verify()` keeps a claim only when every cited chunk id was shown to the answerer and its label matches; an answer with no surviving claim is a typed refusal | `app/answer.py` (`verify`), `tests/test_pipeline.py` |
@@ -55,7 +55,7 @@ caller's object id before the agent session is created, so history is partitione
 | Keys on storage, Cosmos or Application Insights | shared-key access disabled, local authentication disabled, Entra-only ingestion | `infra/modules/data.bicep`, `infra/modules/apps.bicep` |
 | Vulnerable or tampered dependencies | exact pins for Python and npm, trivy and pip-audit in CI | `requirements.txt`, `web/package-lock.json`, `.github/workflows/ci.yml` |
 | Runaway spend | a monthly budget with alerts on this group, scale limits on the apps, a 5xx alert | `infra/modules/apps.bicep` |
-| Harmful content | the provider's content filter is honoured as a typed refusal, never retried around | `app/answer.py` (`draft_answer`) |
+| Harmful content | the provider's content filter is honoured as a typed refusal at the planner and at the answerer, never retried around | `app/answer.py` (`retrieve`, `draft_answer`) |
 | A bad deployment | a canary revision takes 10 % of traffic and is rolled back on an error-rate regression | `.github/workflows/deploy.yml` |
 
 ## What is not defended

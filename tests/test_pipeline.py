@@ -15,16 +15,13 @@ PHASES = ["plan", "search", "rerank", "answer", "verify"]
 
 
 def citing(prompt: str) -> Draft:
-    fields = dict(
-        line.split(": ", 1) for line in prompt.splitlines() if line.startswith(("chunk_id: ", "citation_label: "))
-    )
-    return Draft(
-        claims=[Claim(text="grounded", chunk_ids=[fields["chunk_id"]], citation_label=fields["citation_label"])]
-    )
+    keys = ("chunk_id: ", "citation_label: ")
+    f = dict(line.split(": ", 1) for line in prompt.splitlines() if line.startswith(keys))
+    return Draft(claims=[Claim(text="grounded", chunk_ids=[f["chunk_id"]], citation_label=f["citation_label"])])
 
 
-def pipeline(settings: Settings, answerer: FakeAgent) -> Pipeline:
-    agents = Agents(planner=as_agent(FakeAgent(PLAN)), reranker=as_agent(FakeAgent()), answerer=as_agent(answerer))
+def pipeline(settings: Settings, answerer: FakeAgent, planner: FakeAgent | None = None) -> Pipeline:
+    agents = Agents(as_agent(planner or FakeAgent(PLAN)), as_agent(FakeAgent()), as_agent(answerer))
     return Pipeline(settings, agents, LocalRetriever())
 
 
@@ -76,6 +73,7 @@ async def test_grounded_claim_survives_with_its_citation(settings: Settings) -> 
 
 
 async def test_content_filter_and_retrieve_only(settings: Settings) -> None:
-    filtered = pipeline(settings, FakeAgent(error=ChatClientContentFilterException("blocked")))
-    assert (await collect(filtered))[-1].data["refusal"] == RefusalReason.CONTENT_FILTER
-    assert [event.phase for event in await collect(filtered, generate=False)] == PHASES[:3]
+    failing = FakeAgent(error=ChatClientContentFilterException("blocked"))
+    for blocked in (pipeline(settings, failing), pipeline(settings, FakeAgent(), failing)):
+        assert (await collect(blocked))[-1].data["refusal"] == RefusalReason.CONTENT_FILTER
+    assert [e.phase for e in await collect(pipeline(settings, failing), generate=False)] == PHASES[:3]

@@ -30,6 +30,7 @@ class Run:
     timings: dict[Phase, int] = field(default_factory=dict)
     usages: list[tuple[str, UsageDetails]] = field(default_factory=list)
     evidence: list[Chunk] = field(default_factory=list)
+    refusal: RefusalReason | None = None
 
     def event(self, phase: Phase, data: dict[str, Any]) -> PhaseEvent:
         now = time.perf_counter()
@@ -57,11 +58,11 @@ def cost_eur(settings: Settings, usages: list[tuple[str, UsageDetails]]) -> floa
     return round(sum(prices), 6)
 
 
-async def draft_answer(pipeline: Pipeline, question: str, evidence: list[Chunk]) -> Drafted:
-    if not evidence:
-        return Draft(claims=[]), RefusalReason.NO_EVIDENCE, UsageDetails()
+async def draft_answer(pipeline: Pipeline, question: str, run_: Run) -> Drafted:
+    if run_.refusal or not run_.evidence:
+        return Draft(claims=[]), run_.refusal or RefusalReason.NO_EVIDENCE, UsageDetails()
     try:
-        draft, usage = await run(pipeline.agents.answerer, answerer_input(question, evidence), Draft)
+        draft, usage = await run(pipeline.agents.answerer, answerer_input(question, run_.evidence), Draft)
     except ChatClientContentFilterException:
         return Draft(claims=[]), RefusalReason.CONTENT_FILTER, UsageDetails()
     return draft, None, usage
@@ -69,7 +70,12 @@ async def draft_answer(pipeline: Pipeline, question: str, evidence: list[Chunk])
 
 async def retrieve(pipeline: Pipeline, question: str, session_id: str, run_: Run) -> AsyncIterator[PhaseEvent]:
     settings, agents = pipeline.settings, pipeline.agents
-    plan, usage = await run(agents.planner, question, QueryPlan, AgentSession(session_id=session_id))
+    try:
+        plan, usage = await run(agents.planner, question, QueryPlan, AgentSession(session_id=session_id))
+    except ChatClientContentFilterException:
+        run_.refusal = RefusalReason.CONTENT_FILTER
+        yield run_.event("plan", {"question": question, "refusal": run_.refusal})
+        return
     run_.usages.append((settings.small_chat_deployment, usage))
     filters = plan.filters.model_dump(exclude_none=True)
     yield run_.event("plan", {"question": question, "query": plan.query, "filters": filters})
@@ -93,7 +99,7 @@ async def answer(
         yield event
     if not generate:
         return
-    draft, refusal, usage = await draft_answer(pipeline, question, run_.evidence)
+    draft, refusal, usage = await draft_answer(pipeline, question, run_)
     run_.usages.append((settings.chat_deployment, usage))
     yield run_.event("answer", {"claims": len(draft.claims)})
     with tracer.start_as_current_span("verify"):
@@ -101,9 +107,6 @@ async def answer(
     refusal = refusal or (None if claims else RefusalReason.UNVERIFIED if dropped else RefusalReason.NO_EVIDENCE)
     final = run_.event("verify", {})
     result = Answer(trace_id=run_.trace_id, claims=claims, citations=cited(claims, run_.evidence), refusal=refusal)
-    result.unverified_claims, result.cost_eur, result.timings_ms = (
-        dropped,
-        cost_eur(settings, run_.usages),
-        run_.timings,
-    )
+    result.unverified_claims, result.cost_eur = dropped, cost_eur(settings, run_.usages)
+    result.timings_ms = run_.timings
     yield final.model_copy(update={"data": result.model_dump()})

@@ -117,39 +117,43 @@ subject that matches one of them exactly:
 
 | Subject | Used by |
 |---|---|
-| `repo:<owner>/<repo>:pull_request` | `eval.yml` on pull requests |
-| `repo:<owner>/<repo>:ref:refs/heads/main` | `eval.yml` on its weekly schedule and manual runs from `main` |
-| `repo:<owner>/<repo>:environment:production` | `deploy.yml`, which declares `environment: production` |
+| `repo:<owner>@<owner id>/<repo>@<repository id>:pull_request` | `eval.yml` on pull requests |
+| `repo:<owner>@<owner id>/<repo>@<repository id>:ref:refs/heads/main` | `eval.yml` on its weekly schedule and manual runs from `main` |
+| `repo:<owner>@<owner id>/<repo>@<repository id>:environment:production` | `deploy.yml`, which declares `environment: production` |
 
-`AADSTS700213` (*no matching federated identity record found for presented assertion subject*)
-means the subject GitHub sent is not in that table. The usual cause is a job that declares an
-`environment`: its token carries the environment subject instead of the branch one, so a workflow
-with `environment: production` fails until the third credential exists. Read the subject in the
-error message and add it, do not widen an existing one.
+The numeric ids are GitHub's *immutable subject*, sent by repositories created after 15 July 2026
+and shown by `gh api repos/<owner>/<repo>/actions/oidc/customization/sub`; a credential in the
+older name-only form does not match. `AADSTS700213` (*no matching federated identity record found
+for presented assertion subject*) means the subject GitHub sent is not in that table. The other
+usual cause is a job that declares an `environment`: its token carries the environment subject
+instead of the branch one, so a workflow with `environment: production` fails until the third
+credential exists. Read the subject in the error message and add it, do not widen an existing one.
 
 ## Evaluation
 
-The evaluation of 2026-10-15 — the twelve-item smoke suite, planner `gpt-5-nano`, answerer
-`gpt-5-mini`, semantic reranker, report `docs/reports/2026-10-15-smoke-gpt-5-mini-semantic.json`:
+The full suite of 2026-10-16 — golden (80, verified by the author that day), unanswerable (30),
+multihop (20) and adversarial (25), 155 items — planner `gpt-5-nano`, answerer `gpt-5-mini`,
+semantic reranker, report `docs/reports/2026-10-16-full-gpt-5-mini-semantic.json`:
 
 | Metric | Mean | Threshold |
 |---|---|---|
-| Groundedness (Foundry judge, scaled 0–1) | 0.91 | ≥ 0.90 |
-| Relevance (Foundry judge, scaled 0–1) | 0.86 | reported |
-| Citation precision | 0.82 | ≥ 0.95 |
-| Recall at 10 | 0.61 | ≥ 0.85 |
-| Correct refusal | 1.00 | ≥ 0.90 |
-| False refusal | 0.11 | ≤ 0.05 |
-| Canary appearances | 0 | = 0 |
+| Groundedness (judge, scaled 0–1) | 0.94 | ≥ 0.9 |
+| Relevance (judge, scaled 0–1) | 0.88 | reported |
+| Citation precision | 0.94 | ≥ 0.95 |
+| Recall at 10 | 0.71 | ≥ 0.85 |
+| Correct refusal | 0.94 | ≥ 0.9 |
+| False refusal | 0.03 | ≤ 0.05 |
+| Canary appearances | 0.00 | = 0 |
 
 **The merge gate is red** and the repository says so: definition questions do not retrieve the
 definitions article, and the planner's rewrite varies between runs. `docs/evaluation.md` explains
 each failure; `experiments/` measures the two obvious levers and finds that neither moves recall:
 the same twenty-three golden items are missed whichever Answerer or reranker runs, because their
-passages are not among the retrieved candidates at all. The eighty-item golden set is
-generated and **awaits human verification** (`eval/datasets/REVIEW.md`); no metric computed on it
-is published, and the judge's agreement with human labels (κ) is pending the labels in
-`eval/datasets/calibration.jsonl`.
+passages are not among the retrieved candidates at all. The eighty-item golden set was
+**verified by the author on 2026-10-16** (`docs/evaluation.md`) and the first full-suite
+report after the review is published in `docs/evaluation.md`; the judge's agreement with the
+labels of the forty calibration items is κ = 0.90 for groundedness and κ = 0.00 for
+relevance (`docs/reports/2026-10-16-calibration-gpt-5-mini-semantic.json`).
 
 ## Cost
 

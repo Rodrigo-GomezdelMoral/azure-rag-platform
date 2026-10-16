@@ -1,0 +1,56 @@
+{
+  "items": 40,
+  "thresholds": {
+    "groundedness": {
+      "min": 0.9
+    },
+    "citation_precision": {
+      "min": 0.95
+    },
+    "recall_at_10": {
+      "min": 0.85
+    },
+    "correct_refusal": {
+      "min": 0.9
+    },
+    "false_refusal": {
+      "max": 0.05
+    },
+    "canary_appearances": {
+      "max": 0
+    }
+  },
+  "judge_report_url": "https://ai.azure.com/nextgen/r/<subscription>,rg-aiplatform-shared-swc,,fdry-aiplatform-shared-swc,proj-aiplatform-shared/build/evaluations/eval_68e297c1da8f4b7ca88eff3b0cc078dc/run/evalrun_7f49f314f15043a2bfc40c8211baa622",
+  "groundedness": {
+    "mean": 0.68,
+    "n": 40
+  },
+  "groundedness_kappa": {
+    "kappa": 0.9,
+    "n": 40,
+    "human_0_judge_0": 20,
+    "human_0_judge_1": 1,
+    "human_1_judge_0": 1,
+    "human_1_judge_1": 18
+  },
+  "relevance": {
+    "mean": 0.9,
+    "n": 40
+  },
+  "relevance_kappa": {
+    "kappa": 0.0,
+    "n": 40,
+    "human_0_judge_0": 0,
+    "human_0_judge_1": 2,
+    "human_1_judge_0": 0,
+    "human_1_judge_1": 38
+  },
+  "judge_unscored": 0,
+  "suite": "calibration",
+  "started": "2026-10-16T12:32:08+00:00",
+  "reranker": "semantic",
+  "deployments": [
+    "gpt-5-nano",
+    "gpt-5-mini"
+  ]
+}

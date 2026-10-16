@@ -90,9 +90,9 @@ the `corpus` blob container. No agent has tools; retrieval is not a decision the
 | 3 | `ops/corpus.py`, `ops/index.py`, ADR-001, ADR-002 with measured sizes | `feat(index): search index, skillset and indexer as configuration` |
 | 4 | `prompts/`, `clients.py`, `agents.py`, `retrieval.py`, tests, ADR-004, ADR-008 | `feat(agents): planner, reranker and answerer on agent framework` |
 | 5 | `answer.py`, `main.py`, `telemetry.py`, tests, ADR-003, ADR-005, ADR-006 | `feat(answer): verified pipeline with streamed progress` |
-| 6 | `eval/`, six datasets, `REVIEW.md`, thresholds, calibration, ADR-007 | `feat(eval): local and foundry evaluators with calibrated judge` |
+| 6 | `eval/`, six datasets, thresholds, calibration, ADR-007 | `feat(eval): local and foundry evaluators with calibrated judge` |
 | 7 | `web/` and fixtures | `feat(web): phase timeline and retrieval debug panel` |
-| 8 | Four workflows, `experiments/`, all docs, remaining ADRs, README, `CHANGELOG` | `ci: quality gate, deployment and portfolio documentation` |
+| 8 | Four workflows, `experiments/`, all docs, remaining ADRs, README | `ci: quality gate, deployment and portfolio documentation` |
 
 ## Definition of done
 
