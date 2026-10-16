@@ -21,11 +21,8 @@ from eval.evaluators import METRICS, THRESHOLDS, check
 DATASETS = Path(__file__).with_name("datasets")
 REPORTS = Path(__file__).resolve().parent.parent / "docs" / "reports"
 JUDGED, JUDGE_SCALE = ("groundedness", "relevance"), 5
-SUITES = {
-    "smoke": ["smoke"],
-    "full": ["golden", "unanswerable", "multihop", "adversarial"],
-    "calibration": ["calibration"],
-}
+FULL = ["golden", "unanswerable", "multihop", "adversarial"]
+SUITES = {"smoke": ["smoke"], "full": FULL, "calibration": ["calibration"]}
 PLANTED = {"regulation": "MDCG-0000-0", "article": "Planted guidance", "citation_label": "Planted guidance"}
 
 
@@ -46,7 +43,7 @@ class Planted:
 
 
 def rows(suite: str) -> list[dict[str, Any]]:
-    text = "".join((DATASETS / f"{name}.jsonl").read_text(encoding="utf-8") for name in SUITES[suite])
+    text = "".join((DATASETS / f"{name}.jsonl").read_text(encoding="utf-8") for name in SUITES.get(suite, [suite]))
     return [json.loads(line) for line in text.splitlines() if line]
 
 
@@ -92,8 +89,11 @@ def summarise(items: list[EvalItem], local: EvalResults | None, judged: EvalResu
         failed = [(item.item_id, score) for item in local.items or [] for score in item.scores if score.passed is False]
         report["failures"] = [f"{i}: {s.name} {(s.sample or {}).get('reason')}" for i, s in failed]
         report |= {name: mean([v for v in map(metric, data) if v is not None]) for name, metric in METRICS.items()}
+        report["cost_eur"] = mean([d["answer"]["cost_eur"] for d in data])
+        report["latency_ms"] = mean([float(sum(d["answer"]["timings_ms"].values())) for d in data])
     if judged is not None:
-        report["judge_report_url"] = judged.report_url
+        head, _, tail = (judged.report_url or "").partition("/r/")
+        report["judge_report_url"] = f"{head}/r/<subscription>,{tail.partition(',')[2]}" if tail else head
         for name in JUDGED:
             scores = [s.score / JUDGE_SCALE for r in judged.items or [] for s in r.scores if s.name == name]
             labelled = [(d["human"][name], int(v >= 0.6)) for d, v in zip(data, scores, strict=False) if d.get("human")]
@@ -108,7 +108,7 @@ async def evaluate(suite: str, settings: Settings, clients: Clients) -> tuple[li
     pipeline = Pipeline(
         settings, build_agents(clients), SearchRetriever(clients.search, settings.semantic_configuration)
     )
-    limit = asyncio.Semaphore(6)
+    limit = asyncio.Semaphore(3)
     items = list(await asyncio.gather(*(evaluate_row(pipeline, row, limit) for row in rows(suite))))
     checks = LocalEvaluator(*(check(name, metric) for name, metric in METRICS.items()))
     return items, await checks.evaluate(items, eval_name=suite)
@@ -116,18 +116,21 @@ async def evaluate(suite: str, settings: Settings, clients: Clients) -> tuple[li
 
 async def main() -> None:
     parser = argparse.ArgumentParser(description="Evaluate the pipeline on a dataset suite and write a report")
-    parser.add_argument("--suite", choices=SUITES, default="smoke")
+    parser.add_argument("--suite", default="smoke", help="smoke, full, calibration, or one dataset name")
     suite, settings, started = parser.parse_args().suite, Settings(), datetime.now(UTC)
     clients = build_clients(settings)
     assert isinstance(clients.chat, FoundryChatClient), "the judge runs in Foundry"
     items, local = await evaluate(suite, settings, clients)
     answered = [it for it in items if not it.response.startswith("Refused:")]
-    judge = FoundryEvals(client=clients.chat, evaluators=[FoundryEvals.GROUNDEDNESS, FoundryEvals.RELEVANCE])
+    judge = FoundryEvals(
+        client=clients.chat, evaluators=[FoundryEvals.GROUNDEDNESS, FoundryEvals.RELEVANCE], timeout=1800
+    )
     judged = await judge.evaluate(answered, eval_name=f"{suite}-judge") if answered else None
     report = summarise(items, local, judged) | {"suite": suite, "started": started.isoformat(timespec="seconds")}
     report |= {"reranker": settings.reranker, "deployments": [settings.small_chat_deployment, settings.chat_deployment]}
     REPORTS.mkdir(parents=True, exist_ok=True)
-    (REPORTS / f"{started:%Y-%m-%d}-{suite}.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    name = f"{started:%Y-%m-%d}-{suite}-{settings.chat_deployment}-{settings.reranker}.json"
+    (REPORTS / name).write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
     await clients.close()
     if local is not None:

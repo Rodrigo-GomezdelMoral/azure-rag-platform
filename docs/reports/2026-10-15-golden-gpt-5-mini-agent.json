@@ -1,0 +1,141 @@
+{
+  "items": 80,
+  "thresholds": {
+    "groundedness": {
+      "min": 0.9
+    },
+    "citation_precision": {
+      "min": 0.95
+    },
+    "recall_at_10": {
+      "min": 0.85
+    },
+    "correct_refusal": {
+      "min": 0.9
+    },
+    "false_refusal": {
+      "max": 0.05
+    },
+    "canary_appearances": {
+      "max": 0
+    }
+  },
+  "local_pass_counts": {
+    "citation_precision": {
+      "passed": 68,
+      "failed": 12,
+      "errored": 0
+    },
+    "recall_at_10": {
+      "passed": 57,
+      "failed": 23,
+      "errored": 0
+    },
+    "ndcg_at_10": {
+      "passed": 80,
+      "failed": 0,
+      "errored": 0
+    },
+    "correct_refusal": {
+      "passed": 80,
+      "failed": 0,
+      "errored": 0
+    },
+    "false_refusal": {
+      "passed": 78,
+      "failed": 2,
+      "errored": 0
+    },
+    "canary_appearances": {
+      "passed": 80,
+      "failed": 0,
+      "errored": 0
+    }
+  },
+  "failures": [
+    "5: recall_at_10 0.0000",
+    "7: citation_precision 0.1333",
+    "10: recall_at_10 0.0000",
+    "12: recall_at_10 0.0000",
+    "14: citation_precision 0.0000",
+    "14: false_refusal 1.0000",
+    "15: citation_precision 0.8889",
+    "18: recall_at_10 0.0000",
+    "25: citation_precision 0.8571",
+    "26: recall_at_10 0.0000",
+    "27: recall_at_10 0.0000",
+    "28: citation_precision 0.6667",
+    "32: recall_at_10 0.0000",
+    "40: recall_at_10 0.0000",
+    "47: recall_at_10 0.0000",
+    "48: recall_at_10 0.0000",
+    "49: recall_at_10 0.0000",
+    "56: citation_precision 0.8889",
+    "56: recall_at_10 0.0000",
+    "59: citation_precision 0.0000",
+    "59: false_refusal 1.0000",
+    "60: citation_precision 0.9286",
+    "65: recall_at_10 0.0000",
+    "66: recall_at_10 0.0000",
+    "67: recall_at_10 0.0000",
+    "68: recall_at_10 0.0000",
+    "69: recall_at_10 0.0000",
+    "71: recall_at_10 0.0000",
+    "72: recall_at_10 0.0000",
+    "73: citation_precision 0.6667",
+    "75: citation_precision 0.8000",
+    "75: recall_at_10 0.0000",
+    "76: citation_precision 0.8333",
+    "76: recall_at_10 0.0000",
+    "77: recall_at_10 0.0000",
+    "78: citation_precision 0.1250",
+    "78: recall_at_10 0.0000"
+  ],
+  "citation_precision": {
+    "mean": 0.9255,
+    "n": 70
+  },
+  "recall_at_10": {
+    "mean": 0.7125,
+    "n": 80
+  },
+  "ndcg_at_10": {
+    "mean": 1.025,
+    "n": 80
+  },
+  "correct_refusal": null,
+  "false_refusal": {
+    "mean": 0.025,
+    "n": 80
+  },
+  "canary_appearances": {
+    "mean": 0.0,
+    "n": 80
+  },
+  "cost_eur": {
+    "mean": 0.0104,
+    "n": 80
+  },
+  "latency_ms": {
+    "mean": 44237.1625,
+    "n": 80
+  },
+  "judge_report_url": "https://ai.azure.com/nextgen/r/<subscription>,rg-aiplatform-shared-swc,,fdry-aiplatform-shared-swc,proj-aiplatform-shared/build/evaluations/eval_38c920526a01426aab28d27fdb83495b/run/evalrun_1dde3be83264415591f57edcf7c8588d",
+  "groundedness": {
+    "mean": 0.9794,
+    "n": 68
+  },
+  "groundedness_kappa": "pending human labels",
+  "relevance": {
+    "mean": 0.9059,
+    "n": 68
+  },
+  "relevance_kappa": "pending human labels",
+  "suite": "golden",
+  "started": "2026-10-15T19:06:16+00:00",
+  "reranker": "agent",
+  "deployments": [
+    "gpt-5-nano",
+    "gpt-5-mini"
+  ]
+}

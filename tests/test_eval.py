@@ -23,7 +23,7 @@ DATA = {
         "golden_citations": [{"regulation": "EU-2024-1689", "citation_label": LABELS[1]}],
     },
     "answer": {"claims": [{"text": "a"}, {"text": "b"}, {"text": "c"}], "unverified_claims": 1, "refusal": None},
-    "ranked": [{"regulation": "EU-2024-1689", "citation_label": label} for label in LABELS],
+    "ranked": [{"regulation": "EU-2024-1689", "citation_label": label} for label in LABELS + LABELS[1:]],
     "text": "a b c",
 }
 

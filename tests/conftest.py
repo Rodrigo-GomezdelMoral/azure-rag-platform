@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from types import SimpleNamespace
 from typing import Any, cast
 
 import pytest
@@ -16,22 +17,17 @@ FAKE |= {"corpus_container_url": "https://x.invalid/corpus", "storage_account_re
 FAKE |= {"entra_tenant_id": TENANT, "api_audience": AUDIENCE, "model_provider": "ollama", "require_auth": True}
 
 
-class FakeResponse:
-    def __init__(self, value: Any, usage: dict[str, int] | None = None) -> None:
-        self.value, self.text, self.usage_details = value, "", usage
-
-
 class FakeAgent:
     def __init__(
         self, value: Any = None, error: Exception | None = None, make: Callable[[str], Any] | None = None
     ) -> None:
         self.value, self.error, self.make, self.prompts = value, error, make, list[str]()
 
-    async def run(self, prompt: str, *, session: AgentSession | None = None, options: Any = None) -> FakeResponse:
+    async def run(self, prompt: str, *, session: AgentSession | None = None, options: Any = None) -> SimpleNamespace:
         self.prompts.append(prompt)
         if self.error is not None:
             raise self.error
-        return FakeResponse(self.make(prompt) if self.make else self.value, USAGE)
+        return SimpleNamespace(value=self.make(prompt) if self.make else self.value, text="", usage_details=USAGE)
 
 
 def as_agent(fake: FakeAgent) -> Agent[Any]:

@@ -9,6 +9,6 @@
   },
   "postCreateCommand": "pip install -r requirements-dev.txt && cp -n .env.example .env && (cd web && npm install)",
   "postStartCommand": "ollama pull llama3.2:3b",
-  "forwardPorts": [8000, 5173],
+  "forwardPorts": [8000, 8080],
   "customizations": { "vscode": { "extensions": ["ms-python.python", "charliermarsh.ruff", "ms-azuretools.vscode-bicep"] } }
 }

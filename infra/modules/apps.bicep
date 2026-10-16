@@ -69,7 +69,7 @@ resource api 'Microsoft.App/containerApps@2026-07-01' = {
   identity: { type: 'UserAssigned', userAssignedIdentities: { '${identities[0].id}': {} } }
   properties: {
     environmentId: env.id
-    configuration: { ingress: { external: true, targetPort: 8000, transport: 'http' }, registries: [union(registry, { identity: identities[0].id })] }
+    configuration: { activeRevisionsMode: 'Multiple', ingress: { external: true, targetPort: 8000, transport: 'http' }, registries: [union(registry, { identity: identities[0].id })] }
     template: {
       containers: [{ name: 'api', image: apiImage, resources: { cpu: json('0.5'), memory: '1Gi' }, env: concat(sharedEnv, [{ name: 'AZURE_CLIENT_ID', value: identities[0].clientId }]) }]
       scale: { minReplicas: 0, maxReplicas: 3 }

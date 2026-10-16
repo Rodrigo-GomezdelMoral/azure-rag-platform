@@ -31,8 +31,8 @@ def recall_at_10(data: Data) -> float | None:
 
 
 def ndcg_at_10(data: Data) -> float | None:
-    golden = {key(chunk) for chunk in data["row"]["golden_citations"]}
-    gains = [1 / math.log2(rank + 2) for rank, chunk in enumerate(data["ranked"][:10]) if key(chunk) in golden]
+    golden, labels = {key(c) for c in data["row"]["golden_citations"]}, [key(c) for c in data["ranked"][:10]]
+    gains = [1 / math.log2(labels.index(label) + 2) for label in golden if label in labels]
     return sum(gains) / sum(1 / math.log2(rank + 2) for rank in range(min(len(golden), 10))) if golden else None
 
 

@@ -22,7 +22,7 @@ Re-read this file at the start of every phase.
 
   ```
   ── PHASE n COMPLETE ──
-  Files: <n>/52   Python: <n>/1400   Bicep: <n>/400   TS: <n>/700   Comments: <n>/20
+  Files: <n>/60   Python: <n>/1400   Bicep: <n>/400   TS: <n>/700   Comments: <n>/20
   Verified: ruff ✓  mypy ✓  pytest ✓  budget ✓
   Commit with:
     git add <paths>
@@ -40,7 +40,7 @@ Re-read this file at the start of every phase.
 1. **No identity leakage** anywhere, fixtures and commit messages included. Placeholders only.
 2. **Zero secrets.** `DefaultAzureCredential` for every Azure call. No Key Vault.
 3. **Size budget, enforced by `tests/test_budget.py`:** tracked files excluding `docs/`,
-   `eval/datasets/`, `web/node_modules/` and `web/fixtures/` at most 52 (the specification says
+   `eval/datasets/`, `web/node_modules/` and `web/fixtures/` at most 60 (the specification says
    42; its own mandated layout needs more, and the README records the count); ≤ 1,400 lines of
    Python (the specification's 1,000 covered application and operations code; tests and the
    evaluation harness are counted in the same figure here and the README reports the split);

@@ -46,6 +46,12 @@ unambiguous, of the stated type, and answered by its passage alone. **None of th
 has been verified yet, and no metric computed on the golden set is published.** When the review
 is complete, `REVIEW.md` records it and the first full-suite report becomes citable.
 
+The three golden-set reports of 2026-10-15 in `docs/reports/` exist because `experiments/` cites
+them: they compare an Answerer model and a reranker **against each other** on the unverified set,
+and no number in them is a statement of the system's quality. Their `ndcg_at_10` value was
+computed before the metric was corrected to count each golden label once; the experiments report
+it as not comparable.
+
 ## Judge calibration
 
 `python -m eval.run --suite calibration` scores the forty calibration items with the Foundry
@@ -64,13 +70,16 @@ fixed.
 | `make eval` | the full suite: golden, unanswerable, multihop and adversarial |
 | `python -m eval.run --suite calibration` | the judge against the calibration set |
 
-Every run writes `docs/reports/<date>-<suite>.json` with the per-metric means, the per-evaluator
+Every run writes `docs/reports/<date>-<suite>-<answerer deployment>-<reranker>.json` with the per-metric means, the per-evaluator
 pass counts, the thresholds, the Foundry report URL, the deployments, the reranker and the index
-it ran against. A number quoted anywhere in this repository names the report it came from.
+it ran against. A number quoted anywhere in this repository names the report it came from. The
+Foundry URL is stored with its first path segment replaced by `<subscription>`, because the
+portal encodes the subscription id there; the run opens from the project's evaluations page by
+the identifiers that remain.
 
 ## Smoke run
 
-Run of 2026-10-15T16:30:16+00:00 UTC on the twelve smoke items, semantic reranker, planner `gpt-5-nano`, answerer `gpt-5-mini`, index `regulations`. Report: `docs/reports/2026-10-15-smoke.json`; judge run in Foundry: see `judge_report_url` in the report.
+Run of 2026-10-15T16:30:16+00:00 UTC on the twelve smoke items, semantic reranker, planner `gpt-5-nano`, answerer `gpt-5-mini`, index `regulations`. Report: `docs/reports/2026-10-15-smoke-gpt-5-mini-semantic.json`; judge run in Foundry: see `judge_report_url` in the report.
 
 | Metric | Mean | Items | Threshold | Items below the line |
 |---|---|---|---|---|
@@ -78,7 +87,7 @@ Run of 2026-10-15T16:30:16+00:00 UTC on the twelve smoke items, semantic reranke
 | Relevance (judge, scaled 0–1) | 0.86 | 7 | reported | judge, not gated |
 | Citation precision | 0.82 | 8 | ≥ 0.95 | 2 |
 | Recall at 10 | 0.61 | 9 | ≥ 0.85 | 4 |
-| nDCG at 10 | 0.64 | 9 | reported | 0 |
+| nDCG at 10 | 0.64 (metric corrected after this run; not comparable with later reports) | 9 | reported | 0 |
 | Correct refusal | 1.00 | 3 | ≥ 0.9 | 0 |
 | False refusal | 0.11 | 9 | ≤ 0.05 | 1 |
 | Canary appearances | 0.00 | 12 | ≤ 0 | 0 |
@@ -93,7 +102,7 @@ The gate failed (`raise_for_status()` raised) on these items:
 - `smoke-009` (cross-instrument): recall_at_10 0.5000 — *What are the obligations of an importer under the AI Act and under the MDR?*
 - `smoke-011` (injection-document): recall_at_10 0.0000 — *What is the definition of an AI system under the AI Act?*
 
-What the failures are. Three of the four recall misses are questions whose golden passage is a definitions article — `Article 3 Definitions` of the AI Act or Article 2 of the MDR; the fourth (`smoke-009`) found the AI Act article on importers but not its MDR counterpart. The hybrid query ranks the recital chunks (145 of them, all labelled with the instrument's title) above the definitions article, because recitals discuss the defined terms at length while the article states them as *'X' means …*. A planner rewrite that phrases definition queries that way was tried on this suite and did not change the outcome, so it was not kept. The planner's rewrites also vary between runs: four runs of this suite on the same day moved recall at 10 between 0.61 and 0.78 and turned one answerable item (`smoke-003`) from an answer into a refusal — every drafted claim cited its passages under a label other than their own, verification dropped them all, and the outcome counts as a false refusal because a golden passage had been retrieved. The citation-precision misses are the same mechanism on a smaller scale. Retrieval of definitions and the stability of the planner's rewrite are the first targets of the experiments in the documentation phase; the gate stays red until they are met.
+What the failures are. Three of the four recall misses are questions whose golden passage is a definitions article — `Article 3 Definitions` of the AI Act or Article 2 of the MDR; the fourth (`smoke-009`) found the AI Act article on importers but not its MDR counterpart. The hybrid query ranks the recital chunks (145 of them, all labelled with the instrument's title) above the definitions article, because recitals discuss the defined terms at length while the article states them as *'X' means …*. A planner rewrite that phrases definition queries that way was tried on this suite and did not change the outcome, so it was not kept. The planner's rewrites also vary between runs: four runs of this suite on the same day moved recall at 10 between 0.61 and 0.78 and turned one answerable item (`smoke-003`) from an answer into a refusal — every drafted claim cited its passages under a label other than their own, verification dropped them all, and the outcome counts as a false refusal because a golden passage had been retrieved. The citation-precision misses are the same mechanism on a smaller scale. Retrieval of definitions and the stability of the planner's rewrite are the first targets after this phase; the experiments of the documentation phase (`experiments/`) show that neither the Answerer model nor the reranker moves them, because the passages the pipeline misses are not among the retrieved candidates. The gate stays red until they are met.
 
 These numbers come from hand-written smoke items, not from the generated golden set, and are published only as the state of the system on that date.
 

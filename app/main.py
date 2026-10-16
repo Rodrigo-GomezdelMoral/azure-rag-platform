@@ -57,10 +57,9 @@ def principal(request: Request) -> dict[str, Any]:
         raise HTTPException(401, "a bearer token is required")
     try:
         key = request.app.state.jwks.get_signing_key_from_jwt(token).key
-        issuer = f"{LOGIN}/{settings.entra_tenant_id}/v2.0"
-        claims: dict[str, Any] = jwt.decode(
-            token, key, algorithms=["RS256"], audience=settings.api_audience, issuer=issuer
-        )
+        issuer, audiences = f"{LOGIN}/{settings.entra_tenant_id}/v2.0", [settings.api_audience]
+        audiences.append(settings.api_audience.removeprefix("api://"))
+        claims: dict[str, Any] = jwt.decode(token, key, algorithms=["RS256"], audience=audiences, issuer=issuer)
     except jwt.PyJWTError as error:
         raise HTTPException(401, f"invalid token: {error}") from error
     if settings.required_app_role not in claims.get("roles", []):
