@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Regulatory Intelligence Platform</title>
+    <style>
+      :root {
+        --bg: #f6f7f9; --panel: #ffffff; --ink: #1c2430; --muted: #5b6673; --line: #d9dee5;
+        --accent: #1f5fbf; --accent-ink: #ffffff; --ok: #1f7a4d; --warn: #b7791f; --refuse: #8a2d2d; --refuse-bg: #fbeeee;
+        --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+      header { padding: 20px 24px 8px; }
+      header h1 { margin: 0; font-size: 20px; }
+      header p { margin: 4px 0 0; color: var(--muted); }
+      main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 8px 24px 40px; max-width: 1400px; }
+      main.inspecting { grid-template-columns: minmax(0, 3fr) minmax(360px, 2fr); }
+      section, aside { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+      h2 { margin: 0 0 10px; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+      form.bar { display: grid; grid-template-columns: minmax(0, 1fr) auto auto auto auto; gap: 8px; align-items: start; }
+      textarea, select, input { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: inherit; }
+      textarea { width: 100%; min-height: 64px; resize: vertical; }
+      input.article { width: 120px; }
+      button { font: inherit; padding: 8px 14px; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+      button.quiet { background: transparent; color: var(--accent); }
+      button:disabled { opacity: 0.5; cursor: default; }
+      .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+      .chips button { background: #eef3fb; color: var(--accent); border-color: #c9d8f2; font-size: 13px; padding: 4px 10px; }
+      .banner { margin-top: 8px; padding: 6px 10px; background: #fff7e6; border: 1px solid #f1d9a6; border-radius: 6px; color: #6b4e0d; font-size: 13px; }
+      .error { margin-top: 8px; padding: 8px 10px; background: var(--refuse-bg); border: 1px solid #e3b5b5; border-radius: 6px; color: var(--refuse); font-family: var(--mono); font-size: 13px; }
+      ol.timeline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+      ol.timeline li { border: 1px solid var(--line); border-radius: 6px; padding: 10px; min-height: 86px; }
+      ol.timeline li.done { border-color: var(--ok); }
+      ol.timeline li.running { border-color: var(--accent); background: #f1f6fd; }
+      ol.timeline .name { font-weight: 600; text-transform: capitalize; }
+      ol.timeline .ms { float: right; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+      ol.timeline .summary { margin-top: 4px; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+      .claim { margin: 0 0 10px; }
+      .claim sup a { color: var(--accent); text-decoration: none; margin-left: 2px; }
+      .refusal { border-left: 6px solid var(--refuse); background: var(--refuse-bg); }
+      .refusal h2 { color: var(--refuse); }
+      .refusal strong { font-size: 18px; }
+      .citation { padding: 8px 0; border-top: 1px solid var(--line); }
+      .citation .label { font-weight: 600; }
+      .citation .meta { color: var(--muted); font-size: 13px; }
+      .citation details { margin-top: 4px; font-size: 13px; }
+      .citation blockquote { margin: 6px 0 0; padding-left: 10px; border-left: 3px solid var(--line); white-space: pre-wrap; color: var(--muted); }
+      table { width: 100%; border-collapse: collapse; font-size: 13px; }
+      th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      td.num, th.num { text-align: right; font-family: var(--mono); white-space: nowrap; }
+      tr.kept td { background: #f1f6fd; }
+      .delta.up { color: var(--ok); } .delta.down { color: var(--refuse); }
+      dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 0; }
+      dt { color: var(--muted); } dd { margin: 0; overflow-wrap: anywhere; }
+      code { font-family: var(--mono); font-size: 13px; background: #eef1f5; padding: 1px 4px; border-radius: 4px; }
+      .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+      .feedback { margin-top: 12px; color: var(--muted); font-size: 13px; }
+      .feedback button { padding: 4px 10px; font-size: 13px; }
+      @media (max-width: 900px) {
+        main.inspecting { grid-template-columns: minmax(0, 1fr); }
+        form.bar { grid-template-columns: minmax(0, 1fr); }
+        ol.timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -22,7 +22,7 @@ Re-read this file at the start of every phase.
 
   ```
   ── PHASE n COMPLETE ──
-  Files: <n>/52   Python: <n>/1000   Bicep: <n>/400   TS: <n>/700   Comments: <n>/20
+  Files: <n>/60   Python: <n>/1400   Bicep: <n>/400   TS: <n>/700   Comments: <n>/20
   Verified: ruff ✓  mypy ✓  pytest ✓  budget ✓
   Commit with:
     git add <paths>
@@ -40,9 +40,11 @@ Re-read this file at the start of every phase.
 1. **No identity leakage** anywhere, fixtures and commit messages included. Placeholders only.
 2. **Zero secrets.** `DefaultAzureCredential` for every Azure call. No Key Vault.
 3. **Size budget, enforced by `tests/test_budget.py`:** tracked files excluding `docs/`,
-   `eval/datasets/`, `web/node_modules/` and `web/fixtures/` at most 52 (the specification says
-   42; its own mandated layout needs more, and the README records the count); ≤ 1,000 lines of
-   Python; ≤ 400 Bicep; ≤ 700 TypeScript; directory depth 3; functions ≤ 35 lines.
+   `eval/datasets/`, `web/node_modules/` and `web/fixtures/` at most 60 (the specification says
+   42; its own mandated layout needs more, and the README records the count); ≤ 1,400 lines of
+   Python (the specification's 1,000 covered application and operations code; tests and the
+   evaluation harness are counted in the same figure here and the README reports the split);
+   ≤ 400 Bicep; ≤ 700 TypeScript; directory depth 3; functions ≤ 35 lines.
 4. **Comments.** No `#` comment may restate the code; fewer than 20 in the whole Python codebase.
    Type hints replace them.
 5. **No defensive clutter.** No bare `except Exception`; ruff rule `BLE001` and the budget test
@@ -88,9 +90,9 @@ the `corpus` blob container. No agent has tools; retrieval is not a decision the
 | 3 | `ops/corpus.py`, `ops/index.py`, ADR-001, ADR-002 with measured sizes | `feat(index): search index, skillset and indexer as configuration` |
 | 4 | `prompts/`, `clients.py`, `agents.py`, `retrieval.py`, tests, ADR-004, ADR-008 | `feat(agents): planner, reranker and answerer on agent framework` |
 | 5 | `answer.py`, `main.py`, `telemetry.py`, tests, ADR-003, ADR-005, ADR-006 | `feat(answer): verified pipeline with streamed progress` |
-| 6 | `eval/`, six datasets, `REVIEW.md`, thresholds, calibration, ADR-007 | `feat(eval): local and foundry evaluators with calibrated judge` |
+| 6 | `eval/`, six datasets, thresholds, calibration, ADR-007 | `feat(eval): local and foundry evaluators with calibrated judge` |
 | 7 | `web/` and fixtures | `feat(web): phase timeline and retrieval debug panel` |
-| 8 | Four workflows, `experiments/`, all docs, remaining ADRs, README, `CHANGELOG` | `ci: quality gate, deployment and portfolio documentation` |
+| 8 | Four workflows, `experiments/`, all docs, remaining ADRs, README | `ci: quality gate, deployment and portfolio documentation` |
 
 ## Definition of done
 

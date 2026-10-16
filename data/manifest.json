@@ -2,7 +2,7 @@
   {
     "name": "eu-2024-1689-ai-act.pdf",
     "regulation": "EU-2024-1689",
-    "title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act), OJ L 12.7.2024",
+    "title": "Regulation (EU) 2024/1689 (AI Act)",
     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
     "sha256": "bba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
     "bytes": 2583319,
@@ -13,7 +13,7 @@
   {
     "name": "eu-2017-745-mdr.pdf",
     "regulation": "EU-2017-745",
-    "title": "Regulation (EU) 2017/745 (Medical Device Regulation), OJ L 117 5.5.2017",
+    "title": "Regulation (EU) 2017/745 (MDR)",
     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0745",
     "sha256": "71f1b6b6d69def534110691aa109bb17a5c3a2369dc2e1ecd3d2e19e50496db9",
     "bytes": 1517689,
@@ -24,7 +24,7 @@
   {
     "name": "mdcg-2019-11.pdf",
     "regulation": "MDCG-2019-11",
-    "title": "MDCG 2019-11 rev.1 Qualification and classification of software (MDR and IVDR)",
+    "title": "MDCG 2019-11 Qualification of software",
     "url": "https://health.ec.europa.eu/system/files/2025-06/mdcg_2019_11_en.pdf",
     "sha256": "ed60b2084a91648bf483eb6c33641e0635e51bfb9712f889124c279b1885f38d",
     "bytes": 489666,
@@ -35,7 +35,7 @@
   {
     "name": "mdcg-2020-1.pdf",
     "regulation": "MDCG-2020-1",
-    "title": "MDCG 2020-1 Clinical evaluation (MDR) and performance evaluation (IVDR) of medical device software",
+    "title": "MDCG 2020-1 Clinical evaluation of software",
     "url": "https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2020_1_guidance_clinic_eva_md_software_en_0.pdf",
     "sha256": "9d46e8caaee4ca9537525d1f32a98c7cdeaa39d8a0aa4a4f9d074f8688b2a0bf",
     "bytes": 991805,

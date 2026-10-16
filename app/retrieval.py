@@ -30,8 +30,7 @@ class Retriever(Protocol):
 
 class SearchRetriever:
     def __init__(self, client: SearchClient, semantic_configuration: str) -> None:
-        self._client = client
-        self._semantic_configuration = semantic_configuration
+        self._client, self._semantic_configuration = client, semantic_configuration
 
     async def search(self, plan: QueryPlan, k: int) -> list[Chunk]:
         vector = VectorizableTextQuery(text=plan.query, k_nearest_neighbors=k, fields="content_vector")

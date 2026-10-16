@@ -37,7 +37,7 @@ run:
 	uvicorn app.main:app --reload --port 8000
 
 web:
-	cd web && npm install && npm run dev
+	cd web && npm ci && npm run build && npm start
 
 lz-env:
 	@export MSYS_NO_PATHCONV=1; grep -E '^[a-z][A-Za-z]+=' $(LZ_OUTPUTS) | while IFS='=' read -r key value; do \

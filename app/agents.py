@@ -55,12 +55,11 @@ async def run[M: BaseModel](
     agent: Agent[Any], prompt: str, model: type[M], session: AgentSession | None = None
 ) -> tuple[M, UsageDetails]:
     response = await agent.run(prompt, session=session, options={"response_format": model})
-    value = response.value if isinstance(response.value, model) else model.model_validate_json(response.text)
-    return value, response.usage_details or UsageDetails()
+    return model.model_validate(response.value), response.usage_details or UsageDetails()
 
 
 async def score_candidates(
-    agent: Agent[Any], plan: QueryPlan, candidates: list[Chunk]
+    agent: Agent[Any], plan: QueryPlan, chunks: list[Chunk]
 ) -> tuple[dict[str, float], UsageDetails]:
-    ranking, usage = await run(agent, reranker_input(plan, candidates), Ranking)
+    ranking, usage = await run(agent, reranker_input(plan, chunks), Ranking)
     return {score.chunk_id: score.score for score in ranking.scores}, usage

@@ -1,0 +1,93 @@
+name: eval
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ["app/**", "prompts/**", "ops/**", "eval/**"]
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+env:
+  RESOURCE_GROUP: rg-ragplatform-prod-swc
+  STORAGE_ACCOUNT: stragplatformprodswc
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    env:
+      MODEL_PROVIDER: foundry
+      FOUNDRY_PROJECT_ENDPOINT: ${{ vars.FOUNDRY_PROJECT_ENDPOINT }}
+      SEARCH_ENDPOINT: ${{ vars.SEARCH_ENDPOINT }}
+      COSMOS_ENDPOINT: ${{ vars.COSMOS_ENDPOINT }}
+      CORPUS_CONTAINER_URL: ${{ vars.CORPUS_CONTAINER_URL }}
+      API_AUDIENCE: ${{ vars.API_AUDIENCE }}
+      ENTRA_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install the pinned dependencies
+        run: pip install -r requirements.txt
+
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Resolve the storage account id the settings require
+        run: echo "STORAGE_ACCOUNT_RESOURCE_ID=$(az storage account show -g "$RESOURCE_GROUP" -n "$STORAGE_ACCOUNT" --query id -o tsv)" >> "$GITHUB_ENV"
+
+      - name: Run the suites that gate this event
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then suites="full"; else suites="smoke adversarial"; fi
+          status=0
+          for suite in $suites; do
+            python -m eval.run --suite "$suite" || status=1
+          done
+          exit $status
+
+      - name: Keep the reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-reports
+          path: docs/reports/
+
+      - name: Comment the scores on the pull request
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const dir = "docs/reports";
+            const since = Date.now() - 4 * 3600 * 1000;
+            const fresh = (name) => Date.parse(JSON.parse(fs.readFileSync(`${dir}/${name}`, "utf8")).started) >= since;
+            const files = fs.readdirSync(dir).filter((name) => name.endsWith(".json") && fresh(name)).sort();
+            const rows = [];
+            let judge = "";
+            for (const file of files) {
+              const report = JSON.parse(fs.readFileSync(`${dir}/${file}`, "utf8"));
+              judge = report.judge_report_url ?? judge;
+              for (const [name, value] of Object.entries(report)) {
+                if (value && typeof value === "object" && "mean" in value) rows.push(`| ${report.suite} | ${name} | ${value.mean} | ${value.n} |`);
+              }
+              for (const failure of report.failures ?? []) rows.push(`| ${report.suite} | ⛔ | ${failure} | |`);
+            }
+            const body = [
+              `### Evaluation · ${files.length ? "reports of this run" : "no report was produced"}`,
+              "", "| suite | evaluator | mean | items |", "|---|---|---|---|", ...rows, "",
+              judge ? `Foundry judge run: ${judge}` : "Foundry judge run: not available",
+              `Outcome: **${{ job.status }}** — the merge is blocked while \`raise_for_status()\` fails.`,
+            ].join("\n");
+            await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });

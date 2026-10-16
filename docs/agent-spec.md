@@ -116,8 +116,8 @@ is fixed.
 
 **What is never published.** A metric computed on an unverified golden set. `golden.jsonl` is
 generated from the indexed corpus and then verified by hand, pair by pair, with the verification
-recorded in `eval/datasets/REVIEW.md`. Until that record exists, `docs/evaluation.md` says so and
-publishes no number.
+recorded in `docs/evaluation.md`. Until that record exists, that document says so and publishes
+no number.
 
 ## 5. Test data and coverage
 

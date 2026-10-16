@@ -13,31 +13,15 @@ from app.config import Settings
 
 MANIFEST = Path(__file__).resolve().parent.parent / "data" / "manifest.json"
 EU_REUSE = "Commission Decision 2011/833/EU: reuse permitted with acknowledgement of the source"
-DOCUMENTS = [
-    {
-        "name": "eu-2024-1689-ai-act.pdf",
-        "regulation": "EU-2024-1689",
-        "title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act), OJ L 12.7.2024",
-        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
-    },
-    {
-        "name": "eu-2017-745-mdr.pdf",
-        "regulation": "EU-2017-745",
-        "title": "Regulation (EU) 2017/745 (Medical Device Regulation), OJ L 117 5.5.2017",
-        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0745",
-    },
-    {
-        "name": "mdcg-2019-11.pdf",
-        "regulation": "MDCG-2019-11",
-        "title": "MDCG 2019-11 rev.1 Qualification and classification of software (MDR and IVDR)",
-        "url": "https://health.ec.europa.eu/system/files/2025-06/mdcg_2019_11_en.pdf",
-    },
-    {
-        "name": "mdcg-2020-1.pdf",
-        "regulation": "MDCG-2020-1",
-        "title": "MDCG 2020-1 Clinical evaluation (MDR) and performance evaluation (IVDR) of medical device software",
-        "url": "https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2020_1_guidance_clinic_eva_md_software_en_0.pdf",
-    },
+EUR_LEX = "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri="
+EC = "https://health.ec.europa.eu/system/files/"
+MDCG_2020_1 = f"{EC}2020-09/md_mdcg_2020_1_guidance_clinic_eva_md_software_en_0.pdf"
+Document = tuple[str, str, str, str]
+DOCUMENTS: list[Document] = [
+    ("eu-2024-1689-ai-act.pdf", "EU-2024-1689", "Regulation (EU) 2024/1689 (AI Act)", f"{EUR_LEX}OJ:L_202401689"),
+    ("eu-2017-745-mdr.pdf", "EU-2017-745", "Regulation (EU) 2017/745 (MDR)", f"{EUR_LEX}CELEX:32017R0745"),
+    ("mdcg-2019-11.pdf", "MDCG-2019-11", "MDCG 2019-11 Qualification of software", f"{EC}2025-06/mdcg_2019_11_en.pdf"),
+    ("mdcg-2020-1.pdf", "MDCG-2020-1", "MDCG 2020-1 Clinical evaluation of software", MDCG_2020_1),
 ]
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; azure-rag-platform corpus fetcher)", "Accept": "application/pdf,*/*"}
 
@@ -59,23 +43,16 @@ async def stored_digest(container: ContainerClient, name: str) -> str | None:
     return properties.metadata.get("sha256")
 
 
-async def ingest(container: ContainerClient, http: httpx.AsyncClient, doc: dict[str, str]) -> dict[str, str | int]:
-    content = await download(http, doc["url"])
+async def ingest(container: ContainerClient, http: httpx.AsyncClient, doc: Document) -> dict[str, str | int]:
+    name, regulation, title, url = doc
+    content = await download(http, url)
     digest = hashlib.sha256(content).hexdigest()
-    metadata = {"regulation": doc["regulation"], "language": "en", "source_url": doc["url"], "sha256": digest}
-    if await stored_digest(container, doc["name"]) != digest:
-        await container.upload_blob(
-            doc["name"], content, overwrite=True, metadata=metadata, content_type="application/pdf"
-        )
+    metadata = {"regulation": regulation, "language": "en", "source_url": url, "sha256": digest}
+    if await stored_digest(container, name) != digest:
+        await container.upload_blob(name, content, overwrite=True, metadata=metadata, content_type="application/pdf")
     retrieved = datetime.now(UTC).date().isoformat()
-    return {
-        **doc,
-        "sha256": digest,
-        "bytes": len(content),
-        "language": "en",
-        "licence": EU_REUSE,
-        "retrieved": retrieved,
-    }
+    row: dict[str, str | int] = {"name": name, "regulation": regulation, "title": title, "url": url, "sha256": digest}
+    return row | {"bytes": len(content), "language": "en", "licence": EU_REUSE, "retrieved": retrieved}
 
 
 async def main() -> None:

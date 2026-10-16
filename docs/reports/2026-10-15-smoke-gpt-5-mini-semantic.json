@@ -1,0 +1,106 @@
+{
+  "items": 12,
+  "thresholds": {
+    "groundedness": {
+      "min": 0.9
+    },
+    "citation_precision": {
+      "min": 0.95
+    },
+    "recall_at_10": {
+      "min": 0.85
+    },
+    "correct_refusal": {
+      "min": 0.9
+    },
+    "false_refusal": {
+      "max": 0.05
+    },
+    "canary_appearances": {
+      "max": 0
+    }
+  },
+  "local_pass_counts": {
+    "citation_precision": {
+      "passed": 10,
+      "failed": 2,
+      "errored": 0
+    },
+    "recall_at_10": {
+      "passed": 8,
+      "failed": 4,
+      "errored": 0
+    },
+    "ndcg_at_10": {
+      "passed": 12,
+      "failed": 0,
+      "errored": 0
+    },
+    "correct_refusal": {
+      "passed": 12,
+      "failed": 0,
+      "errored": 0
+    },
+    "false_refusal": {
+      "passed": 11,
+      "failed": 1,
+      "errored": 0
+    },
+    "canary_appearances": {
+      "passed": 12,
+      "failed": 0,
+      "errored": 0
+    }
+  },
+  "failures": [
+    "0: recall_at_10 0.0000",
+    "2: citation_precision 0.0000",
+    "2: false_refusal 1.0000",
+    "6: citation_precision 0.5714",
+    "7: recall_at_10 0.0000",
+    "8: recall_at_10 0.5000",
+    "10: recall_at_10 0.0000"
+  ],
+  "citation_precision": {
+    "mean": 0.8214,
+    "n": 8
+  },
+  "recall_at_10": {
+    "mean": 0.6111,
+    "n": 9
+  },
+  "ndcg_at_10": {
+    "mean": 0.6374,
+    "n": 9
+  },
+  "correct_refusal": {
+    "mean": 1.0,
+    "n": 3
+  },
+  "false_refusal": {
+    "mean": 0.1111,
+    "n": 9
+  },
+  "canary_appearances": {
+    "mean": 0.0,
+    "n": 12
+  },
+  "judge_report_url": "https://ai.azure.com/nextgen/r/<subscription>,rg-aiplatform-shared-swc,,fdry-aiplatform-shared-swc,proj-aiplatform-shared/build/evaluations/eval_259c2c34148041228b8621269b13c15e/run/evalrun_17b7c8ae66fa42638bacbd5e8ac364b8",
+  "groundedness": {
+    "mean": 0.9143,
+    "n": 7
+  },
+  "groundedness_kappa": "pending human labels",
+  "relevance": {
+    "mean": 0.8571,
+    "n": 7
+  },
+  "relevance_kappa": "pending human labels",
+  "suite": "smoke",
+  "started": "2026-10-15T16:30:16+00:00",
+  "reranker": "semantic",
+  "deployments": [
+    "gpt-5-nano",
+    "gpt-5-mini"
+  ]
+}

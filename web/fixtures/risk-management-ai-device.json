@@ -1,0 +1,583 @@
+{
+ "question": "What risk-management obligations apply to a high-risk AI system embedded in a class IIb medical device?",
+ "events": [
+  {
+   "phase": "plan",
+   "trace_id": "demo-risk-management-ai-device",
+   "elapsed_ms": 11183,
+   "data": {
+    "question": "What risk-management obligations apply to a high-risk AI system embedded in a class IIb medical device?",
+    "query": "risk-management obligations high-risk AI system embedded in a medical device class IIb Regulation (EU) 2017/745",
+    "filters": {}
+   }
+  },
+  {
+   "phase": "search",
+   "trace_id": "demo-risk-management-ai-device",
+   "elapsed_ms": 13846,
+   "data": {
+    "candidates": [
+     {
+      "chunk_id": "chunk-001",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "hybrid_score": 0.030117753893136978,
+      "rerank_score": 3.3016107082366943,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-002",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "hybrid_score": 0.02857143059372902,
+      "rerank_score": 3.0428483486175537,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-003",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "hybrid_score": 0.03009049780666828,
+      "rerank_score": 2.9067320823669434,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-004",
+      "regulation": "EU-2024-1689",
+      "article": "Article 17 Quality management system",
+      "citation_label": "SECTION 3 Obligations of providers and deployers of high-risk AI systems and other parties > Article 17 Quality management system",
+      "hybrid_score": 0.02837301790714264,
+      "rerank_score": 2.8592331409454346,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-005",
+      "regulation": "EU-2024-1689",
+      "article": "Compliance with the requirements",
+      "citation_label": "Article 8 > Compliance with the requirements",
+      "hybrid_score": 0.01968291588127613,
+      "rerank_score": 2.8379650115966797,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-006",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.022417839616537094,
+      "rerank_score": 2.824495315551758,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-007",
+      "regulation": "EU-2024-1689",
+      "article": "Article 73 Reporting of serious incidents",
+      "citation_label": "Article 73 Reporting of serious incidents",
+      "hybrid_score": 0.012048192322254181,
+      "rerank_score": 2.772742748260498,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-008",
+      "regulation": "EU-2024-1689",
+      "article": "Article 6 Classification rules for high-risk AI systems",
+      "citation_label": "Article 6 Classification rules for high-risk AI systems",
+      "hybrid_score": 0.027579735964536667,
+      "rerank_score": 2.750765562057495,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-009",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.029386531561613083,
+      "rerank_score": 2.7153186798095703,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-010",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.014705882407724857,
+      "rerank_score": 2.7153186798095703,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-011",
+      "regulation": "EU-2024-1689",
+      "article": "Article 17 Quality management system",
+      "citation_label": "SECTION 3 Obligations of providers and deployers of high-risk AI systems and other parties > Article 17 Quality management system",
+      "hybrid_score": 0.03007688745856285,
+      "rerank_score": 2.7082293033599854,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-012",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "hybrid_score": 0.023392613977193832,
+      "rerank_score": 2.6940505504608154,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-013",
+      "regulation": "EU-2024-1689",
+      "article": "Article 20 Corrective actions and duty of information",
+      "citation_label": "Article 20 Corrective actions and duty of information",
+      "hybrid_score": 0.016019780188798904,
+      "rerank_score": 2.6940505504608154,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-014",
+      "regulation": "EU-2024-1689",
+      "article": "Article 16 Obligations of providers of high-risk AI systems",
+      "citation_label": "SECTION 3 Obligations of providers and deployers of high-risk AI systems and other parties > Article 16 Obligations of providers of high-risk AI systems",
+      "hybrid_score": 0.0317540317773819,
+      "rerank_score": 2.6578948497772217,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-015",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.02982456237077713,
+      "rerank_score": 2.6543500423431396,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-016",
+      "regulation": "EU-2024-1689",
+      "article": "Article 13 Transparency and provision of information to deployers",
+      "citation_label": "Article 13 Transparency and provision of information to deployers",
+      "hybrid_score": 0.016396017745137215,
+      "rerank_score": 2.621738910675049,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-017",
+      "regulation": "EU-2024-1689",
+      "article": "Article 7 Amendments to Annex III",
+      "citation_label": "Article 7 Amendments to Annex III",
+      "hybrid_score": 0.013564646244049072,
+      "rerank_score": 2.612522602081299,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-018",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.020615996792912483,
+      "rerank_score": 2.61181378364563,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-019",
+      "regulation": "EU-2024-1689",
+      "article": "Article 80 Procedure for dealing with AI systems classified by the provider as non-high-risk in application of Annex III",
+      "citation_label": "Article 80 Procedure for dealing with AI systems classified by the provider as non-high-risk in application of Annex III",
+      "hybrid_score": 0.02156771719455719,
+      "rerank_score": 2.594799280166626,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-020",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.02380952425301075,
+      "rerank_score": 2.581329345703125,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-021",
+      "regulation": "EU-2024-1689",
+      "article": "Article 79 Procedure at national level for dealing with AI systems presenting a risk",
+      "citation_label": "Article 79 Procedure at national level for dealing with AI systems presenting a risk",
+      "hybrid_score": 0.02435065060853958,
+      "rerank_score": 2.4973201751708984,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-022",
+      "regulation": "EU-2024-1689",
+      "article": "Article 6 Classification rules for high-risk AI systems",
+      "citation_label": "Article 6 Classification rules for high-risk AI systems",
+      "hybrid_score": 0.025991562753915787,
+      "rerank_score": 2.496079683303833,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-023",
+      "regulation": "EU-2024-1689",
+      "article": "High-risk AI systems referred to in Article 6(2)",
+      "citation_label": "High-risk AI systems referred to in Article 6(2)",
+      "hybrid_score": 0.013888888992369175,
+      "rerank_score": 2.475520372390747,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-024",
+      "regulation": "EU-2024-1689",
+      "article": "Article 27 Fundamental rights impact assessment for high-risk AI systems",
+      "citation_label": "Article 27 Fundamental rights impact assessment for high-risk AI systems",
+      "hybrid_score": 0.012500000186264515,
+      "rerank_score": 2.448580741882324,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-025",
+      "regulation": "EU-2024-1689",
+      "article": "Article 26 Obligations of deployers of high-risk AI systems",
+      "citation_label": "Article 25 Responsibilities along the AI value chain > Article 26 Obligations of deployers of high-risk AI systems",
+      "hybrid_score": 0.014285714365541935,
+      "rerank_score": 2.430325508117676,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-026",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.012345679104328156,
+      "rerank_score": 2.426426410675049,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-027",
+      "regulation": "EU-2024-1689",
+      "article": "Article 42 Presumption of conformity with certain requirements",
+      "citation_label": "Article 42 Presumption of conformity with certain requirements",
+      "hybrid_score": 0.017321817576885223,
+      "rerank_score": 2.406930685043335,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-028",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.01579224318265915,
+      "rerank_score": 2.4060444831848145,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-029",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.02364782989025116,
+      "rerank_score": 2.3869030475616455,
+      "rank_delta": null
+     },
+     {
+      "chunk_id": "chunk-030",
+      "regulation": "EU-2024-1689",
+      "article": "Article 27 Fundamental rights impact assessment for high-risk AI systems",
+      "citation_label": "Article 27 Fundamental rights impact assessment for high-risk AI systems",
+      "hybrid_score": 0.012987012974917889,
+      "rerank_score": 2.337897777557373,
+      "rank_delta": null
+     }
+    ]
+   }
+  },
+  {
+   "phase": "rerank",
+   "trace_id": "demo-risk-management-ai-device",
+   "elapsed_ms": 13847,
+   "data": {
+    "reranker": "semantic",
+    "candidates": [
+     {
+      "chunk_id": "chunk-001",
+      "content": "1\\. A risk management system shall be established, implemented, documented and maintained in relation to high-risk AI\r\nsystems.\r\n\r\n2\\. The risk management system shall be understood as a continuous iterative process planned and run throughout the\r\nentire lifecycle of a high-risk AI system, requiring regular systematic review and updating. It shall comprise the following\r\nsteps:\r\n\r\n(a) the identification and analysis of the known and the reasonably foreseeable risks that the high-risk AI system can pose\r\nto health, safety or fundamental rights when the high-risk AI system is used in accordance with its intended purpose;\r\n\r\n(b) the estimation and evaluation of the risks that may emerge when the high-risk AI system is used in accordance with its\r\nintended purpose, and under conditions of reasonably foreseeable misuse;\r\n\r\n(c) the evaluation of other risks possibly arising, based on the analysis of data gathered from the post-market monitoring\r\nsystem referred to in Article 72;\r\n\r\n(d) the adoption of appropriate and targeted risk management measures designed to address the risks identified pursuant to\r\npoint (a).\r\n\r\n3\\. The risks referred to in this Article shall concern only those which may be reasonably mitigated or eliminated through\r\nthe development or design of the high-risk AI system, or the provision of adequate technical information.\r\n\r\n4\\. The risk management measures referred to in paragraph 2, point (d), shall give due consideration to the effects and\r\npossible interaction resulting from the combined application of the requirements set out in this Section, with a view to\r\nminimising risks more effectively while achieving an appropriate balance in implementing the measures to fulfil those\r\nrequirements.\r\n\r\n5\\. The risk management measures referred to in paragraph 2, point (d), shall be such that the relevant residual risk\r\nassociated with each hazard, as well as the overall residual risk of the high-risk AI systems is judged to be acceptable.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "hybrid_score": 0.030117753893136978,
+      "rerank_score": 3.3016107082366943,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-002",
+      "content": "in paragraph 2, point (d), shall be such that the relevant residual risk\r\nassociated with each hazard, as well as the overall residual risk of the high-risk AI systems is judged to be acceptable.\r\n\r\nIn identifying the most appropriate risk management measures, the following shall be ensured:\r\n\r\n(a) elimination or reduction of risks identified and evaluated pursuant to paragraph 2 in as far as technically feasible\r\nthrough adequate design and development of the high-risk AI system;\r\n\r\n(b) where appropriate, implementation of adequate mitigation and control measures addressing risks that cannot be\r\neliminated;\r\n\r\n(c) provision of information required pursuant to Article 13 and, where appropriate, training to deployers.\r\n\r\nWith a view to eliminating or reducing risks related to the use of the high-risk AI system, due consideration shall be given\r\nto the technical knowledge, experience, education, the training to be expected by the deployer, and the presumable context\r\nin which the system is intended to be used.\r\n\r\n<!-- PageNumber=\"56/144\" -->\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageBreak -->\r\n\r\nEN\r\n\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n6\\. High-risk AI systems shall be tested for the purpose of identifying the most appropriate and targeted risk management\r\nmeasures. Testing shall ensure that high-risk AI systems perform consistently for their intended purpose and that they are in\r\ncompliance with the requirements set out in this Section.\r\n\r\n7\\. Testing procedures may include testing in real-world conditions in accordance with Article 60.\r\n\r\n8\\. The testing of high-risk AI systems shall be performed, as appropriate, at any time throughout the development\r\nprocess, and, in any event, prior to their being placed on the market or put into service. Testing shall be carried out against\r\nprior defined metrics and probabilistic thresholds that are appropriate to the intended purpose of the high-risk AI system.\r\n\r\n9\\.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "hybrid_score": 0.02857143059372902,
+      "rerank_score": 3.0428483486175537,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-003",
+      "content": "market or put into service. Testing shall be carried out against\r\nprior defined metrics and probabilistic thresholds that are appropriate to the intended purpose of the high-risk AI system.\r\n\r\n9\\. When implementing the risk management system as provided for in paragraphs 1 to 7, providers shall give\r\nconsideration to whether in view of its intended purpose the high-risk AI system is likely to have an adverse impact on\r\npersons under the age of 18 and, as appropriate, other vulnerable groups.\r\n\r\n10\\. For providers of high-risk AI systems that are subject to requirements regarding internal risk management processes\r\nunder other relevant provisions of Union law, the aspects provided in paragraphs 1 to 9 may be part of, or combined with,\r\nthe risk management procedures established pursuant to that law.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "hybrid_score": 0.03009049780666828,
+      "rerank_score": 2.9067320823669434,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-004",
+      "content": "data\r\nthat is performed before and for the purpose of the placing on the market or the putting into service of high-risk AI\r\nsystems;\r\n\r\n(g) the risk management system referred to in Article 9;\r\n\r\n(h) the setting-up, implementation and maintenance of a post-market monitoring system, in accordance with Article 72;\r\n\r\n(i) procedures related to the reporting of a serious incident in accordance with Article 73;\r\n\r\n(j) the handling of communication with national competent authorities, other relevant authorities, including those\r\nproviding or supporting the access to data, notified bodies, other operators, customers or other interested parties;\r\n\r\n(k) systems and procedures for record-keeping of all relevant documentation and information;\r\n\r\n(l) resource management, including security-of-supply related measures;\r\n\r\n(m) an accountability framework setting out the responsibilities of the management and other staff with regard to all the\r\naspects listed in this paragraph.\r\n\r\n2\\. The implementation of the aspects referred to in paragraph 1 shall be proportionate to the size of the provider's\r\norganisation. Providers shall, in any event, respect the degree of rigour and the level of protection required to ensure the\r\ncompliance of their high-risk AI systems with this Regulation.\r\n\r\n3\\. Providers of high-risk AI systems that are subject to obligations regarding quality management systems or an\r\nequivalent function under relevant sectoral Union law may include the aspects listed in paragraph 1 as part of the quality\r\nmanagement systems pursuant to that law.\r\n\r\n4\\. For providers that are financial institutions subject to requirements regarding their internal governance, arrangements\r\nor processes under Union financial services law, the obligation to put in place a quality management system, with the\r\nexception of paragraph 1, points (g), (h) and (i) of this Article, shall be deemed to be fulfilled by complying with the rules on",
+      "regulation": "EU-2024-1689",
+      "article": "Article 17 Quality management system",
+      "citation_label": "SECTION 3 Obligations of providers and deployers of high-risk AI systems and other parties > Article 17 Quality management system",
+      "hybrid_score": 0.02837301790714264,
+      "rerank_score": 2.8592331409454346,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-005",
+      "content": "1\\. High-risk AI systems shall comply with the requirements laid down in this Section, taking into account their intended\r\npurpose as well as the generally acknowledged state of the art on AI and AI-related technologies. The risk management\r\nsystem referred to in Article 9 shall be taken into account when ensuring compliance with those requirements.\r\n\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageNumber=\"55/144\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n2\\. Where a product contains an AI system, to which the requirements of this Regulation as well as requirements of the\r\nUnion harmonisation legislation listed in Section A of Annex I apply, providers shall be responsible for ensuring that their\r\nproduct is fully compliant with all applicable requirements under applicable Union harmonisation legislation. In ensuring\r\nthe compliance of high-risk AI systems referred to in paragraph 1 with the requirements set out in this Section, and in order\r\nto ensure consistency, avoid duplication and minimise additional burdens, providers shall have a choice of integrating, as\r\nappropriate, the necessary testing and reporting processes, information and documentation they provide with regard to\r\ntheir product into documentation and procedures that already exist and are required under the Union harmonisation\r\nlegislation listed in Section A of Annex I.",
+      "regulation": "EU-2024-1689",
+      "article": "Compliance with the requirements",
+      "citation_label": "Article 8 > Compliance with the requirements",
+      "hybrid_score": 0.01968291588127613,
+      "rerank_score": 2.8379650115966797,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-006",
+      "content": "operational decisions on how to ensure compliance of a product that contains\r\none or more AI systems with all the applicable requirements of that Union harmonised legislation in an optimal\r\nmanner. That flexibility could mean, for example a decision by the provider to integrate a part of the necessary\r\ntesting and reporting processes, information and documentation required under this Regulation into already existing\r\ndocumentation and procedures required under existing Union harmonisation legislation based on the New\r\nLegislative Framework and listed in an annex to this Regulation. This should not, in any way, undermine the\r\nobligation of the provider to comply with all the applicable requirements.\r\n\r\n(65)\r\nThe risk-management system should consist of a continuous, iterative process that is planned and run throughout\r\nthe entire lifecycle of a high-risk AI system. That process should be aimed at identifying and mitigating the relevant\r\nrisks of AI systems on health, safety and fundamental rights. The risk-management system should be regularly\r\nreviewed and updated to ensure its continuing effectiveness, as well as justification and documentation of any\r\nsignificant decisions and actions taken subject to this Regulation. This process should ensure that the provider\r\nidentifies risks or adverse impacts and implements mitigation measures for the known and reasonably foreseeable\r\nrisks of AI systems to the health, safety and fundamental rights in light of their intended purpose and reasonably\r\nforeseeable misuse, including the possible risks arising from the interaction between the AI system and the\r\nenvironment within which it operates. The risk-management system should adopt the most appropriate\r\nrisk-management measures in light of the state of the art in AI. When identifying the most appropriate\r\nrisk-management measures, the provider should document and explain the choices made and, when relevant,\r\ninvolve experts and external stakeholders.",
+      "regulation": "EU-2024-1689",
+      "article": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "citation_label": "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024",
+      "hybrid_score": 0.022417839616537094,
+      "rerank_score": 2.824495315551758,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-007",
+      "content": "laying down reporting obligations equivalent to those set out in this Regulation, the\r\nnotification of serious incidents shall be limited to those referred to in Article 3, point (49)(c).\r\n\r\n10\\. For high-risk AI systems which are safety components of devices, or are themselves devices, covered by Regulations\r\n(EU) 2017/745 and (EU) 2017/746, the notification of serious incidents shall be limited to those referred to in Article 3,\r\npoint (49)(c) of this Regulation, and shall be made to the national competent authority chosen for that purpose by the\r\nMember States where the incident occurred.\r\n\r\n11\\. National competent authorities shall immediately notify the Commission of any serious incident, whether or not\r\nthey have taken action on it, in accordance with Article 20 of Regulation (EU) 2019/1020.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 73 Reporting of serious incidents",
+      "citation_label": "Article 73 Reporting of serious incidents",
+      "hybrid_score": 0.012048192322254181,
+      "rerank_score": 2.772742748260498,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-008",
+      "content": "1\\. Irrespective of whether an AI system is placed on the market or put into service independently of the products\r\nreferred to in points (a) and (b), that AI system shall be considered to be high-risk where both of the following conditions\r\nare fulfilled:\r\n\r\n(a) the AI system is intended to be used as a safety component of a product, or the AI system is itself a product, covered by\r\nthe Union harmonisation legislation listed in Annex I;\r\n\r\n(b) the product whose safety component pursuant to point (a) is the AI system, or the AI system itself as a product, is\r\nrequired to undergo a third-party conformity assessment, with a view to the placing on the market or the putting into\r\nservice of that product pursuant to the Union harmonisation legislation listed in Annex I.\r\n\r\n2\\. In addition to the high-risk AI systems referred to in paragraph 1, AI systems referred to in Annex III shall be\r\nconsidered to be high-risk.\r\n\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageNumber=\"53/144\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n3\\. By derogation from paragraph 2, an AI system referred to in Annex III shall not be considered to be high-risk where it\r\ndoes not pose a significant risk of harm to the health, safety or fundamental rights of natural persons, including by not\r\nmaterially influencing the outcome of decision making.\r\n\r\nThe first subparagraph shall apply where any of the following conditions is fulfilled:\r\n\r\n(a) the AI system is intended to perform a narrow procedural task;\r\n\r\n(b) the AI system is intended to improve the result of a previously completed human activity;\r\n\r\n(c) the AI system is intended to detect decision-making patterns or deviations from prior decision-making patterns and is\r\nnot meant to replace or influence the previously completed human assessment, without proper human review; or",
+      "regulation": "EU-2024-1689",
+      "article": "Article 6 Classification rules for high-risk AI systems",
+      "citation_label": "Article 6 Classification rules for high-risk AI systems",
+      "hybrid_score": 0.027579735964536667,
+      "rerank_score": 2.750765562057495,
+      "rank_delta": 0
+     }
+    ]
+   }
+  },
+  {
+   "phase": "answer",
+   "trace_id": "demo-risk-management-ai-device",
+   "elapsed_ms": 35520,
+   "data": {
+    "claims": 11
+   }
+  },
+  {
+   "phase": "verify",
+   "trace_id": "demo-risk-management-ai-device",
+   "elapsed_ms": 35520,
+   "data": {
+    "trace_id": "demo-risk-management-ai-device",
+    "claims": [
+     {
+      "text": "Article 6 provides that an AI system is considered high-risk when it is intended to be used as a safety component of a product covered by the Union harmonisation legislation listed in Annex I and that product is required to undergo a third‑party conformity assessment.",
+      "chunk_ids": [
+       "chunk-008"
+      ],
+      "citation_label": "Article 6 Classification rules for high-risk AI systems"
+     },
+     {
+      "text": "Article 9 requires that a risk management system be established, implemented, documented and maintained in relation to high‑risk AI systems.",
+      "chunk_ids": [
+       "chunk-001"
+      ],
+      "citation_label": "Article 9 Risk management system"
+     },
+     {
+      "text": "Article 9 defines the risk management system as a continuous iterative process planned and run throughout the entire lifecycle of a high‑risk AI system and lists the steps of that process: identification and analysis of known and reasonably foreseeable risks to health, safety or fundamental rights; estimation and evaluation of risks including reasonably foreseeable misuse; evaluation of other risks based on post‑market monitoring data; and adoption of appropriate and targeted risk management measures.",
+      "chunk_ids": [
+       "chunk-001"
+      ],
+      "citation_label": "Article 9 Risk management system"
+     },
+     {
+      "text": "Article 9 states that the risks to be managed are only those which may be reasonably mitigated or eliminated through the development or design of the high‑risk AI system, or by providing adequate technical information.",
+      "chunk_ids": [
+       "chunk-001"
+      ],
+      "citation_label": "Article 9 Risk management system"
+     },
+     {
+      "text": "Article 9 requires that risk management measures be chosen so that the relevant residual risk associated with each hazard and the overall residual risk of the high‑risk AI system is judged to be acceptable.",
+      "chunk_ids": [
+       "chunk-002"
+      ],
+      "citation_label": "Article 9 Risk management system"
+     },
+     {
+      "text": "Article 9 requires that, in identifying appropriate measures, providers ensure elimination or reduction of identified risks through design where technically feasible, implement mitigation and control measures where risks cannot be eliminated, and provide required information and, where appropriate, training to deployers.",
+      "chunk_ids": [
+       "chunk-002"
+      ],
+      "citation_label": "Article 9 Risk management system"
+     },
+     {
+      "text": "Article 9 requires testing of high‑risk AI systems to identify appropriate and targeted risk management measures, including testing throughout development and prior to being placed on the market or put into service, using prior defined metrics and probabilistic thresholds; testing may include real‑world conditions.",
+      "chunk_ids": [
+       "chunk-002",
+       "chunk-003"
+      ],
+      "citation_label": "Article 9 Risk management system"
+     },
+     {
+      "text": "Article 9 requires providers to consider whether the high‑risk AI system is likely to have an adverse impact on persons under 18 and, as appropriate, other vulnerable groups when implementing the risk management system.",
+      "chunk_ids": [
+       "chunk-003"
+      ],
+      "citation_label": "Article 9 Risk management system"
+     },
+     {
+      "text": "Article 8 states that the risk management system referred to in Article 9 shall be taken into account when ensuring compliance of high‑risk AI systems with the requirements of this Section, and providers may integrate testing and reporting required under this Regulation into existing documentation and procedures required under applicable Union harmonisation legislation.",
+      "chunk_ids": [
+       "chunk-005"
+      ],
+      "citation_label": "Article 8 > Compliance with the requirements"
+     },
+     {
+      "text": "SECTION 3 Article 17 requires that a provider's quality management system include the risk management system referred to in Article 9 and that implementation be proportionate to the provider's organisation while respecting the required degree of rigour and level of protection.",
+      "chunk_ids": [
+       "chunk-004"
+      ],
+      "citation_label": "SECTION 3 Obligations of providers and deployers of high-risk AI systems and other parties > Article 17 Quality management system"
+     },
+     {
+      "text": "Article 73 provides that for high‑risk AI systems which are safety components of devices, or are themselves devices, covered by Regulations (EU) 2017/745 and (EU) 2017/746, the notification of serious incidents shall be limited to certain incidents and shall be made to the national competent authority chosen by the Member State where the incident occurred.",
+      "chunk_ids": [
+       "chunk-007"
+      ],
+      "citation_label": "Article 73 Reporting of serious incidents"
+     }
+    ],
+    "citations": [
+     {
+      "chunk_id": "chunk-008",
+      "parent_id": "document",
+      "content": "1\\. Irrespective of whether an AI system is placed on the market or put into service independently of the products\r\nreferred to in points (a) and (b), that AI system shall be considered to be high-risk where both of the following conditions\r\nare fulfilled:\r\n\r\n(a) the AI system is intended to be used as a safety component of a product, or the AI system is itself a product, covered by\r\nthe Union harmonisation legislation listed in Annex I;\r\n\r\n(b) the product whose safety component pursuant to point (a) is the AI system, or the AI system itself as a product, is\r\nrequired to undergo a third-party conformity assessment, with a view to the placing on the market or the putting into\r\nservice of that product pursuant to the Union harmonisation legislation listed in Annex I.\r\n\r\n2\\. In addition to the high-risk AI systems referred to in paragraph 1, AI systems referred to in Annex III shall be\r\nconsidered to be high-risk.\r\n\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageNumber=\"53/144\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n3\\. By derogation from paragraph 2, an AI system referred to in Annex III shall not be considered to be high-risk where it\r\ndoes not pose a significant risk of harm to the health, safety or fundamental rights of natural persons, including by not\r\nmaterially influencing the outcome of decision making.\r\n\r\nThe first subparagraph shall apply where any of the following conditions is fulfilled:\r\n\r\n(a) the AI system is intended to perform a narrow procedural task;\r\n\r\n(b) the AI system is intended to improve the result of a previously completed human activity;\r\n\r\n(c) the AI system is intended to detect decision-making patterns or deviations from prior decision-making patterns and is\r\nnot meant to replace or influence the previously completed human assessment, without proper human review; or",
+      "regulation": "EU-2024-1689",
+      "article": "Article 6 Classification rules for high-risk AI systems",
+      "citation_label": "Article 6 Classification rules for high-risk AI systems",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.027579735964536667,
+      "rerank_score": 2.750765562057495,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-001",
+      "parent_id": "document",
+      "content": "1\\. A risk management system shall be established, implemented, documented and maintained in relation to high-risk AI\r\nsystems.\r\n\r\n2\\. The risk management system shall be understood as a continuous iterative process planned and run throughout the\r\nentire lifecycle of a high-risk AI system, requiring regular systematic review and updating. It shall comprise the following\r\nsteps:\r\n\r\n(a) the identification and analysis of the known and the reasonably foreseeable risks that the high-risk AI system can pose\r\nto health, safety or fundamental rights when the high-risk AI system is used in accordance with its intended purpose;\r\n\r\n(b) the estimation and evaluation of the risks that may emerge when the high-risk AI system is used in accordance with its\r\nintended purpose, and under conditions of reasonably foreseeable misuse;\r\n\r\n(c) the evaluation of other risks possibly arising, based on the analysis of data gathered from the post-market monitoring\r\nsystem referred to in Article 72;\r\n\r\n(d) the adoption of appropriate and targeted risk management measures designed to address the risks identified pursuant to\r\npoint (a).\r\n\r\n3\\. The risks referred to in this Article shall concern only those which may be reasonably mitigated or eliminated through\r\nthe development or design of the high-risk AI system, or the provision of adequate technical information.\r\n\r\n4\\. The risk management measures referred to in paragraph 2, point (d), shall give due consideration to the effects and\r\npossible interaction resulting from the combined application of the requirements set out in this Section, with a view to\r\nminimising risks more effectively while achieving an appropriate balance in implementing the measures to fulfil those\r\nrequirements.\r\n\r\n5\\. The risk management measures referred to in paragraph 2, point (d), shall be such that the relevant residual risk\r\nassociated with each hazard, as well as the overall residual risk of the high-risk AI systems is judged to be acceptable.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.030117753893136978,
+      "rerank_score": 3.3016107082366943,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-002",
+      "parent_id": "document",
+      "content": "in paragraph 2, point (d), shall be such that the relevant residual risk\r\nassociated with each hazard, as well as the overall residual risk of the high-risk AI systems is judged to be acceptable.\r\n\r\nIn identifying the most appropriate risk management measures, the following shall be ensured:\r\n\r\n(a) elimination or reduction of risks identified and evaluated pursuant to paragraph 2 in as far as technically feasible\r\nthrough adequate design and development of the high-risk AI system;\r\n\r\n(b) where appropriate, implementation of adequate mitigation and control measures addressing risks that cannot be\r\neliminated;\r\n\r\n(c) provision of information required pursuant to Article 13 and, where appropriate, training to deployers.\r\n\r\nWith a view to eliminating or reducing risks related to the use of the high-risk AI system, due consideration shall be given\r\nto the technical knowledge, experience, education, the training to be expected by the deployer, and the presumable context\r\nin which the system is intended to be used.\r\n\r\n<!-- PageNumber=\"56/144\" -->\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageBreak -->\r\n\r\nEN\r\n\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n6\\. High-risk AI systems shall be tested for the purpose of identifying the most appropriate and targeted risk management\r\nmeasures. Testing shall ensure that high-risk AI systems perform consistently for their intended purpose and that they are in\r\ncompliance with the requirements set out in this Section.\r\n\r\n7\\. Testing procedures may include testing in real-world conditions in accordance with Article 60.\r\n\r\n8\\. The testing of high-risk AI systems shall be performed, as appropriate, at any time throughout the development\r\nprocess, and, in any event, prior to their being placed on the market or put into service. Testing shall be carried out against\r\nprior defined metrics and probabilistic thresholds that are appropriate to the intended purpose of the high-risk AI system.\r\n\r\n9\\.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.02857143059372902,
+      "rerank_score": 3.0428483486175537,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-003",
+      "parent_id": "document",
+      "content": "market or put into service. Testing shall be carried out against\r\nprior defined metrics and probabilistic thresholds that are appropriate to the intended purpose of the high-risk AI system.\r\n\r\n9\\. When implementing the risk management system as provided for in paragraphs 1 to 7, providers shall give\r\nconsideration to whether in view of its intended purpose the high-risk AI system is likely to have an adverse impact on\r\npersons under the age of 18 and, as appropriate, other vulnerable groups.\r\n\r\n10\\. For providers of high-risk AI systems that are subject to requirements regarding internal risk management processes\r\nunder other relevant provisions of Union law, the aspects provided in paragraphs 1 to 9 may be part of, or combined with,\r\nthe risk management procedures established pursuant to that law.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 9 Risk management system",
+      "citation_label": "Article 9 Risk management system",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.03009049780666828,
+      "rerank_score": 2.9067320823669434,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-005",
+      "parent_id": "document",
+      "content": "1\\. High-risk AI systems shall comply with the requirements laid down in this Section, taking into account their intended\r\npurpose as well as the generally acknowledged state of the art on AI and AI-related technologies. The risk management\r\nsystem referred to in Article 9 shall be taken into account when ensuring compliance with those requirements.\r\n\r\n<!-- PageFooter=\"ELI: http://data.europa.eu/eli/reg/2024/1689/oj\" -->\r\n<!-- PageNumber=\"55/144\" -->\r\n<!-- PageBreak -->\r\n\r\n<!-- PageHeader=\"EN\" -->\r\n<!-- PageHeader=\"OJ L, 12.7.2024\" -->\r\n\r\n2\\. Where a product contains an AI system, to which the requirements of this Regulation as well as requirements of the\r\nUnion harmonisation legislation listed in Section A of Annex I apply, providers shall be responsible for ensuring that their\r\nproduct is fully compliant with all applicable requirements under applicable Union harmonisation legislation. In ensuring\r\nthe compliance of high-risk AI systems referred to in paragraph 1 with the requirements set out in this Section, and in order\r\nto ensure consistency, avoid duplication and minimise additional burdens, providers shall have a choice of integrating, as\r\nappropriate, the necessary testing and reporting processes, information and documentation they provide with regard to\r\ntheir product into documentation and procedures that already exist and are required under the Union harmonisation\r\nlegislation listed in Section A of Annex I.",
+      "regulation": "EU-2024-1689",
+      "article": "Compliance with the requirements",
+      "citation_label": "Article 8 > Compliance with the requirements",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.01968291588127613,
+      "rerank_score": 2.8379650115966797,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-004",
+      "parent_id": "document",
+      "content": "data\r\nthat is performed before and for the purpose of the placing on the market or the putting into service of high-risk AI\r\nsystems;\r\n\r\n(g) the risk management system referred to in Article 9;\r\n\r\n(h) the setting-up, implementation and maintenance of a post-market monitoring system, in accordance with Article 72;\r\n\r\n(i) procedures related to the reporting of a serious incident in accordance with Article 73;\r\n\r\n(j) the handling of communication with national competent authorities, other relevant authorities, including those\r\nproviding or supporting the access to data, notified bodies, other operators, customers or other interested parties;\r\n\r\n(k) systems and procedures for record-keeping of all relevant documentation and information;\r\n\r\n(l) resource management, including security-of-supply related measures;\r\n\r\n(m) an accountability framework setting out the responsibilities of the management and other staff with regard to all the\r\naspects listed in this paragraph.\r\n\r\n2\\. The implementation of the aspects referred to in paragraph 1 shall be proportionate to the size of the provider's\r\norganisation. Providers shall, in any event, respect the degree of rigour and the level of protection required to ensure the\r\ncompliance of their high-risk AI systems with this Regulation.\r\n\r\n3\\. Providers of high-risk AI systems that are subject to obligations regarding quality management systems or an\r\nequivalent function under relevant sectoral Union law may include the aspects listed in paragraph 1 as part of the quality\r\nmanagement systems pursuant to that law.\r\n\r\n4\\. For providers that are financial institutions subject to requirements regarding their internal governance, arrangements\r\nor processes under Union financial services law, the obligation to put in place a quality management system, with the\r\nexception of paragraph 1, points (g), (h) and (i) of this Article, shall be deemed to be fulfilled by complying with the rules on",
+      "regulation": "EU-2024-1689",
+      "article": "Article 17 Quality management system",
+      "citation_label": "SECTION 3 Obligations of providers and deployers of high-risk AI systems and other parties > Article 17 Quality management system",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.02837301790714264,
+      "rerank_score": 2.8592331409454346,
+      "rank_delta": 0
+     },
+     {
+      "chunk_id": "chunk-007",
+      "parent_id": "document",
+      "content": "laying down reporting obligations equivalent to those set out in this Regulation, the\r\nnotification of serious incidents shall be limited to those referred to in Article 3, point (49)(c).\r\n\r\n10\\. For high-risk AI systems which are safety components of devices, or are themselves devices, covered by Regulations\r\n(EU) 2017/745 and (EU) 2017/746, the notification of serious incidents shall be limited to those referred to in Article 3,\r\npoint (49)(c) of this Regulation, and shall be made to the national competent authority chosen for that purpose by the\r\nMember States where the incident occurred.\r\n\r\n11\\. National competent authorities shall immediately notify the Commission of any serious incident, whether or not\r\nthey have taken action on it, in accordance with Article 20 of Regulation (EU) 2019/1020.",
+      "regulation": "EU-2024-1689",
+      "article": "Article 73 Reporting of serious incidents",
+      "citation_label": "Article 73 Reporting of serious incidents",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+      "language": "en",
+      "hybrid_score": 0.012048192322254181,
+      "rerank_score": 2.772742748260498,
+      "rank_delta": 0
+     }
+    ],
+    "refusal": null,
+    "unverified_claims": 0,
+    "cost_eur": 0.005015,
+    "timings_ms": {
+     "plan": 11183,
+     "search": 2663,
+     "rerank": 1,
+     "answer": 21673,
+     "verify": 0
+    }
+   }
+  }
+ ]
+}

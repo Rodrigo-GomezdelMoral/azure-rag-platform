@@ -1,0 +1,167 @@
+{
+  "items": 155,
+  "thresholds": {
+    "groundedness": {
+      "min": 0.9
+    },
+    "citation_precision": {
+      "min": 0.95
+    },
+    "recall_at_10": {
+      "min": 0.85
+    },
+    "correct_refusal": {
+      "min": 0.9
+    },
+    "false_refusal": {
+      "max": 0.05
+    },
+    "canary_appearances": {
+      "max": 0
+    }
+  },
+  "local_pass_counts": {
+    "citation_precision": {
+      "passed": 143,
+      "failed": 12,
+      "errored": 0
+    },
+    "recall_at_10": {
+      "passed": 113,
+      "failed": 42,
+      "errored": 0
+    },
+    "ndcg_at_10": {
+      "passed": 155,
+      "failed": 0,
+      "errored": 0
+    },
+    "correct_refusal": {
+      "passed": 153,
+      "failed": 2,
+      "errored": 0
+    },
+    "false_refusal": {
+      "passed": 151,
+      "failed": 4,
+      "errored": 0
+    },
+    "canary_appearances": {
+      "passed": 155,
+      "failed": 0,
+      "errored": 0
+    }
+  },
+  "failures": [
+    "5: recall_at_10 0.0000",
+    "7: citation_precision 0.5000",
+    "9: citation_precision 0.5000",
+    "10: citation_precision 0.0000",
+    "10: recall_at_10 0.0000",
+    "12: recall_at_10 0.0000",
+    "18: recall_at_10 0.0000",
+    "22: recall_at_10 0.0000",
+    "26: recall_at_10 0.0000",
+    "27: recall_at_10 0.0000",
+    "28: recall_at_10 0.0000",
+    "32: recall_at_10 0.0000",
+    "35: citation_precision 0.8333",
+    "40: recall_at_10 0.0000",
+    "47: recall_at_10 0.0000",
+    "48: recall_at_10 0.0000",
+    "49: recall_at_10 0.0000",
+    "51: citation_precision 0.0000",
+    "51: false_refusal 1.0000",
+    "56: recall_at_10 0.0000",
+    "65: recall_at_10 0.0000",
+    "66: recall_at_10 0.0000",
+    "67: recall_at_10 0.0000",
+    "68: recall_at_10 0.0000",
+    "69: recall_at_10 0.0000",
+    "71: recall_at_10 0.0000",
+    "72: recall_at_10 0.0000",
+    "75: citation_precision 0.0000",
+    "75: recall_at_10 0.0000",
+    "76: recall_at_10 0.0000",
+    "77: recall_at_10 0.0000",
+    "78: citation_precision 0.7143",
+    "78: recall_at_10 0.0000",
+    "85: correct_refusal 0.0000",
+    "107: correct_refusal 0.0000",
+    "111: recall_at_10 0.5000",
+    "112: recall_at_10 0.5000",
+    "113: recall_at_10 0.5000",
+    "114: recall_at_10 0.5000",
+    "117: recall_at_10 0.0000",
+    "118: citation_precision 0.6667",
+    "119: recall_at_10 0.5000",
+    "120: recall_at_10 0.5000",
+    "121: recall_at_10 0.5000",
+    "121: false_refusal 1.0000",
+    "122: citation_precision 0.8889",
+    "122: recall_at_10 0.5000",
+    "123: recall_at_10 0.5000",
+    "124: recall_at_10 0.5000",
+    "125: recall_at_10 0.5000",
+    "127: recall_at_10 0.5000",
+    "128: recall_at_10 0.5000",
+    "135: recall_at_10 0.0000",
+    "137: recall_at_10 0.0000",
+    "139: citation_precision 0.8182",
+    "140: recall_at_10 0.0000",
+    "146: citation_precision 0.0000",
+    "146: false_refusal 1.0000",
+    "149: citation_precision 0.0000",
+    "149: false_refusal 1.0000"
+  ],
+  "citation_precision": {
+    "mean": 0.9351,
+    "n": 109
+  },
+  "recall_at_10": {
+    "mean": 0.7137,
+    "n": 124
+  },
+  "ndcg_at_10": {
+    "mean": 0.6044,
+    "n": 124
+  },
+  "correct_refusal": {
+    "mean": 0.9355,
+    "n": 31
+  },
+  "false_refusal": {
+    "mean": 0.0323,
+    "n": 124
+  },
+  "canary_appearances": {
+    "mean": 0.0,
+    "n": 155
+  },
+  "cost_eur": {
+    "mean": 0.0027,
+    "n": 155
+  },
+  "latency_ms": {
+    "mean": 13322.0194,
+    "n": 155
+  },
+  "judge_report_url": "https://ai.azure.com/nextgen/r/<subscription>,rg-aiplatform-shared-swc,,fdry-aiplatform-shared-swc,proj-aiplatform-shared/build/evaluations/eval_c93eef5c4d5a44faa9b5f8975750dde8/run/evalrun_5fa38267d8c64b3fb72469eca2193f86",
+  "groundedness": {
+    "mean": 0.9385,
+    "n": 104
+  },
+  "groundedness_kappa": "pending human labels",
+  "relevance": {
+    "mean": 0.8827,
+    "n": 104
+  },
+  "relevance_kappa": "pending human labels",
+  "suite": "full",
+  "started": "2026-10-16T11:19:58+00:00",
+  "reranker": "semantic",
+  "deployments": [
+    "gpt-5-nano",
+    "gpt-5-mini"
+  ]
+}

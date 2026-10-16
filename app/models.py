@@ -50,12 +50,6 @@ class Draft(BaseModel):
     claims: list[Claim]
 
 
-class Citation(BaseModel):
-    chunk_id: str
-    citation_label: str
-    source_url: str
-
-
 class RefusalReason(StrEnum):
     NO_EVIDENCE = "no_evidence"
     UNVERIFIED = "unverified"
@@ -65,7 +59,7 @@ class RefusalReason(StrEnum):
 class Answer(BaseModel):
     trace_id: str
     claims: list[Claim] = Field(default_factory=list)
-    citations: list[Citation] = Field(default_factory=list)
+    citations: list[Chunk] = Field(default_factory=list)
     refusal: RefusalReason | None = None
     unverified_claims: int = 0
     cost_eur: float = 0.0
