@@ -136,6 +136,7 @@ function Debug({ events, question, answer }: { events: PhaseEvent[]; question: s
         <dd><code>{events[0]?.trace_id ?? "—"}</code></dd>
       </dl>
       <h2 style={{ marginTop: 14 }}>Candidates</h2>
+      <div className="scroll">
       <table>
         <thead>
           <tr><th>#</th><th>Citation label</th><th className="num">Hybrid</th><th className="num">Rerank</th><th className="num">Δ rank</th></tr>
@@ -158,6 +159,7 @@ function Debug({ events, question, answer }: { events: PhaseEvent[]; question: s
           })}
         </tbody>
       </table>
+      </div>
       {answer && (
         <>
           <h2 style={{ marginTop: 14 }}>Timings and cost</h2>
@@ -191,6 +193,7 @@ function App() {
   const [conversation, setConversation] = useState(() => crypto.randomUUID());
   const controller = useRef<AbortController | null>(null);
   const answer = finalAnswer(events);
+  const inspecting = inspect && events.length > 0;
 
   async function submit(text: string) {
     const composed = [text.trim(), scope && `(${scope})`, article && `(${article})`].filter(Boolean).join(" ");
@@ -216,35 +219,39 @@ function App() {
         <h1>Regulatory Intelligence Platform</h1>
         <p>Grounded answers over the EU AI Act, the MDR and MDCG guidance. Every claim cites the article it rests on, or the platform refuses.</p>
       </header>
-      <main className={inspect ? "inspecting" : ""}>
-        <section>
-          <form className="bar" onSubmit={(event) => (event.preventDefault(), submit(question))}>
-            <textarea value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Ask about an obligation, a definition, a procedure or how two instruments interact" />
-            <select value={scope} onChange={(event) => setScope(event.target.value)} disabled={DEMO} title="Scope">
-              {SCOPES.map(([value, label]) => <option key={label} value={value}>{label}</option>)}
-            </select>
-            <input className="article" value={article} onChange={(event) => setArticle(event.target.value)} placeholder="Article 9" disabled={DEMO} />
-            <button type="submit" disabled={running}>{running ? "Working…" : "Ask"}</button>
-            <button type="button" className="quiet" onClick={() => (setConversation(crypto.randomUUID()), setEvents([]), setQuestion(""))}>New conversation</button>
-          </form>
-          {DEMO && (
-            <>
-              <div className="banner">Demo mode: recorded runs are replayed with their real phase timings halved. No backend is called.</div>
-              <div className="chips">
-                {recorded.map((text) => <button key={text} type="button" onClick={() => (setQuestion(text), submit(text))}>{text}</button>)}
+      <main className={inspecting ? "inspecting" : ""}>
+        <div className="workspace">
+          <section>
+            <form className="bar" onSubmit={(event) => (event.preventDefault(), submit(question))}>
+              <textarea value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Ask about an obligation, a definition, a procedure or how two instruments interact" />
+              <div className="controls">
+                <select value={scope} onChange={(event) => setScope(event.target.value)} disabled={DEMO} title="Scope">
+                  {SCOPES.map(([value, label]) => <option key={label} value={value}>{label}</option>)}
+                </select>
+                <input className="article" value={article} onChange={(event) => setArticle(event.target.value)} placeholder="Article 9" disabled={DEMO} />
+                <button type="submit" disabled={running}>{running ? "Working…" : "Ask"}</button>
+                <button type="button" className="quiet" onClick={() => (setConversation(crypto.randomUUID()), setEvents([]), setQuestion(""))}>New conversation</button>
               </div>
-            </>
-          )}
-          {error && <div className="error">{error}</div>}
-          <div className="row" style={{ marginTop: 10 }}>
-            <label><input type="checkbox" checked={inspect} onChange={(event) => setInspect(event.target.checked)} /> Inspect retrieval</label>
-            <span className="feedback" style={{ margin: 0 }}>Conversation {conversation.slice(0, 8)}</span>
-          </div>
-        </section>
-        {(events.length > 0 || running) && <Timeline events={events} running={running} answer={answer} />}
-        {answer && <AnswerPanel answer={answer} key={answer.trace_id} />}
-        {answer && <Citations answer={answer} />}
-        {inspect && events.length > 0 && <Debug events={events} question={asked} answer={answer} />}
+            </form>
+            {DEMO && (
+              <>
+                <div className="banner">Demo mode: recorded runs are replayed with their real phase timings halved. No backend is called.</div>
+                <div className="chips">
+                  {recorded.map((text) => <button key={text} type="button" onClick={() => (setQuestion(text), submit(text))}>{text}</button>)}
+                </div>
+              </>
+            )}
+            {error && <div className="error">{error}</div>}
+            <div className="row" style={{ marginTop: 10 }}>
+              <label><input type="checkbox" checked={inspect} onChange={(event) => setInspect(event.target.checked)} /> Inspect retrieval</label>
+              <span className="feedback" style={{ margin: 0 }}>Conversation {conversation.slice(0, 8)}</span>
+            </div>
+          </section>
+          {(events.length > 0 || running) && <Timeline events={events} running={running} answer={answer} />}
+          {answer && <AnswerPanel answer={answer} key={answer.trace_id} />}
+          {answer && <Citations answer={answer} />}
+        </div>
+        {inspecting && <Debug events={events} question={asked} answer={answer} />}
       </main>
     </>
   );
