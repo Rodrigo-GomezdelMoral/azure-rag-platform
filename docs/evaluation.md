@@ -36,7 +36,8 @@ version hash that changes on re-ingestion (ADR-001), and the label is what a rea
 | `smoke.jsonl` | 12 | three answerable, three unanswerable, three multi-hop, three adversarial (one per channel) | the pull-request gate |
 
 Every row carries `id`, `type`, `regulation`, `question`, `expected_outcome` and
-`golden_citations`; adversarial rows may carry `planted_passage`.
+`golden_citations`; adversarial rows may carry `planted_passage`. Calibration rows carry the answer
+under review and its `human` labels instead.
 
 ## The golden set
 
@@ -105,7 +106,7 @@ relevance score can be given a floor.
 
 | Command | What it does |
 |---|---|
-| `make smoke` | the twelve-item suite, the merge gate for pull requests that touch `app/`, `prompts/` or `ops/` |
+| `make smoke` | the twelve-item suite; with the adversarial suite, the merge gate for pull requests that touch `app/`, `prompts/`, `ops/` or `eval/` |
 | `make eval` | the full suite: golden, unanswerable, multihop and adversarial |
 | `python -m eval.run --suite calibration` | the judge against the calibration set |
 
