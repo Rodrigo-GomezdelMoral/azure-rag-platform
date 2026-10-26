@@ -56,13 +56,14 @@ Option 3, with the calibration made explicit:
   carries one row per channel, so every pull request runs all three.
 - **Thresholds gate per item, means are reported.** `eval/thresholds.yaml` holds the six
   thresholds of the specification. Each local evaluator applies its threshold to the item it
-  scores, so `raise_for_status()` fails the merge on any item below the line; the report also
+  scores, so `raise_for_status()` fails the run on any item below the line; the report also
   records each metric's mean over the items it applies to, which is the number a reader quotes.
 
 ## Consequences
 
 - The judge costs two evaluator calls per answered item on top of the answer itself; the smoke
-  suite is sized so that a pull request pays for twelve.
+  suite is sized so that a pull request pays for twelve, plus the twenty-five adversarial items
+  that run beside it.
 - The calibration set is tied to the prompts that produced it. A material change to the
   answerer's prompt is a reason to regenerate and re-label it, which is why the datasets are
   versioned with the prompts.

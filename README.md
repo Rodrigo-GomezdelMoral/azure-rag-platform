@@ -159,14 +159,17 @@ report after the review is published in `docs/evaluation.md`; the judge's agreem
 labels of the forty calibration items is κ = 0.90 for groundedness and κ = 0.00 for
 relevance (`docs/reports/2026-10-16-calibration-gpt-5-mini-semantic.json`).
 
+On a pull request the gate runs the smoke and adversarial suites, and it is advisory: the `main`
+ruleset requires a pull request but no status check, so a red run does not block the merge.
+
 ## Cost
 
 Measured by the `repo` tag on 2026-10-15: this resource group has cost €0.0008 month to date,
 because nothing in it runs between questions; the shared platform it uses has cost €10.36, mostly
 the search service. A question costs €0.0025 to €0.005 in tokens with the semantic reranker,
 depending on the length of the answer, and about four times that with the agent reranker
-(`experiments/002-reranking.md`); a thousand queries cost €2.6 to €5.1. The production projection — 50,000
-questions a month, two search replicas, a second region — is about €590 a month, measured unit
+(`experiments/002-reranking.md`); a thousand queries cost €3.5 to €6.0. The production projection — 50,000
+questions a month, two search replicas, a second region — is about €630 a month, measured unit
 prices and stated assumptions in `docs/cost.md`.
 
 ## Identities and roles
@@ -204,17 +207,19 @@ have key access disabled, and the CI gate scans the full history for emails and 
 
 - **English only**, four documents, one tenant, one region. The second-language corpus and the
   second region are costed, not built.
-- **Budgets, measured.** 59 tracked files against a ceiling of 60, where the specification's figure
-  of 42 predates its own mandated layout; 1,397 lines of Python against 1,400, where the
+- **Budgets, measured.** 58 tracked files against a ceiling of 60, where the specification's figure
+  of 42 predates its own mandated layout; 1,400 lines of Python against 1,400, where the
   specification's 1,000 covered application and operations code and this count includes the tests
-  and the evaluation harness (application 572, operations 283, evaluation 206, tests 336); 399
-  lines of Bicep against 400; 456 of TypeScript against 700. `tests/test_budget.py` enforces each.
+  and the evaluation harness (application 575, operations 283, evaluation 208, tests 334); 399
+  lines of Bicep against 400; 463 of TypeScript against 700. `tests/test_budget.py` enforces each.
 - **Citation labels are the heading path Document Intelligence detected.** Where it missed a
   heading, a passage carries the previous section's label — Article 26 of the AI Act is indexed
   under Article 25 — and the citation inherits it. Page numbers are not available in the mode
   that preserves headings (ADR-001).
 - **The search service lives in North Europe** while everything else is in Sweden Central,
   because the landing zone could not obtain Basic-tier capacity there on the day it was built.
+  Retrieval always asks for its semantic ranker, so live answers depend on the landing zone's
+  `standard` semantic plan; on the free plan they fail once the monthly allowance is spent.
 - **Re-ingestion is a job, not a trigger.** The indexer runs daily and on demand; a changed PDF is
   re-chunked under new keys, which is why evaluation datasets cite labels rather than chunk ids.
 - **The deployment workflow updates images with `az containerapp`** rather than `azd deploy`, so

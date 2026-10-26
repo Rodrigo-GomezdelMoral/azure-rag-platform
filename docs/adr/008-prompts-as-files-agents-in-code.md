@@ -29,7 +29,7 @@ system under test.
 Option 3.
 
 - **A prompt change must pass the same gate as a code change.** The evaluation workflow runs on
-  every pull request that touches `prompts/`, and `raise_for_status()` blocks the merge. A hosted
+  every pull request that touches `prompts/`, and `raise_for_status()` fails its check. A hosted
   agent's instructions would be editable outside that gate, and the evaluation report could not
   name the commit it measured.
 - **Versions are files, not history.** `answerer_v2.md` is a new file beside `answerer_v1.md`, so

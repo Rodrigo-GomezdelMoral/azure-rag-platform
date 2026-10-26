@@ -88,6 +88,6 @@ jobs:
               `### Evaluation · ${files.length ? "reports of this run" : "no report was produced"}`,
               "", "| suite | evaluator | mean | items |", "|---|---|---|---|", ...rows, "",
               judge ? `Foundry judge run: ${judge}` : "Foundry judge run: not available",
-              `Outcome: **${{ job.status }}** — the merge is blocked while \`raise_for_status()\` fails.`,
+              `Outcome: **${{ job.status }}** — the check stays red while \`raise_for_status()\` fails.`,
             ].join("\n");
             await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });

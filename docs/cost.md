@@ -34,7 +34,7 @@ only when it is selected.
 | golden run `docs/reports/2026-10-15-golden-gpt-5-mini-semantic.json` | €0.0025 mean; single-passage questions answered in about three claims | 80 | semantic |
 | golden run `docs/reports/2026-10-15-golden-gpt-5-mini-agent.json` | €0.0104 mean; the same questions with the second model call | 80 | agent |
 
-In local mode the same arithmetic runs over Ollama's token counts with the Foundry prices, so the figure an answer carries is what that answer would have cost on the deployments, not what the laptop paid. The semantic ranker is included in the search service's price; the agent reranker is a second
+In local mode the same arithmetic runs over Ollama's token counts with the Foundry prices, so the figure an answer carries is what that answer would have cost on the deployments, not what the laptop paid. The semantic ranker is billed per query once its monthly free allowance is spent (below); the agent reranker is a second
 gpt-5-mini call that reads thirty passages and multiplies the model cost of an answer by about four,
 €0.0025 to €0.0104 on the eighty golden items (`experiments/002-reranking.md`).
 
@@ -46,12 +46,14 @@ gpt-5-mini call that reads thirty passages and multiplies the model cost of an a
 | Model tokens, semantic reranker, multi-hop answers | **€5.0** | measured: mean of the answered smoke items and the fixtures, €0.005 per answer |
 | Model tokens, agent reranker | **€10.4** | measured: mean of the eighty golden items with `RERANKER=agent`, €0.0104 per answer |
 | Azure AI Search queries | €0 marginal | measured: queries are included in the Basic tier's hourly price |
+| Semantic ranker | €0.88 | measured: the shared service's `standard` semantic plan bills each thousand queries beyond the monthly free allowance; Retail Prices API, North Europe, 2026-10-26 |
 | Cosmos DB | about €0.002 | modelled: two writes and one read per question at serverless request-unit prices, well under a cent |
 | Container Apps | about €0.09 | modelled: one request every few seconds keeps one 0.5 vCPU replica warm for the whole hour at consumption prices; at a thousand queries an hour the API runs continuously |
-| **Total, semantic reranker** | **€2.6 to €5.1** | measured tokens, by answer length, plus modelled platform cost |
+| **Total, semantic reranker** | **€3.5 to €6.0** | measured tokens, by answer length, and ranker price, plus modelled platform cost |
 
-Tokens are the cost. Everything else in this resource group is noise until the question rate is
-high enough to keep replicas warm, and even then the platform share stays under two per cent.
+Tokens are the cost, and the shared search service's semantic ranker adds €0.88 a thousand. Everything
+else in this resource group is noise until the question rate is high enough to keep replicas warm, and
+even then its share stays under three per cent.
 
 ## Projection to production (modelled)
 
@@ -65,12 +67,13 @@ Retail Prices of 2026-10-14 for Sweden Central.
 | Model tokens, 50,000 answers at €0.005 | €250 | modelled from the higher of the two measured unit costs |
 | Azure AI Search Basic, 2 replicas × 1 partition, one region | €130 | modelled from the measured €0.0889 per search unit hour |
 | Azure AI Search Basic, 2 replicas, second region | €130 | modelled, same unit price |
+| Semantic ranker, 50,000 queries | €44 | modelled from the measured €0.88 per thousand, ignoring the monthly free allowance |
 | Container Apps, two regions, one warm API replica each | €60 | modelled from consumption prices for 0.5 vCPU and 1 GiB |
 | Cosmos DB serverless, both regions | €5 | modelled from request units per question |
 | Document Intelligence, re-ingestion of the corpus four times a year | €2 | measured: about 390 pages per run at €10 per thousand pages |
 | Log Analytics and Application Insights, about 2 GB a month | €6 | modelled from the measured €2.63 per GB |
 | Registry and budgets | €5 | measured: Basic registry at €0.15 a day |
-| **Total** | **about €590 a month, €0.012 per question** | |
+| **Total** | **about €630 a month, €0.013 per question** | |
 
 Two things the model does not include, on purpose: the shared Foundry account's base cost, which
 belongs to the landing zone, and the people who verify the golden set and label the calibration
