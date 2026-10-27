@@ -24,26 +24,26 @@ they buy is time, and the proof that every statement points at a real article.
 
 ## Architecture
 
-```mermaid
-graph LR
-    U["Browser"] --> WEB["ca-ragweb · proxy with managed identity"]
-    WEB -->|"Entra token · Rag.Query app role"| API["ca-ragapi · Entra required at the ingress"]
-    API --> PIPE["answer() · a plain async generator"]
-    PIPE --> QP["QueryPlanner · gpt-5-nano · the only agent with history"]
-    PIPE --> RET["Retriever · one hybrid query"]
-    PIPE --> RR["Reranker · semantic ranker or agent"]
-    PIPE --> ANS["Answerer · gpt-5-mini · structured claims"]
-    PIPE --> VER["verify() · deterministic"]
-    QP --> HIST[("Cosmos DB")]
-    QP & RR & ANS --> PROJ["Foundry project (shared)"]
-    RET --> SRCH[("Azure AI Search (shared)")]
-    BLOB[("Blob corpus")] --> IDXR["indexer + skillset"] --> SRCH
-```
+![The web proxies with its managed identity to the API, which runs plan, search, rerank, answer and verify over the shared Foundry project and AI Search](docs/images/architecture.png)
 
 The pipeline is five steps in a fixed order, written as a function rather than a workflow; progress
 is streamed as phase events, never as tokens; a claim is shown once, after verification. There is no
 virtual network: the boundary is the token, and the browser never holds one. `docs/architecture.md`
 has the container table and the request sequence.
+
+![The platform's resource group as deployed, in the Azure portal](docs/images/resource-group.png)
+
+## In action
+
+A question answered live by the deployed platform: every phase is visible, and each claim is shown
+only after its citation is verified.
+
+![The deployed web answering a question about deployers' human-oversight obligations, with its five phases and verified claims](docs/images/live-answer.png)
+
+A question the corpus cannot support: the platform refuses, by design, instead of inventing an
+answer.
+
+![The deployed web refusing a question with no evidence in the corpus](docs/images/refusal.png)
 
 ## What this demonstrates
 
@@ -202,29 +202,3 @@ have key access disabled, and the CI gate scans the full history for emails and 
 | [009](docs/adr/009-app-role-authorisation-instead-of-a-network-boundary.md) | App-role authorisation instead of a network boundary |
 | [010](docs/adr/010-rejection-of-the-search-context-provider.md) | Rejection: `AzureAISearchContextProvider` hides candidate scores and chunk identity |
 | [011](docs/adr/011-rejection-of-key-vault-api-management-front-door-and-aks.md) | Rejection: no Key Vault, no API Management, no Front Door, no AKS |
-
-## Scope and simplifications
-
-- **English only**, four documents, one tenant, one region. The second-language corpus and the
-  second region are costed, not built.
-- **Budgets, measured.** 58 tracked files against a ceiling of 60, where the specification's figure
-  of 42 predates its own mandated layout; 1,400 lines of Python against 1,400, where the
-  specification's 1,000 covered application and operations code and this count includes the tests
-  and the evaluation harness (application 575, operations 283, evaluation 208, tests 334); 399
-  lines of Bicep against 400; 463 of TypeScript against 700. `tests/test_budget.py` enforces each.
-- **Citation labels are the heading path Document Intelligence detected.** Where it missed a
-  heading, a passage carries the previous section's label — Article 26 of the AI Act is indexed
-  under Article 25 — and the citation inherits it. Page numbers are not available in the mode
-  that preserves headings (ADR-001).
-- **The search service lives in North Europe** while everything else is in Sweden Central,
-  because the landing zone could not obtain Basic-tier capacity there on the day it was built.
-  Retrieval always asks for its semantic ranker, so live answers depend on the landing zone's
-  `standard` semantic plan; on the free plan they fail once the monthly allowance is spent.
-- **Re-ingestion is a job, not a trigger.** The indexer runs daily and on demand; a changed PDF is
-  re-chunked under new keys, which is why evaluation datasets cite labels rather than chunk ids.
-- **The deployment workflow updates images with `az containerapp`** rather than `azd deploy`, so
-  that the canary revision and its traffic split are explicit; `azd up` remains the way to
-  provision and deploy from a workstation.
-- **Reasoning effort is set to low** on every model call after measuring that the planner took
-  28 seconds at the default; answers take about twenty seconds end to end and the interface shows
-  the pipeline rather than hiding it.
