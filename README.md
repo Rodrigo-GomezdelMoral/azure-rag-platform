@@ -1,5 +1,7 @@
 # Regulatory Intelligence Platform
 
+Built by **Rodrigo Martín Gómez del Moral Herranz** · [LinkedIn](https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz) · [Portfolio](https://rodrigogomez.es)
+
 Grounded document intelligence over a controlled corpus with article-level provenance, built on
 Microsoft Agent Framework. The system answers questions about the EU AI Act, the Medical Device
 Regulation and MDCG guidance **only when the corpus supports it**, cites the article every claim
@@ -11,6 +13,11 @@ with their real phase timings, no backend.
 
 [![ci](https://github.com/Rodrigo-GomezdelMoral/azure-rag-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/Rodrigo-GomezdelMoral/azure-rag-platform/actions/workflows/ci.yml)
 [![eval](https://github.com/Rodrigo-GomezdelMoral/azure-rag-platform/actions/workflows/eval.yml/badge.svg)](https://github.com/Rodrigo-GomezdelMoral/azure-rag-platform/actions/workflows/eval.yml)
+
+A question answered live by the deployed platform: every phase is visible, and each claim is shown
+only after its citation is verified.
+
+![The deployed web answering a question about deployers' human-oversight obligations, with its five phases and verified claims](docs/images/live-answer.png)
 
 ## The problem
 
@@ -31,14 +38,11 @@ is streamed as phase events, never as tokens; a claim is shown once, after verif
 virtual network: the boundary is the token, and the browser never holds one. `docs/architecture.md`
 has the container table and the request sequence.
 
+![Plan, search, rerank, answer and verify; a filtered question, a lack of evidence or an unverified citation ends in a refusal](docs/images/pipeline.png)
+
 ![The platform's resource group as deployed, in the Azure portal](docs/images/resource-group.png)
 
 ## In action
-
-A question answered live by the deployed platform: every phase is visible, and each claim is shown
-only after its citation is verified.
-
-![The deployed web answering a question about deployers' human-oversight obligations, with its five phases and verified claims](docs/images/live-answer.png)
 
 A question the corpus cannot support: the platform refuses, by design, instead of inventing an
 answer.
@@ -89,6 +93,10 @@ One command provisions `rg-ragplatform-prod-swc` from `infra/` and deploys both 
 resource group must exist, the landing zone must be deployed and its outputs imported with
 `make lz-env`, and the bootstrap below must have been run once. `make preview` runs
 `azd provision --preview`; `make destroy` removes everything the repository created.
+
+The index is configuration that the search service builds with its own identity (ADR-001):
+
+![The regulations' PDFs land in the corpus container; a skillset extracts the layout, chunks by section and embeds them into the index](docs/images/ingestion.png)
 
 ### Bootstrap, once per tenant
 
@@ -162,6 +170,8 @@ relevance (`docs/reports/2026-10-16-calibration-gpt-5-mini-semantic.json`).
 On a pull request the gate runs the smoke and adversarial suites, and it is advisory: the `main`
 ruleset requires a pull request but no status check, so a red run does not block the merge.
 
+![ci.yml tests, builds the Bicep and scans for secrets; eval.yml judges and gates, advisory; deploy.yml goes through an approval, a 10 % canary and promotion or rollback; pages.yml publishes the static demo](docs/images/cicd.png)
+
 ## Cost
 
 Measured by the `repo` tag on 2026-10-15: this resource group has cost €0.0008 month to date,
@@ -187,6 +197,18 @@ in.** Every call is made with a managed identity or the developer's own login, s
 have key access disabled, and the CI gate scans the full history for emails and identifiers.
 `docs/security.md` maps every threat to the file that mitigates it.
 
+## Well-Architected design
+
+How the design maps to the five pillars of the Azure Well-Architected Framework, and the trade-off accepted in each.
+
+| Pillar | Applied | Trade-off accepted |
+|---|---|---|
+| Reliability | Canary deployment with rollback; typed refusals instead of invented answers; a claim is shown only after its citation is verified | One region, scaled to zero between questions; the production projection with two search replicas and a second region is costed at about €630 a month, not deployed |
+| Security | No secret anywhere: managed identities, key access disabled on storage and Cosmos, Entra at the ingress and the `Rag.Query` app role in the code; the CI gate scans the history for identifiers | No virtual network: the token is the boundary (ADR-009) |
+| Cost Optimization | €0.0025 to €0.005 a question with the semantic reranker; the group costs almost nothing at rest because nothing runs between questions | No Key Vault, API Management, Front Door or AKS (ADR-011) |
+| Operational Excellence | One `azd up`; a quality gate, an evaluation gate with a pull-request comment, canary deployment with rollback and eleven ADRs | The evaluation gate is advisory: the ruleset requires a pull request, not a green check |
+| Performance Efficiency | One hybrid query with the native semantic ranker, scalar quantisation and `stored: false` (ADR-002), progress streamed as phase events (ADR-005) | Answers are shown after verification, never token by token |
+
 ## Decisions
 
 | ADR | Decision |
@@ -202,3 +224,7 @@ have key access disabled, and the CI gate scans the full history for emails and 
 | [009](docs/adr/009-app-role-authorisation-instead-of-a-network-boundary.md) | App-role authorisation instead of a network boundary |
 | [010](docs/adr/010-rejection-of-the-search-context-provider.md) | Rejection: `AzureAISearchContextProvider` hides candidate scores and chunk identity |
 | [011](docs/adr/011-rejection-of-key-vault-api-management-front-door-and-aks.md) | Rejection: no Key Vault, no API Management, no Front Door, no AKS |
+
+## Author
+
+**Rodrigo Martín Gómez del Moral Herranz** · [LinkedIn](https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz) · [Portfolio](https://rodrigogomez.es)
