@@ -2,18 +2,15 @@
 
 Built by **Rodrigo Martín Gómez del Moral Herranz**
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rodrigo-GomezdelMoral)&nbsp;&nbsp;[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwLjQ1IDIwLjQ1aC0zLjU2di01LjU3YzAtMS4zMy0uMDMtMy4wNC0xLjg1LTMuMDQtMS44NSAwLTIuMTQgMS40NS0yLjE0IDIuOTR2NS42N0g5LjM1VjloMy40MXYxLjU2aC4wNWMuNDgtLjkgMS42NC0xLjg1IDMuMzctMS44NSAzLjYgMCA0LjI3IDIuMzcgNC4yNyA1LjQ2djYuMjh6TTUuMzQgNy40M2EyLjA2IDIuMDYgMCAxIDEgMC00LjEyIDIuMDYgMi4wNiAwIDAgMSAwIDQuMTJ6TTcuMTIgMjAuNDVIMy41NlY5aDMuNTZ2MTEuNDV6TTIyLjIyIDBIMS43N0MuNzkgMCAwIC43NyAwIDEuNzN2MjAuNTRDMCAyMy4yMy43OSAyNCAxLjc3IDI0aDIwLjQ1Yy45OCAwIDEuNzgtLjc3IDEuNzgtMS43M1YxLjczQzI0IC43NyAyMy4yIDAgMjIuMjIgMHoiLz48L3N2Zz4%3D)](https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz)&nbsp;&nbsp;[![Portfolio](https://img.shields.io/badge/rodrigogomezdelmoralherranz.es-181717?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8%2BPHBhdGggZD0iTTIgMTJoMjBNMTIgMmExNSAxNSAwIDAgMSAwIDIwTTEyIDJhMTUgMTUgMCAwIDAgMCAyMCIvPjwvc3ZnPg%3D%3D)](https://rodrigogomezdelmoralherranz.es)
+<a href="https://github.com/Rodrigo-GomezdelMoral"><img src="docs/images/author/github.png" alt="GitHub" height="36"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz"><img src="docs/images/author/linkedin.png" alt="LinkedIn" height="36"></a>&nbsp;&nbsp;<a href="https://rodrigogomezdelmoralherranz.es"><img src="docs/images/author/portfolio.png" alt="Portfolio" height="36"></a>
 
 Grounded document intelligence over a controlled corpus with article-level provenance, built on
 Microsoft Agent Framework. The system answers questions about the EU AI Act, the Medical Device
 Regulation and MDCG guidance **only when the corpus supports it**, cites the article every claim
 rests on, verifies every citation before showing it, and proves all three with measured numbers.
 
-**Live demo:** <https://rodrigo-gomezdelmoral.github.io/azure-rag-platform/> — recorded runs replayed
+**Live demo:** <https://rodrigo-gomezdelmoral.github.io/azure-rag-platform/> - recorded runs replayed
 with their real phase timings, no backend.
-
-[![ci](https://github.com/Rodrigo-GomezdelMoral/azure-rag-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/Rodrigo-GomezdelMoral/azure-rag-platform/actions/workflows/ci.yml)
-[![eval](https://github.com/Rodrigo-GomezdelMoral/azure-rag-platform/actions/workflows/eval.yml/badge.svg)](https://github.com/Rodrigo-GomezdelMoral/azure-rag-platform/actions/workflows/eval.yml)
 
 A question answered live by the deployed platform: every phase is visible, and each claim is shown
 only after its citation is verified.
@@ -86,8 +83,8 @@ answer.
 
 ## Evaluation
 
-The full suite of 2026-10-16 — golden (80, verified by the author that day), unanswerable (30),
-multihop (20) and adversarial (25), 155 items — planner `gpt-5-nano`, answerer `gpt-5-mini`,
+The full suite of 2026-10-16 - golden (80, verified by the author that day), unanswerable (30),
+multihop (20) and adversarial (25), 155 items - planner `gpt-5-nano`, answerer `gpt-5-mini`,
 semantic reranker, report `docs/reports/2026-10-16-full-gpt-5-mini-semantic.json`:
 
 | Metric | Mean | Threshold |
@@ -121,8 +118,8 @@ Measured by the `repo` tag on 2026-10-15: this resource group has cost €0.0008
 because nothing in it runs between questions; the shared platform it uses has cost €10.36, mostly
 the search service. A question costs €0.0025 to €0.005 in tokens with the semantic reranker,
 depending on the length of the answer, and about four times that with the agent reranker
-(`experiments/002-reranking.md`); a thousand queries cost €3.5 to €6.0. The production projection — 50,000
-questions a month, two search replicas, a second region — is about €630 a month, measured unit
+(`experiments/002-reranking.md`); a thousand queries cost €3.5 to €6.0. The production projection - 50,000
+questions a month, two search replicas, a second region - is about €630 a month, measured unit
 prices and stated assumptions in `docs/cost.md`.
 
 ## Well-Architected design
@@ -166,7 +163,7 @@ The index is configuration that the search service builds with its own identity 
    Role Based Access Control Administrator on this and the shared group (to assign roles to the
    identities it creates), Contributor on the shared registry (the first deployment showed that
    `az acr build` needs to schedule a task and upload its context, two actions AcrPush does not
-   include), and — so that pull requests can run the evaluation suite — Foundry User on the
+   include), and - so that pull requests can run the evaluation suite - Foundry User on the
    shared project, Cognitive Services OpenAI User on
    the shared Foundry account (the judge's graders call the model deployment as the caller; without
    it every judged item errors and the run fails), Search Index Data Reader on the search service
@@ -230,4 +227,4 @@ have key access disabled, and the CI gate scans the full history for emails and 
 
 **Rodrigo Martín Gómez del Moral Herranz**
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rodrigo-GomezdelMoral)&nbsp;&nbsp;[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwLjQ1IDIwLjQ1aC0zLjU2di01LjU3YzAtMS4zMy0uMDMtMy4wNC0xLjg1LTMuMDQtMS44NSAwLTIuMTQgMS40NS0yLjE0IDIuOTR2NS42N0g5LjM1VjloMy40MXYxLjU2aC4wNWMuNDgtLjkgMS42NC0xLjg1IDMuMzctMS44NSAzLjYgMCA0LjI3IDIuMzcgNC4yNyA1LjQ2djYuMjh6TTUuMzQgNy40M2EyLjA2IDIuMDYgMCAxIDEgMC00LjEyIDIuMDYgMi4wNiAwIDAgMSAwIDQuMTJ6TTcuMTIgMjAuNDVIMy41NlY5aDMuNTZ2MTEuNDV6TTIyLjIyIDBIMS43N0MuNzkgMCAwIC43NyAwIDEuNzN2MjAuNTRDMCAyMy4yMy43OSAyNCAxLjc3IDI0aDIwLjQ1Yy45OCAwIDEuNzgtLjc3IDEuNzgtMS43M1YxLjczQzI0IC43NyAyMy4yIDAgMjIuMjIgMHoiLz48L3N2Zz4%3D)](https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz)&nbsp;&nbsp;[![Portfolio](https://img.shields.io/badge/rodrigogomezdelmoralherranz.es-181717?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8%2BPHBhdGggZD0iTTIgMTJoMjBNMTIgMmExNSAxNSAwIDAgMSAwIDIwTTEyIDJhMTUgMTUgMCAwIDAgMCAyMCIvPjwvc3ZnPg%3D%3D)](https://rodrigogomezdelmoralherranz.es)
+<a href="https://github.com/Rodrigo-GomezdelMoral"><img src="docs/images/author/github.png" alt="GitHub" height="36"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz"><img src="docs/images/author/linkedin.png" alt="LinkedIn" height="36"></a>&nbsp;&nbsp;<a href="https://rodrigogomezdelmoralherranz.es"><img src="docs/images/author/portfolio.png" alt="Portfolio" height="36"></a>
