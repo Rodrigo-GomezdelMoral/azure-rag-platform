@@ -9,7 +9,7 @@ Microsoft Agent Framework. The system answers questions about the EU AI Act, the
 Regulation and MDCG guidance **only when the corpus supports it**, cites the article every claim
 rests on, verifies every citation before showing it, and proves all three with measured numbers.
 
-<p align="center"><a href="https://rodrigogomezdelmoral.es/en/projects/azure-rag-platform#video"><img src="docs/images/author/demo-video.png" alt="Watch the demo video" height="48"></a></p>
+<p align="center"><a href="https://rodrigogomezdelmoral.es/en/projects/azure-rag-platform#video"><img src="docs/images/author/demo-video.png" alt="Watch the AI solution video" height="48"></a></p>
 
 **Built to standard.** This AI solution is designed, built, validated and operated in alignment with the **Microsoft
 Responsible AI Standard** (Fairness, Reliability and Safety, Privacy and Security, Inclusiveness, Transparency,
