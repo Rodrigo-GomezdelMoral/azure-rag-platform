@@ -1,4 +1,4 @@
-# Agent specification — Regulatory Intelligence Platform
+# Agent specification: Regulatory Intelligence Platform
 
 This document is written before any code and governs it. It follows the five sections of the
 Microsoft GenAIOps agent specification: user intent, suggested prompts, capabilities and
@@ -116,7 +116,7 @@ is fixed.
 
 **What is never published.** A metric computed on an unverified golden set. `golden.jsonl` is
 generated from the indexed corpus and then verified by hand, pair by pair, with the verification
-recorded in `docs/evaluation.md`. Until that record exists, that document says so and publishes
+recorded in [`docs/evaluation.md`](evaluation.md). Until that record exists, that document says so and publishes
 no number.
 
 ## 5. Test data and coverage

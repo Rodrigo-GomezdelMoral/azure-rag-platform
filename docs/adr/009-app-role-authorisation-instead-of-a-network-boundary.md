@@ -5,11 +5,11 @@
 ## Context
 
 The landing zone this platform runs on has no virtual network, by decision: no private endpoints,
-no private DNS zones, no internal ingress. That decision was taken for the whole portfolio, and
+no private DNS zones, no internal ingress. That decision was taken for every workload on it, and
 this repository has to protect an API that answers regulatory questions, writes conversation
 history and spends model tokens on every call, without a network to hide it in.
 
-The API has exactly one legitimate caller today — the frontend container — and one planned
+The API has exactly one legitimate caller today, the frontend container, and one planned
 caller, the gateway of the SaaS platform in another repository. Nothing in a browser should ever
 be able to call it.
 
@@ -35,7 +35,7 @@ Option 3, enforced twice, on purpose:
 - **In the code**, `principal()` in `app/main.py` validates the same token against the tenant's
   signing keys and audience, then requires `Rag.Query` in its `roles` claim, returning `403`
   otherwise. The edge does not check roles; an app that validates the token but not the role
-  would accept any identity in the tenant that can obtain a token for the audience — and any
+  would accept any identity in the tenant that can obtain a token for the audience, and any
   application in the tenant can. The role is the authorisation; the token is only authentication.
 - **The browser never holds a token.** `web/server.ts` runs with the frontend's user-assigned
   identity, requests a token for `api://<client id>/.default` with `DefaultAzureCredential`, and

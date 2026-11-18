@@ -5,8 +5,8 @@
 ## Context
 
 Two things have to live somewhere: the instructions of the three agents, and the agents
-themselves. Microsoft Foundry offers a hosted agent service where an agent — model,
-instructions, tools — is defined once, stored in the project, edited in the portal and versioned
+themselves. Microsoft Foundry offers a hosted agent service where an agent (model,
+instructions, tools) is defined once, stored in the project, edited in the portal and versioned
 there, and the framework can target such hosted agents. The alternative is to construct the
 agents in code at start-up and keep their instructions in the repository.
 
@@ -56,6 +56,6 @@ Option 3.
 
 ## Revisit when
 
-An agent needs tools or hosted threads — the field-operations copilot in this portfolio does —
+An agent needs tools or hosted threads,
 or when prompt experiments become frequent enough that the evaluation gate, not the file layout,
 is the bottleneck.

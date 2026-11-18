@@ -1,6 +1,6 @@
 # ADR-011 · Rejection: no Key Vault, no API Management, no Front Door, no AKS
 
-**Status:** accepted — the four alternatives are rejected · **Date:** 2026-10-15
+**Status:** accepted, the four alternatives are rejected · **Date:** 2026-10-15
 
 ## Context
 
@@ -11,8 +11,8 @@ around, and a reader who does not find a gateway assumes the API is unprotected.
 
 ## Key Vault
 
-**What it would hold:** nothing. Every call to Azure — Foundry, Search, Cosmos, Storage, the
-registry, Application Insights — is made with a managed identity or the developer's own login
+**What it would hold:** nothing. Every call to Azure (Foundry, Search, Cosmos, Storage, the
+registry, Application Insights) is made with a managed identity or the developer's own login
 through `DefaultAzureCredential`. The search service reads the corpus with its own identity and
 calls the embedding model with it; storage has shared-key access disabled; Cosmos has local
 authentication disabled; Application Insights ingests with Entra only. The only
@@ -30,7 +30,7 @@ GUID rule, and a test that fails if a connection string or key appears in a temp
 **What it would add:** products, subscriptions, rate limits, request transformation, a developer
 portal. **Why it lost:** the API has one caller holding one app role (ADR-009); there is nothing to
 meter or to transform, and a gateway in front of a single internal consumer is a second place to
-configure authentication. The SaaS platform in this portfolio is the repository where tenants,
+configure authentication. The SaaS platform in another repository is where tenants,
 quotas and keys exist, and it is where a gateway belongs.
 
 **Would return when:** a second external consumer appears, or per-caller quotas are required.
@@ -44,18 +44,18 @@ anyone without a token protects mostly against traffic that costs nothing to ref
 base price would exceed the measured cost of the entire workload.
 
 **Would return when:** a second region is deployed for availability (the cost projection in
-`docs/cost.md` models that case), or abuse at the edge is observed rather than imagined.
+[`docs/cost.md`](../cost.md) models that case), or abuse at the edge is observed rather than imagined.
 
 ## AKS
 
 **What it would add:** a cluster. **Why it lost:** the workload is two containers and two jobs,
 scales to zero between demos, needs revisions with traffic splitting for the deployment
 workflow, and needs managed identities per container. Container Apps gives each of those as a
-property; a cluster gives them as a project — node pools, upgrades, ingress controllers,
-workload identity configuration — for a service whose peak is a dozen concurrent requests.
+property; a cluster gives them as a project (node pools, upgrades, ingress controllers,
+workload identity configuration) for a service whose peak is a dozen concurrent requests.
 
-**Would return when:** a component needs what Container Apps cannot express — GPUs for a local
-model, a custom scheduler, a sidecar that must share a network namespace — and that component is
+**Would return when:** a component needs what Container Apps cannot express (GPUs for a local
+model, a custom scheduler, a sidecar that must share a network namespace) and that component is
 worth a cluster to operate.
 
 ## The pattern behind the four

@@ -28,7 +28,7 @@ Option 3. Three mechanisms, each in its own place:
 
 - **The schema is the contract.** `Draft`, `Claim`, `Ranking` and `QueryPlan` are Pydantic
   models passed as the framework's `response_format` on every call, and `run()` reads
-  `response.value` and validates it — it never parses text. The framework and the model API
+  `response.value` and validates it: it never parses text. The framework and the model API
   enforce the shape; the application enforces the meaning.
 - **The check is a function.** `verify(draft, evidence)` is nine lines: a dictionary of label by
   chunk id over the evidence, a comprehension that keeps the claims whose ids all resolve to the
@@ -43,8 +43,8 @@ Option 3. Three mechanisms, each in its own place:
 Why labels as well as ids: an id proves the passage was shown; the label proves the claim points
 where the answerer says it points, and it is the string a reader checks. A model that cites a real
 passage under the wrong article has still misled the reader, and the label test catches it. The
-first live run of the pipeline dropped exactly one claim for that reason — it cited two passages
-under one label — which is the mechanism working, not a fault to fix.
+first live run of the pipeline dropped exactly one claim for that reason (it cited two passages
+under one label), which is the mechanism working, not a fault to fix.
 
 ## Consequences
 
@@ -52,8 +52,8 @@ under one label — which is the mechanism working, not a fault to fix.
 - The answerer's prompt tells the model the rule, so that it writes one claim per label and does
   not waste claims. A prompt change can raise or lower the drop rate, which is why the counter
   exists and why prompts are versioned files (ADR-008).
-- A claim can still be grounded in the wrong way — supported by the passage but not answering
-  the question — and that is what the evaluation harness measures with the judge. Verification
+- A claim can still be grounded in the wrong way, supported by the passage but not answering
+  the question, and that is what the evaluation harness measures with the judge. Verification
   guarantees provenance, not relevance, and the documentation says so.
 - The test for this decision injects a fabricated chunk id and asserts that the claim is dropped,
   the counter incremented and a refusal returned when it was the only claim.

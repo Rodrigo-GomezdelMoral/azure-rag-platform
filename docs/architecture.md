@@ -32,8 +32,8 @@ graph LR
 | `caj-rageval` | `python -m eval.run --suite full`, Mondays 06:00 UTC | `id-ragjobs` | the same, plus Cosmos through the pipeline it runs |
 | shared search service | indexer, skillset, index projection | its own system identity | the corpus container (Storage Blob Data Reader), the embedding deployment (through the shared Foundry account) |
 
-Everything shared — Foundry account and project, model deployments, search service, container
-registry, Log Analytics, action group — is created by `azure-ai-landing-zone` and referenced here
+Everything shared (Foundry account and project, model deployments, search service, container
+registry, Log Analytics, action group) is created by the shared platform and referenced here
 as `existing` through parameters. This repository creates its resource group's own resources only:
 identities, storage, Cosmos, Application Insights, the Container Apps environment, the apps and
 jobs, alerts, a budget, and every role assignment, including the ones on shared resources that
@@ -76,7 +76,7 @@ text and has no history. Every model call is made with `store: false`.
 There is no virtual network. The boundary is the token: the API's ingress requires an Entra
 token for its audience, the code requires the `Rag.Query` app role in it, and the only identity
 holding that role is the frontend container's. The browser never holds a token; the frontend
-proxies server-side. ADR-009 records the decision and its trade-offs; `docs/security.md` lists
+proxies server-side. ADR-009 records the decision and its trade-offs; [`docs/security.md`](security.md) lists
 every identity and role.
 
 ## Indexing
@@ -95,7 +95,7 @@ rescoring (ADR-002).
 |---|---|---|---|
 | Azure (`rg-ragplatform-prod-swc`) | Foundry deployments `gpt-5-mini`, `gpt-5-nano` | Azure AI Search | Entra, app role |
 | Local or Codespaces with `MODEL_PROVIDER=ollama` | `llama3.2:3b` through `OllamaChatClient` | `LocalRetriever` over `data/sample-chunks.jsonl` | `REQUIRE_AUTH=false` |
-| GitHub Pages demo (`VITE_DEMO_MODE=true`) | none | none — recorded runs in `web/fixtures/` replayed with their real timings | none |
+| GitHub Pages demo (`VITE_DEMO_MODE=true`) | none | none: recorded runs in `web/fixtures/` replayed with their real timings | none |
 
 Swapping the model provider is a setting; nothing in `app/agents.py` or `app/answer.py` knows
 which client it holds (ADR-004).

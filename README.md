@@ -2,15 +2,31 @@
 
 Built by **Rodrigo Martín Gómez del Moral Herranz**
 
-<a href="https://github.com/Rodrigo-GomezdelMoral"><img src="docs/images/author/github.png" alt="GitHub" height="36"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz"><img src="docs/images/author/linkedin.png" alt="LinkedIn" height="36"></a>&nbsp;&nbsp;<a href="https://rodrigogomezdelmoralherranz.es"><img src="docs/images/author/portfolio.png" alt="Portfolio" height="36"></a>
+<a href="mailto:rodrigo.gomezdelmoral@gmail.com"><img src="docs/images/author/email.png" alt="Email" height="36"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz"><img src="docs/images/author/linkedin.png" alt="LinkedIn" height="36"></a>&nbsp;&nbsp;<a href="https://github.com/Rodrigo-GomezdelMoral"><img src="docs/images/author/github.png" alt="GitHub" height="36"></a>&nbsp;&nbsp;<a href="https://rodrigogomezdelmoral.es"><img src="docs/images/author/portfolio.png" alt="Professional Portfolio" height="36"></a>
 
 Grounded document intelligence over a controlled corpus with article-level provenance, built on
 Microsoft Agent Framework. The system answers questions about the EU AI Act, the Medical Device
 Regulation and MDCG guidance **only when the corpus supports it**, cites the article every claim
 rests on, verifies every citation before showing it, and proves all three with measured numbers.
 
-**Live demo:** <https://rodrigo-gomezdelmoral.github.io/azure-rag-platform/> - recorded runs replayed
-with their real phase timings, no backend.
+<p align="center"><a href="https://rodrigogomezdelmoral.es/en/projects/azure-rag-platform#video"><img src="docs/images/author/demo-video.png" alt="Watch the demo video" height="48"></a></p>
+
+**Built to standard.** This AI solution is designed, built, validated and operated in alignment with the **Microsoft
+Responsible AI Standard** (Fairness, Reliability and Safety, Privacy and Security, Inclusiveness, Transparency,
+Accountability) and the **Azure Well-Architected Framework** (Reliability, Security, Cost Optimization, Operational
+Excellence, Performance Efficiency).
+
+Every engineering decision is driven by a concrete requirement and grounded in one or more of these principles and
+pillars, with supporting evidence documented in this repository. These principles guide the development of
+responsible, reliable and scalable AI solutions through specialised engineering practices in evaluation, safety,
+identity, operations and cost management.
+
+See how [each principle](#microsoft-responsible-ai-standard) and [each pillar](#azure-well-architected-framework) is
+applied.
+
+<p align="center"><a href="https://rodrigo-gomezdelmoral.github.io/azure-rag-platform/"><img src="docs/images/author/live-demo.png" alt="Live demo" height="48"></a></p>
+
+Four recorded questions on EU rules for AI and medical devices, replayed in the browser with their real phase timings, no backend and no sign-in: three answered with their cited sources and one the platform declines to answer because it finds no evidence.
 
 A question answered live by the deployed platform: every phase is visible, and each claim is shown
 only after its citation is verified.
@@ -22,18 +38,18 @@ only after its citation is verified.
 A regulatory affairs specialist at a medical-device manufacturer answers *which risk-management
 obligations apply to a high-risk AI system embedded in a class IIb device* by reading hundreds of
 pages by hand, and the answer is not traceable to the articles it came from. That specialist costs
-60–90 € an hour, and a technical file whose evidence a notified body cannot follow delays a CE mark
+60 to 90 € an hour, and a technical file whose evidence a notified body cannot follow delays a CE mark
 by months. A chatbot that answers fluently without a citation is worse than the status quo, because
 an invented obligation becomes an audit finding. The buyer is the head of regulatory affairs; what
 they buy is time, and the proof that every statement points at a real article.
 
 ## What it does
 
-- Answers questions about the EU AI Act, the Medical Device Regulation and MDCG guidance from a controlled corpus, and refuses when the corpus holds no evidence.
-- Cites the article behind every claim and verifies each citation before it is shown.
-- Shows its work while it runs: plan, search, rerank, answer and verify, streamed as phases.
-- Measures itself with golden, unanswerable, multihop and adversarial evaluation sets, run on pull requests.
-- Can be tried without Azure in the published demo, with recorded runs replayed at their real timings.
+- **Answers questions:** about the EU AI Act, the Medical Device Regulation and MDCG guidance from a controlled corpus, and refuses when the corpus holds no evidence.
+- **Cites the article behind every claim:** verifies each citation before it is shown.
+- **Shows its work while it runs:** plan, search, rerank, answer and verify, streamed as phases.
+- **Measures itself:** with golden, unanswerable, multihop and adversarial evaluation sets, run on pull requests.
+- **Can be tried without Azure:** in the published demo, with recorded runs replayed at their real timings.
 
 ## Repo card
 
@@ -43,20 +59,22 @@ they buy is time, and the proof that every statement points at a real article.
 | **Azure services** | Azure Container Apps (API, web, and indexer and evaluation jobs), Azure Cosmos DB, Azure Storage, Application Insights and alerts; shared: Microsoft Foundry, Azure AI Search, Container Registry and Log Analytics |
 | **AI** | Microsoft Agent Framework with three agents and structured output; gpt-5-nano plans, gpt-5-mini answers, text-embedding-3-small embeds; one hybrid AI Search query with the semantic ranker |
 | **Stack** | Python 3.12 with FastAPI; a React and TypeScript web |
-| **Security** | Managed identities and no secrets; Entra at the ingress and the `Rag.Query` app role in the code |
+| **Security** | managed identities and no secrets; Entra at the ingress and the `Rag.Query` app role in the code |
 | **Infrastructure and delivery** | Bicep with azd; GitHub Actions with OIDC: `ci`, `eval`, `deploy` (canary with rollback) and `pages` |
 | **Demo** | <https://rodrigo-gomezdelmoral.github.io/azure-rag-platform/> |
 
 ## Architecture
 
-![The web proxies with its managed identity to the API, which runs plan, search, rerank, answer and verify over the shared Foundry project and AI Search](docs/images/architecture.png)
+![The web proxies with its managed identity to the API, which runs plan, search, rerank, answer and verify over the shared Foundry project and AI Search](docs/images/architecture.svg)
+
+![Plan, search, rerank, answer and verify; a filtered question, a lack of evidence or an unverified citation ends in a refusal](docs/images/pipeline.svg)
 
 The pipeline is five steps in a fixed order, written as a function rather than a workflow; progress
 is streamed as phase events, never as tokens; a claim is shown once, after verification. There is no
-virtual network: the boundary is the token, and the browser never holds one. `docs/architecture.md`
-has the container table and the request sequence.
+virtual network: the boundary is the token, and the browser never holds one.
+[`docs/architecture.md`](docs/architecture.md) has the container table and the request sequence.
 
-![Plan, search, rerank, answer and verify; a filtered question, a lack of evidence or an unverified citation ends in a refusal](docs/images/pipeline.png)
+The platform's resource group as deployed, in the Azure portal.
 
 ![The platform's resource group as deployed, in the Azure portal](docs/images/resource-group.png)
 
@@ -75,13 +93,15 @@ answer.
 | Retrieval as one hybrid query with OData filters and the native semantic ranker, plus an agent reranker for comparison | `app/retrieval.py` |
 | Deterministic verification of every citation, typed refusals, cost from token usage | `app/answer.py` |
 | Entra authentication at the ingress and the `Rag.Query` app role in the code; the session authorised before it exists | `app/main.py`, `infra/modules/apps.bicep` |
-| The index built as configuration by the search service's own identity, with safe re-ingestion and quantised vectors | `ops/index.py`, `docs/adr/001-*.md`, `docs/adr/002-*.md` |
-| Local and Foundry evaluators, six datasets with a canary in every adversarial row, a judge to be calibrated against human labels | `eval/`, `docs/evaluation.md` |
+| The index built as configuration by the search service's own identity, with safe re-ingestion and quantised vectors | `ops/index.py`, [`docs/adr/001-*.md`](docs/adr/001-integrated-vectorisation-and-safe-reingestion.md), [`docs/adr/002-*.md`](docs/adr/002-quantisation-and-stored-false.md) |
+| Local and Foundry evaluators, six datasets with a canary in every adversarial row, a judge to be calibrated against human labels | `eval/`, [`docs/evaluation.md`](docs/evaluation.md) |
 | Phase timeline, verified-answer panel, citation panel and a retrieval debug panel with scores and rank deltas | `web/src/main.tsx` |
 | Quality gate, evaluation gate with a pull-request comment, canary deployment with rollback, static demo | `.github/workflows/` |
 | Eleven architecture decisions, three of them rejections | `docs/adr/` |
 
 ## Evaluation
+
+![ci.yml tests, builds the Bicep and scans for secrets; eval.yml judges and gates, advisory; deploy.yml goes through an approval, a 10 % canary and promotion or rollback; pages.yml publishes the static demo](docs/images/cicd.svg)
 
 The full suite of 2026-10-16 - golden (80, verified by the author that day), unanswerable (30),
 multihop (20) and adversarial (25), 155 items - planner `gpt-5-nano`, answerer `gpt-5-mini`,
@@ -89,28 +109,27 @@ semantic reranker, report `docs/reports/2026-10-16-full-gpt-5-mini-semantic.json
 
 | Metric | Mean | Threshold |
 |---|---|---|
-| Groundedness (judge, scaled 0–1) | 0.94 | ≥ 0.9 |
-| Relevance (judge, scaled 0–1) | 0.88 | reported |
+| Groundedness (judge, scaled 0 to 1) | 0.94 | ≥ 0.9 |
+| Relevance (judge, scaled 0 to 1) | 0.88 | reported |
 | Citation precision | 0.94 | ≥ 0.95 |
 | Recall at 10 | 0.71 | ≥ 0.85 |
 | Correct refusal | 0.94 | ≥ 0.9 |
 | False refusal | 0.03 | ≤ 0.05 |
 | Canary appearances | 0.00 | = 0 |
 
-**The merge gate is red** and the repository says so: definition questions do not retrieve the
-definitions article, and the planner's rewrite varies between runs. `docs/evaluation.md` explains
+**Two metrics are below their thresholds**, recall at 10 at 0.71 against 0.85 and citation precision
+at 0.94 against 0.95: definition questions do not retrieve the
+definitions article, and the planner's rewrite varies between runs. [`docs/evaluation.md`](docs/evaluation.md) explains
 each failure; `experiments/` measures the two obvious levers and finds that neither moves recall:
 the same twenty-three golden items are missed whichever Answerer or reranker runs, because their
 passages are not among the retrieved candidates at all. The eighty-item golden set was
-**verified by the author on 2026-10-16** (`docs/evaluation.md`) and the first full-suite
-report after the review is published in `docs/evaluation.md`; the judge's agreement with the
+**verified by the author on 2026-10-16** ([`docs/evaluation.md`](docs/evaluation.md)) and the first full-suite
+report after the review is published in [`docs/evaluation.md`](docs/evaluation.md); the judge's agreement with the
 labels of the forty calibration items is κ = 0.90 for groundedness and κ = 0.00 for
 relevance (`docs/reports/2026-10-16-calibration-gpt-5-mini-semantic.json`).
 
 On a pull request the gate runs the smoke and adversarial suites, and it is advisory: the `main`
-ruleset requires a pull request but no status check, so a red run does not block the merge.
-
-![ci.yml tests, builds the Bicep and scans for secrets; eval.yml judges and gates, advisory; deploy.yml goes through an approval, a 10 % canary and promotion or rollback; pages.yml publishes the static demo](docs/images/cicd.png)
+ruleset requires a pull request but no status check, so a run below the thresholds does not block the merge.
 
 ## Cost
 
@@ -118,23 +137,39 @@ Measured by the `repo` tag on 2026-10-15: this resource group has cost €0.0008
 because nothing in it runs between questions; the shared platform it uses has cost €10.36, mostly
 the search service. A question costs €0.0025 to €0.005 in tokens with the semantic reranker,
 depending on the length of the answer, and about four times that with the agent reranker
-(`experiments/002-reranking.md`); a thousand queries cost €3.5 to €6.0. The production projection - 50,000
+([`experiments/002-reranking.md`](experiments/002-reranking.md)); a thousand queries cost €3.5 to €6.0. The production projection - 50,000
 questions a month, two search replicas, a second region - is about €630 a month, measured unit
-prices and stated assumptions in `docs/cost.md`.
+prices and stated assumptions in [`docs/cost.md`](docs/cost.md).
 
-## Well-Architected design
+## Microsoft Responsible AI Standard
+
+How the six principles of the Microsoft Responsible AI Standard are applied, and the limitation
+accepted in each. The impact assessment is in [`docs/RESPONSIBLE_AI.md`](docs/RESPONSIBLE_AI.md).
+
+| Principle | Applied | Limitation accepted |
+|---|---|---|
+| Fairness | one pipeline, one app role and the same refusal rules for every caller; the golden set is spread over the three instruments and four question types, and [`docs/evaluation.md`](docs/evaluation.md) names the weak segment | metrics are published per suite rather than per instrument or question type; definition questions are the known weak segment |
+| Reliability and Safety | typed refusals instead of invented answers, 0.94 correct refusal on the full suite of 2026-10-16; every citation verified in code before a claim is shown (ADR-006); a canary in every adversarial row, 0 appearances in 155 items (ADR-007); canary deployment with rollback | the evaluation gate is advisory while two metrics close the gap to their targets: recall at 10 at 0.71 against 0.85 and citation precision at 0.94 against 0.95 ([`docs/evaluation.md`](docs/evaluation.md)) |
+| Privacy and Security | managed identities and no secret anywhere; Entra at the ingress and the `Rag.Query` app role in the code (ADR-009); history deleted after 90 days; every model call uses `store: false`; telemetry without sensitive data; every threat mapped to a file in [`docs/security.md`](docs/security.md) | the token is the boundary, with no virtual network (ADR-009); history expires after 90 days rather than on request |
+| Inclusiveness | refusals say in plain language why there is no answer, and progress is shown phase by phase; the published demo needs neither an account nor Azure | English only; accessibility is not yet checked in CI ([`docs/agent-spec.md`](docs/agent-spec.md)) |
+| Transparency | every claim shows its citation label, a link to the source document and the passage; the five phases are streamed with timings, scores and cost (ADR-005); a refusal states its reason; every published figure names its dated report | AI use is conveyed by the interface's phases and citations rather than a separate notice; a citation label comes from heading detection, so a passage can carry the previous section's label (ADR-001) |
+| Accountability | eleven ADRs; the golden set verified by hand and the judge calibrated against human labels, κ = 0.90 for groundedness (ADR-007); no agent has tools, so the specialist reads the cited article and decides; a deployment waits for approval in the `production` environment; alerts reach an action group | a single-author project; incidents are handled through the alerts rather than a written procedure |
+
+## Azure Well-Architected Framework
 
 How the design maps to the five pillars of the Azure Well-Architected Framework, and the trade-off accepted in each.
 
 | Pillar | Applied | Trade-off accepted |
 |---|---|---|
-| Reliability | Canary deployment with rollback; typed refusals instead of invented answers; a claim is shown only after its citation is verified | One region, scaled to zero between questions; the production projection with two search replicas and a second region is costed at about €630 a month, not deployed |
-| Security | No secret anywhere: managed identities, key access disabled on storage and Cosmos, Entra at the ingress and the `Rag.Query` app role in the code; the CI gate scans the history for identifiers | No virtual network: the token is the boundary (ADR-009) |
-| Cost Optimization | €0.0025 to €0.005 a question with the semantic reranker; the group costs almost nothing at rest because nothing runs between questions | No Key Vault, API Management, Front Door or AKS (ADR-011) |
-| Operational Excellence | One `azd up`; a quality gate, an evaluation gate with a pull-request comment, canary deployment with rollback and eleven ADRs | The evaluation gate is advisory: the ruleset requires a pull request, not a green check |
-| Performance Efficiency | One hybrid query with the native semantic ranker, scalar quantisation and `stored: false` (ADR-002), progress streamed as phase events (ADR-005) | Answers are shown after verification, never token by token |
+| Reliability | canary deployment with rollback; typed refusals instead of invented answers; a claim is shown only after its citation is verified | one region, scaled to zero between questions; the production projection with two search replicas and a second region is costed at about €630 a month, not deployed |
+| Security | no secret anywhere: managed identities, key access disabled on storage and Cosmos, Entra at the ingress and the `Rag.Query` app role in the code; the CI gate scans the history for identifiers | no virtual network: the token is the boundary (ADR-009) |
+| Cost Optimization | €0.0025 to €0.005 a question with the semantic reranker; the group costs almost nothing at rest because nothing runs between questions | no Key Vault, API Management, Front Door or AKS (ADR-011) |
+| Operational Excellence | one `azd up`; a quality gate, an evaluation gate with a pull-request comment, canary deployment with rollback and eleven ADRs | the evaluation gate is advisory: the ruleset requires a pull request, not a green check |
+| Performance Efficiency | one hybrid query with the native semantic ranker, scalar quantisation and `stored: false` (ADR-002), progress streamed as phase events (ADR-005) | answers are shown after verification, never token by token |
 
 ## Deploy
+
+![The regulations' PDFs land in the corpus container; a skillset extracts the layout, chunks by section and embeds them into the index](docs/images/ingestion.svg)
 
 ```bash
 azd up
@@ -145,9 +180,27 @@ resource group must exist, the landing zone must be deployed and its outputs imp
 `make lz-env`, and the bootstrap below must have been run once. `make preview` runs
 `azd provision --preview`; `make destroy` removes everything the repository created.
 
-The index is configuration that the search service builds with its own identity (ADR-001):
+The index is configuration that the search service builds with its own identity (ADR-001).
 
-![The regulations' PDFs land in the corpus container; a skillset extracts the layout, chunks by section and embeds them into the index](docs/images/ingestion.png)
+### Delivery and DORA
+
+- **Delivery:** a change reaches `main` only through a pull request (ruleset `protect-main`). `ci.yml` runs on every pull request: lint, format,
+  types, tests and the size budget, the Bicep build, the scan for secrets and identifiers, the
+  dependency audits and the frontend build; `eval.yml` adds the smoke and adversarial suites when
+  `app/`, `prompts/`, `ops/` or `eval/` change and comments the scores; the author merges with both results in view.
+  `deploy.yml` is dispatched by hand from `main`, waits for the approval of the `production`
+  environment, builds both images in the shared registry, gives the new API revision 10 % of the
+  traffic for five minutes and promotes it, or rolls back when its 5xx rate is above 5 %; the web
+  container follows. Infrastructure is applied with `azd up`, not by a workflow.
+- **DORA**, the four metrics, from the runs of `deploy.yml` in GitHub Actions. There are four
+  runs, all dispatched by hand, so the figures describe the first deployments and not a cadence.
+
+| Metric | Production, 2026-10-16 to 2026-10-19 |
+|---|---|
+| Deployment frequency | 1 complete deployment, on 2026-10-19, dispatched by hand; three earlier runs did not complete |
+| Lead time for changes | 10 min 28 s for the deployment run; the commit, merged on 2026-10-16, waited for its manual dispatch on 2026-10-19 |
+| Change failure rate | 1 of the 2 runs that created a revision was rolled back by its canary step, which returned all the traffic to the previous revision; the other two runs stopped at the image build, before any revision existed |
+| Time to restore | within the run for the rolled-back canary, by its automatic rollback step; the complete deployment followed on 2026-10-19 |
 
 ### Bootstrap, once per tenant
 
@@ -205,7 +258,7 @@ credential exists. Read the subject in the error message and add it, do not wide
 **There is no secret anywhere in this system: no key, no connection string, no vault to keep them
 in.** Every call is made with a managed identity or the developer's own login, storage and Cosmos
 have key access disabled, and the CI gate scans the full history for emails and identifiers.
-`docs/security.md` maps every threat to the file that mitigates it.
+[`docs/security.md`](docs/security.md) maps every threat to the file that mitigates it.
 
 ## Decisions
 
@@ -227,4 +280,4 @@ have key access disabled, and the CI gate scans the full history for emails and 
 
 **Rodrigo Martín Gómez del Moral Herranz**
 
-<a href="https://github.com/Rodrigo-GomezdelMoral"><img src="docs/images/author/github.png" alt="GitHub" height="36"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz"><img src="docs/images/author/linkedin.png" alt="LinkedIn" height="36"></a>&nbsp;&nbsp;<a href="https://rodrigogomezdelmoralherranz.es"><img src="docs/images/author/portfolio.png" alt="Portfolio" height="36"></a>
+<a href="mailto:rodrigo.gomezdelmoral@gmail.com"><img src="docs/images/author/email.png" alt="Email" height="36"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/rodrigo-mart%C3%ADn-g%C3%B3mez-del-moral-herranz"><img src="docs/images/author/linkedin.png" alt="LinkedIn" height="36"></a>&nbsp;&nbsp;<a href="https://github.com/Rodrigo-GomezdelMoral"><img src="docs/images/author/github.png" alt="GitHub" height="36"></a>&nbsp;&nbsp;<a href="https://rodrigogomezdelmoral.es"><img src="docs/images/author/portfolio.png" alt="Professional Portfolio" height="36"></a>

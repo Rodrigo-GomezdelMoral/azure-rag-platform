@@ -19,8 +19,8 @@ An interface is owned by this repository only when all three hold today, not in 
 future:
 
 1. Two implementations exist and are both used.
-2. They differ in kind, not in configuration — different data, different service, different
-   failure modes — so that a parameter would not express the difference.
+2. They differ in kind, not in configuration (different data, different service, different
+   failure modes), so that a parameter would not express the difference.
 3. The caller has to see something through the interface that the underlying SDK would hide.
 
 ## Candidates that fail the test
@@ -31,7 +31,7 @@ one it holds. Swapping a model provider is one constructor call in `app/clients.
 setting. A protocol of our own would duplicate the framework's, and lag it: the framework renamed
 its types several times before 1.0, and a wrapper written against any of those names would have
 broken on every rename while the agents behind it kept working. The framework's types therefore
-appear in our signatures — `Agent`, `AgentSession`, `UsageDetails` — and when they change, our
+appear in our signatures (`Agent`, `AgentSession`, `UsageDetails`), and when they change, our
 code changes with them, openly.
 
 **The reranker.** Two rerankers exist, the search service's semantic ranker and the `Reranker`
@@ -57,7 +57,7 @@ a step interface, and `PhaseEvent` is the whole contract between the pipeline an
 
 1. Two implementations are used: `SearchRetriever`, which runs one hybrid query with semantic
    ranking and OData filters against Azure AI Search, and `LocalRetriever`, which scores a
-   committed sample of chunks by term overlap so that the service runs with no Azure account —
+   committed sample of chunks by term overlap so that the service runs with no Azure account:
    the Codespaces demo and the unit tests.
 2. They differ in kind. One is a network call to a service with its own scoring, filtering and
    failure modes; the other is forty-three lines of text in a file.
@@ -74,11 +74,11 @@ a step interface, and `PhaseEvent` is the whole contract between the pipeline an
   with the same `run` shape as the framework's.
 - `app/clients.py` builds the framework's and the SDKs' clients once, in the lifespan, and hands
   them to the agents. It contains no class of its own beyond a frozen record of what it built.
-- When the framework removes or renames a type, the compiler — mypy in strict mode — finds every
+- When the framework removes or renames a type, the compiler, mypy in strict mode, finds every
   use, because nothing stands between our code and the framework.
 
 ## Revisit when
 
-A second production retriever is needed — a different search service, or a tenant-scoped index
-in the SaaS platform — or the framework stops exposing a client protocol that both providers
+A second production retriever is needed (a different search service, or a tenant-scoped index
+in the SaaS platform), or the framework stops exposing a client protocol that both providers
 satisfy. Either would be a reason to own another seam, and it would have to pass the same test.

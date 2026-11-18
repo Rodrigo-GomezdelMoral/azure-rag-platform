@@ -4,7 +4,7 @@ The platform's boundary is identity, not network. There is no virtual network, n
 endpoint and no firewall in front of the API; what protects it is that every call to it must
 carry an Entra token with the `Rag.Query` app role, every call it makes to Azure is made with a
 managed identity holding the narrowest role the service offers, and the repository contains no
-secret of any kind — not in code, templates, fixtures, workflows or history.
+secret of any kind, not in code, templates, fixtures, workflows or history.
 
 ## Identities and roles
 

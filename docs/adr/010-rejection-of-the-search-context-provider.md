@@ -1,13 +1,13 @@
 # ADR-010 · Rejection: `AzureAISearchContextProvider` hides candidate scores and chunk identity
 
-**Status:** accepted — the alternative is rejected · **Date:** 2026-10-15
+**Status:** accepted, the alternative is rejected · **Date:** 2026-10-15
 
 ## Context
 
 Microsoft Agent Framework ships a context provider for Azure AI Search. Attached to an agent, it
 runs a search for every turn, folds the passages it finds into the model's context and lets the
-agent answer with them. It is the shortest path to a grounded answer in this framework — a
-constructor call and a `context_providers=[...]` argument — and it is exactly the kind of
+agent answer with them. It is the shortest path to a grounded answer in this framework, a
+constructor call and a `context_providers=[...]` argument, and it is exactly the kind of
 capability this repository's working agreement says not to reimplement.
 
 This repository reimplements it anyway, as `Retriever` (ADR-004) and the `search` and `rerank`
@@ -25,8 +25,8 @@ leaves no trace that can be inspected, scored or checked:
 - **No chunk identity.** The answerer cites by `chunk_id` and `citation_label`, and `verify()`
   keeps a claim only when the ids it cites were among the passages shown and the labels match.
   With the provider, the passages shown are prose inside the context; there is no id to cite and
-  nothing to verify against. The product's central promise — a claim is shown only when its
-  citation was checked — cannot be kept.
+  nothing to verify against. The product's central promise (a claim is shown only when its
+  citation was checked) cannot be kept.
 - **No control over the query.** The planner's rewrite, the OData filters and the choice between
   the semantic ranker and the agent reranker are decisions the pipeline makes before the model is
   called. The provider makes its own.
@@ -37,14 +37,14 @@ leaves no trace that can be inspected, scored or checked:
 
 ## Decision
 
-Rejected. Retrieval is one explicit call in `app/retrieval.py` whose result — ids, labels,
-scores — flows through the `search` and `rerank` events to verification, to the interface and to
+Rejected. Retrieval is one explicit call in `app/retrieval.py` whose result (ids, labels,
+scores) flows through the `search` and `rerank` events to verification, to the interface and to
 the evaluation harness. The cost is about eighty lines, which is the budget ADR-004 spends on the
 one abstraction the repository owns.
 
 ## What would change the decision
 
-A provider that returned its candidates as data — ids, scores, the rendered context — alongside
+A provider that returned its candidates as data (ids, scores, the rendered context) alongside
 the model's response, so that verification and the metrics could run on them. The framework's
 evaluation types already carry a `context`; a provider that exposed what it put there would
 remove most of this repository's reason to own a retriever.
