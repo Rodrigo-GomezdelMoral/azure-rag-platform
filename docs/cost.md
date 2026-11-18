@@ -1,7 +1,7 @@
 # Cost
 
-Every figure in this document is either **measured** — read from Azure Cost Management, from the
-Retail Prices API or from a committed evaluation report — or **modelled** from a measured unit
+Every figure in this document is either **measured** (read from Azure Cost Management, from the
+Retail Prices API or from a committed evaluation report) or **modelled** from a measured unit
 price and a stated assumption. The two are never mixed in a column without saying which is which.
 
 ## What the workload costs today (measured)
@@ -12,7 +12,7 @@ every resource carries:
 | Tag `repo` | Resource group | Month to date | What drives it |
 |---|---|---|---|
 | `azure-rag-platform` | `rg-ragplatform-prod-swc` | €0.0008 | serverless Cosmos (a few hundred request units), Container Apps consumption while the apps scale to zero between demos, a Log Analytics ingestion of a few megabytes |
-| `azure-ai-landing-zone` | `rg-aiplatform-shared-swc` | €10.36 | the shared platform, dominated by Azure AI Search Basic (about €2.13 a day at the measured €0.0889 an hour); the registry, the workspace and the model calls of every repository are billed here |
+| the shared platform's tag | `rg-aiplatform-shared-swc` | €10.36 | the shared platform, dominated by Azure AI Search Basic (about €2.13 a day at the measured €0.0889 an hour); the registry, the workspace and the model calls of every repository are billed here |
 
 The platform's own resources cost cents because nothing in this resource group runs when nobody
 asks a question. What this repository actually spends is model tokens and Document Intelligence
@@ -36,7 +36,7 @@ only when it is selected.
 
 In local mode the same arithmetic runs over Ollama's token counts with the Foundry prices, so the figure an answer carries is what that answer would have cost on the deployments, not what the laptop paid. The semantic ranker is billed per query once its monthly free allowance is spent (below); the agent reranker is a second
 gpt-5-mini call that reads thirty passages and multiplies the model cost of an answer by about four,
-€0.0025 to €0.0104 on the eighty golden items (`experiments/002-reranking.md`).
+€0.0025 to €0.0104 on the eighty golden items ([`experiments/002-reranking.md`](../experiments/002-reranking.md)).
 
 ## Cost per 1,000 queries
 

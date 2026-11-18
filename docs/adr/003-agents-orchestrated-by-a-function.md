@@ -4,8 +4,8 @@
 
 ## Context
 
-Microsoft Agent Framework offers two ways to combine agents: a workflow — a graph of executors
-with typed edges, checkpoints, human-input requests and the orchestration patterns built on it —
+Microsoft Agent Framework offers two ways to combine agents: a workflow (a graph of executors
+with typed edges, checkpoints, human-input requests and the orchestration patterns built on it)
 and plain code that calls agents. The pipeline here is five steps in a fixed order: plan, search,
 rerank, answer, verify. It never branches on the model's output, never waits for a person, never
 runs long enough to need a checkpoint, and two of its five steps are not agents at all: search is
@@ -17,8 +17,8 @@ much of the framework a reader has to know to follow the system.
 ## Options
 
 1. **A framework workflow.** Each phase an executor; the sequence an edge list; phase events the
-   workflow's own events. Everything the framework offers for free — visualisation, checkpoints,
-   parallel branches — is available and unused.
+   workflow's own events. Everything the framework offers for free (visualisation, checkpoints,
+   parallel branches) is available and unused.
 2. **A plain `async` generator.** Five awaited calls in a function body; a `PhaseEvent` yielded
    after each; timings, cost and the typed refusal computed in the same scope.
 3. **A hand-written step abstraction.** A `Step` protocol and a loop over steps, the shape a
@@ -37,11 +37,11 @@ helpers it calls. What it does with each step is visible in the order the lines 
 | `draft_answer(...)` returning a `Draft` and an optional refusal | the content filter is a typed outcome, not an exception that escapes |
 | `with tracer.start_as_current_span("verify")` | verification is separate from generation and timed |
 
-A workflow would have expressed the same sequence in more lines and in two languages — Python and
-the graph — and every reader would have had to learn the second to confirm that the graph is a
+A workflow would have expressed the same sequence in more lines and in two languages, Python and
+the graph, and every reader would have had to learn the second to confirm that the graph is a
 straight line. Option 3 is a workflow without the framework's tooling, the worst of both.
 
-The field-operations copilot in the same portfolio does use workflows: its steps branch on
+A field-operations copilot does use workflows: its steps branch on
 inspection results, pause for a technician's confirmation and resume later. The contrast is the
 argument. A workflow earns its place when there is a graph; here there is a list.
 
