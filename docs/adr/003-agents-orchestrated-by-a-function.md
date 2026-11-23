@@ -48,7 +48,7 @@ argument. A workflow earns its place when there is a graph; here there is a list
 ## Consequences
 
 - No module imports `agent_framework.orchestrations`, `WorkflowBuilder`, `@workflow` or `@step`.
-  The budget test does not check this; the validation prompt does, and a grep confirms it.
+  The budget test does not check this; the validation does, and a grep confirms it.
 - Progress is visible because the generator yields it, which is what ADR-005 builds on; cost and
   timings are plain local variables in one function.
 - Adding a step means adding a line in order, not an executor and an edge.

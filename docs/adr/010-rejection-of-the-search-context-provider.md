@@ -8,7 +8,7 @@ Microsoft Agent Framework ships a context provider for Azure AI Search. Attached
 runs a search for every turn, folds the passages it finds into the model's context and lets the
 agent answer with them. It is the shortest path to a grounded answer in this framework, a
 constructor call and a `context_providers=[...]` argument, and it is exactly the kind of
-capability this repository's working agreement says not to reimplement.
+capability this repository sets out not to reimplement.
 
 This repository reimplements it anyway, as `Retriever` (ADR-004) and the `search` and `rerank`
 phases of `app/answer.py`. This document records why that is not a contradiction.
